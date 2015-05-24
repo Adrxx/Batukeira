@@ -1,0 +1,60 @@
+<%= form_for(@case) do |f| %>
+  <% if @case.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@case.errors.count, "error") %> prohibited this case from being saved:</h2>
+
+      <ul>
+      <% @case.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--
+  <div class="field">
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.text_field :eleapsed_time %>
+  </div>
+  <div class="field">
+    <%= f.text_field :weight_loss %>
+  </div>
+  <div class="field">
+    <%= f.text_field :product_used %>
+  </div>
+    -->
+  <div class="field">
+    Subir:<%= f.file_field :photos, :multiple => true %>
+  </div>
+
+<div class="mnt-photo-uploader">
+  <%= f.fields_for :photos, @case.photos do |p| %>
+  <div class="container normal">
+    <div class="photo" style="background-image: url(<%= p.object.photo_file.url %>)">
+    </div>
+    <%= p.hidden_field :id %>
+    <%= p.hidden_field :order, class: 'ordering' %>
+    <div class="delete">Eliminar</div>
+    <%= p.hidden_field :_destroy %>
+  </div>
+  <% end %>
+  <%= echo_spacers(4) %>
+</div>
+
+
+
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<button class="check">CHECK INDEXES</button>
+<div class="console">CONSOLE</div>

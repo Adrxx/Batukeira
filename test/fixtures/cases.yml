@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  eleapsed_time: MyString
+  weight_loss: MyString
+  product_used: MyString
+
+two:
+  title: MyString
+  description: MyString
+  eleapsed_time: MyString
+  weight_loss: MyString
+  product_used: MyString

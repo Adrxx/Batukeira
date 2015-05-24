@@ -1,0 +1,55 @@
+ $ ->
+  $('.check').on "click", ->
+    str = ""
+    $('.mnt-photo-uploader').children('.container').each ->
+      str += $(this).find('.photo').css "background-image"
+    $('.console').html "HEEE:: #{str}"
+  $('.mnt-photo-uploader .photo').on "mousedown", ->
+    current = this
+    container = $(this).parent()
+    originX = event.pageX - $(this).offset().left
+    originY = event.pageY - $(this).offset().top
+    $(this).removeClass("reordering").addClass "dragging"
+    $(this).parent().addClass "placeholder"
+    $(document).on "mousemove", ->
+      $(current).offset {"top":event.pageY-originY,"left":event.pageX-originX}
+      cx = event.pageX
+      cy = event.pageY #- $(current).offset().top + $(current).height()/2
+      $('.mnt-photo-uploader').children('.container').each ->
+        #console.log "#{cx} need -> #{$(this).offset().left }"
+        if !Object.is(this, current)
+          if (cx > $(this).offset().left && cx < $(this).offset().left + $(this).width()/2) && (cy > $(this).offset().top && cy < $(this).offset().top + $(this).height())
+            #$(container).css "" ,
+            #console.log "frst"
+
+            $(container).insertBefore(this);
+          if (cx > $(this).offset().left + $(this).width()/2  && cx < $(this).offset().left + $(this).width()) && (cy > $(this).offset().top && cy < $(this).offset().top + $(this).height())
+            #$(container).css "" ,
+            #console.log "askkdjlsa"
+            $(container).insertAfter(this);
+      $(current).offset {"top":event.pageY-originY,"left":event.pageX-originX}
+    $(document).one "mouseup", ->
+      #$(".placeholder").remove();
+      $(current).removeClass "dragging"
+      $(container).removeClass "placeholder"
+      $(current).addClass "reordering"
+      $(current).css "top", "0px"
+      $(current).css "left", "0px"
+      $(document).unbind "mousemove"
+
+__________________________________________
+
+    &::after
+    {
+      position: relative;
+      display: none;
+      content: "";
+      height: $mnt-photo-height/2 ;
+      top: $mnt-photo-height/4;
+      right: $mnt-photo-margin + 1;
+      width:2px;
+      background-color:transparentize(white, 0.15);
+      @include border-radius(2px);
+          @include box-shadow();
+
+    }

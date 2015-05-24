@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @case.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @case.description %>
+</p>
+
+<p>
+  <strong>Eleapsed time:</strong>
+  <%= @case.eleapsed_time %>
+</p>
+
+<p>
+  <strong>Weight loss:</strong>
+  <%= @case.weight_loss %>
+</p>
+
+<p>
+  <strong>Product used:</strong>
+  <%= @case.product_used %>
+</p>
+
+<%= link_to 'Edit', edit_case_path(@case) %> |
+<%= link_to 'Back', cases_path %>
