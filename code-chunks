@@ -53,3 +53,31 @@ __________________________________________
           @include box-shadow();
 
     }
+
+
+    ___________
+
+
+      addImage = (input) ->
+    #console.log "HEY"
+    if (input.files && input.files[0])
+      reader = new FileReader()
+      reader.onload = (e) ->
+        $("#img-tag-#{imageCount}").attr('src', e.target.result)
+        $("#experience_photos_attributes_#{imageCount}_file").on "change", (event) -> 
+          changeUrlImage(this)
+        imageCount++
+      reader.readAsDataURL(input.files[0])
+
+  addImageInput = () ->
+    #console.log "PORQUI"
+    $('#experience-form-photos').prepend("<div class='photo-as-list'><img id='img-tag-#{imageCount}' src=''><div class='remove'></div><div class='photo-options'><input accept='image/png,image/gif,image/jpeg' id='experience_photos_attributes_#{imageCount}_file' class='file-field' name='experience[photos_attributes][#{imageCount}][file]' type='file'></div></div>")
+    $("#img-tag-#{imageCount}+.remove").on "click", (event) ->
+      $(this).parent().remove()
+
+    $("#experience_photos_attributes_#{imageCount}_file").one "change", (event) ->
+      addImage(this)
+    $("#experience_photos_attributes_#{imageCount}_file").click()
+
+  $("#photo-adder").on "click", (event) ->
+    addImageInput()

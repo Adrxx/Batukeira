@@ -1,5 +1,6 @@
 class CasesController < ApplicationController
   before_action :set_case, only: [:show, :edit, :update, :destroy]
+  layout 'admin'
 
   # GET /cases
   def index
@@ -19,33 +20,45 @@ class CasesController < ApplicationController
   def edit
   end
 
+
+  def save_batches_to_case(c)
+    case_photos_batches = params[:batches]
+    if case_photos_batches
+      case_photos_batches.each_pair do |key,batch|
+        batch['photos'].each_with_index do |photo,i|
+          delete = batch['deleting']["#{i}"]
+          order = batch['ordering']["#{i}"]
+          if delete != "1"
+            new_photo = c.photos.new
+            new_photo.order = order
+            new_photo.photo_file = photo
+          end
+        end
+      end
+    end
+  end
   # POST /cases
   def create
     @case = Case.new(case_params)
 
-    #Save photos...
-    photos_params.each do |p|
-      new_photo = @case.photos.new
-      new_photo.photo_file = p
-    end
+    save_batches_to_case(@case)
 
-    respond_to do |format|
-      if @case.save
-        format.html { redirect_to @case, notice: 'Case was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @case.save
+       redirect_to @case, notice: 'Case was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /cases/1
   def update
-    respond_to do |format|
-      if @case.update(case_params)
-        format.html { redirect_to @case, notice: 'Case was successfully updated.' }
-      else
-        format.html { render :edit }
-      end
+
+    save_batches_to_case(@case)
+
+    if @case.update(case_params)
+      redirect_to @case, notice: 'Case was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -66,10 +79,6 @@ class CasesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
       params.require(:case).permit(:title, :description, :eleapsed_time, :weight_loss, :product_used, photos_attributes: [:id,:photo_file,:order,:_destroy])
-    end
-
-    def photos_params
-      params.require(:case)[:photos]
     end
     
 end

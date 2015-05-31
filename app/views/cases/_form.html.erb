@@ -1,7 +1,7 @@
-<%= form_for(@case) do |f| %>
+<%= form_for(@case, :html => { :multipart => true }) do |f| %>
   <% if @case.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@case.errors.count, "error") %> prohibited this case from being saved:</h2>
+      <h2><%= pluralize(@case.errors.count, "Error") %> prohibited this case from being saved:</h2>
 
       <ul>
       <% @case.errors.full_messages.each do |message| %>
@@ -10,51 +10,52 @@
       </ul>
     </div>
   <% end %>
-<!--
-  <div class="field">
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
+
+
+<div class="row">
+  <%= f.text_field :title %>
+</div>
+<div class="row">
+<label for="exampleEmailInput">Your email</label>
+  <%= f.text_area :description %>
+</div>
+<div class="row">
+  <div class="four columns">
     <%= f.text_field :eleapsed_time %>
   </div>
-  <div class="field">
+  <div class="four columns">
     <%= f.text_field :weight_loss %>
   </div>
-  <div class="field">
+  <div class="four columns">
     <%= f.text_field :product_used %>
   </div>
-    -->
-  <div class="field">
-    Subir:<%= f.file_field :photos, :multiple => true %>
-  </div>
+</div>
 
-<div class="mnt-photo-uploader">
-  <%= f.fields_for :photos, @case.photos do |p| %>
-  <div class="container normal">
-    <div class="photo" style="background-image: url(<%= p.object.photo_file.url %>)">
+<div class="row">
+  <div class="mnt-photo-manager-container">
+    <%= file_field_tag "batch-input", multiple: true, accept: ".png,.jpeg,.jpg,.gif", class: 'mnt-pm-file-input' %>
+
+    <div class="mnt-photo-manager">
+      <%= f.fields_for :photos, @case.photos do |p| %>
+      <div class="container normal">
+        <div class="photo" style="background-image: url(<%= p.object.photo_file.url(:thumb) %>)">
+        <div class="delete"></div>
+
+        </div>
+        <%= p.hidden_field :id %>
+        <%= p.hidden_field :order, class: 'ordering' %>
+        <%= p.hidden_field :_destroy, class: 'destroyer' %>
+      </div>
+      <% end %>
+      <%= echo_spacers(4) %>
     </div>
-    <%= p.hidden_field :id %>
-    <%= p.hidden_field :order, class: 'ordering' %>
-    <div class="delete">Eliminar</div>
-    <%= p.hidden_field :_destroy %>
   </div>
-  <% end %>
-  <%= echo_spacers(4) %>
 </div>
 
 
+<div class="actions">
+  <%= f.submit %>
+</div>
 
-
-
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
 
-<button class="check">CHECK INDEXES</button>
-<div class="console">CONSOLE</div>

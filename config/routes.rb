@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'cases#index'
 
+  get 'admin' => 'admin#index'
   scope 'admin', path_names: { new: 'nuevo', edit: 'editar' } do
     resources :cases, path: 'casos-de-exito'
   end

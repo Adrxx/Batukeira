@@ -4,14 +4,17 @@
 
 
 $mnt-photo-ratio: (4/3);
-$mnt-photo-width: 200px;
+$mnt-photo-width: 160px;
+
 $mnt-photo-height: $mnt-photo-width / $mnt-photo-ratio;
-$mnt-photo-margin: 20px;
+
+$mnt-photo-margin: 5px;
 $mnt-photos-per-row: 5;
 
-.mnt-photo-uploader
+.mnt-photo-manager
 {
   position:relative;
+  pointer-events: none;
   width: 100%;
   max-width: $mnt-photos-per-row * ($mnt-photo-width + $mnt-photo-margin*2);
   height: auto;
@@ -37,6 +40,9 @@ $mnt-photos-per-row: 5;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    pointer-events: auto;
+
+
     background-position:center;
     background-size: auto 100%;
     background-repeat: no-repeat;
@@ -44,8 +50,13 @@ $mnt-photos-per-row: 5;
     background-color: white;
 
     cursor: move;
-    @include border-radius(2px);
+    //@include border-radius($mnt-photo-width/2);
     @include user-select(none);
+
+    &:hover > .delete 
+    { 
+      opacity: 1.0;
+    }
 
   }
 
@@ -78,10 +89,10 @@ $mnt-photos-per-row: 5;
     width: $mnt-photo-width;
     margin: $mnt-photo-margin;
     box-sizing: border-box;
-    @include border-radius(2px);
+    //@include border-radius($mnt-photo-width/2);
     @include user-select(none);
 
-    @include transition-duration(0.45s);
+    @include transition-duration(1.0s);
     @include transition-property(background-color,border);
   }
 
@@ -104,20 +115,75 @@ $mnt-photos-per-row: 5;
     @include flex-grow(1);
   }
 
-  //DELETE BUTTON
+  
   .delete
   {
     position: absolute;
-    bottom: 2px;
-    display: inline-block;
-    background-color: red;
-    padding: 4px;
-    @include border-radius(4px);
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-weight: 200px;
-    color: white;
-    text-decoration:none;
+    
+    top: -10px;
+    right: -10px;
 
+    opacity: 0.0;
+
+    width: 40px;
+    height: 40px;
+    background-color:transparentize(black, 0.45);
+    cursor:pointer;
+
+    @include border-radius(20px);
+    @include transition-duration(0.15s);
+    @include transition-property(all);
+    @include transform(rotate(45deg) scale(0.8));
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: white;
+
+      left: 50%;
+      top: 25%;
+      width: 5%;
+      margin-left: -2.5%;
+      height: 50%;
+
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: white;
+
+      top: 50%;
+      left: 25%;
+      height: 5%;
+      margin-top: -2.5%;
+      width: 50%;
+    }
+
+    &:hover
+    {
+      //top: -1px;
+      //right: -1px;
+      @include transform(rotate(45deg) scale(1.2) )
+    }
   }
 
+
+}
+
+.mnt-pm-file-input
+{
+  position:absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  opacity: 0.0;
+  background-color:red;
+}
+
+.mnt-photo-manager-container
+{
+  position:relative;
 }
