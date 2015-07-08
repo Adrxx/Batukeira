@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @case.title %>
@@ -16,14 +14,29 @@
 </p>
 
 <p>
-  <strong>Weight loss:</strong>
-  <%= @case.weight_loss %>
+  <strong>Weight before:</strong>
+  <%= @case.weight_before %>
 </p>
+
+
+<p>
+  <strong>Weight after:</strong>
+  <%= @case.weight_after %>
+</p>
+
+
+<p>
+  <strong>Waist Before:</strong>
+  <%= @case.waist_before %>
+</p>
+
+<p>
+  <strong>Waist after:</strong>
+  <%= @case.waist_after %>
+</p>
+
 
 <p>
   <strong>Product used:</strong>
   <%= @case.product_used %>
 </p>
-
-<%= link_to 'Edit', edit_case_path(@case) %> |
-<%= link_to 'Back', cases_path %>

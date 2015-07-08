@@ -1,35 +1,62 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Cases</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Eleapsed time</th>
-      <th>Weight loss</th>
-      <th>Product used</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cases.each do |c| %>
-      <tr>
-        <td><%= c.title %></td>
-        <td><%= c.description %></td>
-        <td><%= c.eleapsed_time %></td>
-        <td><%= c.weight_loss %></td>
-        <td><%= c.product_used %></td>
-        <td><%= link_to 'Show', c %></td>
-        <td><%= link_to 'Edit', edit_case_path(c) %></td>
-        <td><%= link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <div class="ten columns">
+    <h1 class="c4">Todos los casos:</h1>
+  </div>
+  <div class="two columns">
+    <%= link_to new_case_path, class:'c4-main-action' do %>
+      <span class="icon-add"></span>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+<hr>  
+<div class="c4-collection-container">
+  <% @cases.each do |c| %>
+    <div class="row">
+      <div class="nine columns">
+        <div class="title">
+          <%= c.title %>
+        </div>
+      </div>
+      <div class="three columns">
+        <div class="date">
+          <%= c.created_at.strftime('%d/%m/%Y') %>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="four columns">
+        <div class="thumbnail" style="background-image: url(<%= photo_if_exists(c) %>)"></div>
+      </div>
+      <div class="eight columns">
+        <div class="description">
+          <%= c.description %>
+        </div>
+        <div class="row">
+        <div class="four u-columns">
+            <%= link_to c, class:'preview' do %>
+              <span class="icon-visibility"></span>
+            <% end %>
+          </div>
+          <div class="four u-columns">
+            <%= link_to edit_case_path(c), class:'edit' do %>
+              <span class="icon-edit"></span>
+            <% end %>
+          </div>
+          <div class="four u-columns" style="float:right">
+            <%= link_to c, method: :delete, data: { confirm: 'Esta acción no puede deshacerse. ¿Está seguro que desea borrar este elemento?'}, class:'delete' do %>
+              <span class="icon-delete"></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%# link_to 'Show', c %>
+      <%# link_to 'Edit', edit_case_path(c) %>
+      <%# link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-<br>
+    <hr class="c4">
+  <% end %>
+  <div class="c4-spacer"></div>
+</div>
 
-<%= link_to 'New Case', new_case_path %>

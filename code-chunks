@@ -1,83 +1,67 @@
- $ ->
-  $('.check').on "click", ->
-    str = ""
-    $('.mnt-photo-uploader').children('.container').each ->
-      str += $(this).find('.photo').css "background-image"
-    $('.console').html "HEEE:: #{str}"
-  $('.mnt-photo-uploader .photo').on "mousedown", ->
-    current = this
-    container = $(this).parent()
-    originX = event.pageX - $(this).offset().left
-    originY = event.pageY - $(this).offset().top
-    $(this).removeClass("reordering").addClass "dragging"
-    $(this).parent().addClass "placeholder"
-    $(document).on "mousemove", ->
-      $(current).offset {"top":event.pageY-originY,"left":event.pageX-originX}
-      cx = event.pageX
-      cy = event.pageY #- $(current).offset().top + $(current).height()/2
-      $('.mnt-photo-uploader').children('.container').each ->
-        #console.log "#{cx} need -> #{$(this).offset().left }"
-        if !Object.is(this, current)
-          if (cx > $(this).offset().left && cx < $(this).offset().left + $(this).width()/2) && (cy > $(this).offset().top && cy < $(this).offset().top + $(this).height())
-            #$(container).css "" ,
-            #console.log "frst"
+  .mnt-pm-delete
+  {
+    position: absolute;
+    
+    top: -10px;
+    right: -10px;
 
-            $(container).insertBefore(this);
-          if (cx > $(this).offset().left + $(this).width()/2  && cx < $(this).offset().left + $(this).width()) && (cy > $(this).offset().top && cy < $(this).offset().top + $(this).height())
-            #$(container).css "" ,
-            #console.log "askkdjlsa"
-            $(container).insertAfter(this);
-      $(current).offset {"top":event.pageY-originY,"left":event.pageX-originX}
-    $(document).one "mouseup", ->
-      #$(".placeholder").remove();
-      $(current).removeClass "dragging"
-      $(container).removeClass "placeholder"
-      $(current).addClass "reordering"
-      $(current).css "top", "0px"
-      $(current).css "left", "0px"
-      $(document).unbind "mousemove"
+    opacity: 0.0;
 
-__________________________________________
+    width: 40px;
+    height: 40px;
+    background-color:transparentize(black, 0.45);
+    cursor:pointer;
 
-    &::after
-    {
-      position: relative;
-      display: none;
+    @include border-radius(20px);
+    @include transition-duration(0.15s);
+    @include transition-property(all);
+    @include transform(rotate(45deg) scale(0.8));
+
+    &:before {
       content: "";
-      height: $mnt-photo-height/2 ;
-      top: $mnt-photo-height/4;
-      right: $mnt-photo-margin + 1;
-      width:2px;
-      background-color:transparentize(white, 0.15);
-      @include border-radius(2px);
-          @include box-shadow();
+      position: absolute;
+      z-index: -1;
+      background: white;
+
+      left: 50%;
+      top: 25%;
+      width: 5%;
+      margin-left: -2.5%;
+      height: 50%;
 
     }
 
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background: white;
 
-    ___________
+      top: 50%;
+      left: 25%;
+      height: 5%;
+      margin-top: -2.5%;
+      width: 50%;
+    }
+  /*
+    &:hover
+    {
+      //top: -1px;
+      //right: -1px;
+      @include transform(rotate(45deg) scale(1.2));
+    }
+    */
+  }
 
 
-      addImage = (input) ->
-    #console.log "HEY"
-    if (input.files && input.files[0])
-      reader = new FileReader()
-      reader.onload = (e) ->
-        $("#img-tag-#{imageCount}").attr('src', e.target.result)
-        $("#experience_photos_attributes_#{imageCount}_file").on "change", (event) -> 
-          changeUrlImage(this)
-        imageCount++
-      reader.readAsDataURL(input.files[0])
+  ///_____:_:_:_:_:_:_:_:_:_:_:_:_:_::_:_:_:_:
 
-  addImageInput = () ->
-    #console.log "PORQUI"
-    $('#experience-form-photos').prepend("<div class='photo-as-list'><img id='img-tag-#{imageCount}' src=''><div class='remove'></div><div class='photo-options'><input accept='image/png,image/gif,image/jpeg' id='experience_photos_attributes_#{imageCount}_file' class='file-field' name='experience[photos_attributes][#{imageCount}][file]' type='file'></div></div>")
-    $("#img-tag-#{imageCount}+.remove").on "click", (event) ->
-      $(this).parent().remove()
-
-    $("#experience_photos_attributes_#{imageCount}_file").one "change", (event) ->
-      addImage(this)
-    $("#experience_photos_attributes_#{imageCount}_file").click()
-
-  $("#photo-adder").on "click", (event) ->
-    addImageInput()
+% @cases.each do |c| %>
+    <div class="c4-collection-cell-container">
+      <div class="c4-collection-thumbnail" style="background-image: url(<%= photo_if_exists(c) %>)"></div>
+      <h4><%= c.title %> </h4>
+      <h5><%= c.created_at.strftime('%d/%m/%Y') %></h5> 
+      <%# link_to 'Edit', edit_case_path(c) %>
+      <%# link_to 'Destroy', c, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+    <%# link_to 'Show', c 

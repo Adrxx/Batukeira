@@ -2,6 +2,6 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "animate.css": "latest",
-    "skeleton": "latest"
+    "normalize.css": "latest"
   }
 }

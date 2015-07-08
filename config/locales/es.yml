@@ -1,0 +1,6 @@
+es:
+  activerecord:
+    errors:
+      messages:
+        blank: "Este campo es necesario."
+        too_long: "El campo es demasiado largo."

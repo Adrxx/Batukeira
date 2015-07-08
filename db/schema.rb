@@ -17,7 +17,10 @@ ActiveRecord::Schema.define(version: 20150518001158) do
     t.string   "title"
     t.string   "description"
     t.string   "eleapsed_time"
-    t.string   "weight_loss"
+    t.decimal  "waist_before"
+    t.decimal  "waist_after"
+    t.decimal  "weight_before"
+    t.decimal  "weight_after"
     t.string   "product_used"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -25,6 +28,9 @@ ActiveRecord::Schema.define(version: 20150518001158) do
 
   create_table "photos", force: :cascade do |t|
     t.text     "description"
+    t.integer  "year"
+    t.integer  "month"
+    t.decimal  "weight"
     t.integer  "order"
     t.string   "photo_file_file_name"
     t.string   "photo_file_content_type"

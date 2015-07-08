@@ -2,14 +2,26 @@
 <html>
 <head>
   <title><%= yield(:title) %></title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <%= stylesheet_link_tag 'c4', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'c4/c4', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
+
+  <% flash.each_with_index do |(key, value),i| %>
+    <%= content_tag :div, class: "c4-flash #{key} animated slideInUp", style:"padding-bottom:#{i*50}px;z-index:#{1000-i};" do %>
+      <div><%= value %></div>
+    <% end %>
+  <% end %>
+
+  <%# color_palette() %>
+  <nav class="c4 nav-opaque">
+    <a href="as"><span class="icon-apps"></span></a>
+  </nav>
+  <br><br><br class="c4">
+  <div class="container animated fadeIn">
     <%= yield %>
-    <%= yield(:icon) %>
   </div>
 </body>
-</html>
+</html> 

@@ -1,0 +1,376 @@
+//MOBILE FIRST
+$mnt-photo-width: 100px;
+$mnt-photo-height: 100px;
+$mnt-photo-margin: 8px;
+$mnt-photos-per-row: 5;
+
+
+.mnt-photo-manager
+{
+  position:relative;
+  width: 100%;
+  //max-width: $mnt-photos-per-row * ($mnt-photo-width + $mnt-photo-margin*2);
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+
+  //box-sizing:border-box;
+  //border: 1px solid transparentize(white, 0.5);
+
+  @include border-radius(6px);
+  
+  @include display-flex();
+  @include align-items(center);
+  //@include align-content(space-around);
+  @include flex-flow(row);
+  @include flex-wrap(wrap);
+  @include justify-content(flex-start);
+  @include user-select(none);
+
+  .mnt-pm-top { z-index: 10000; }
+
+  //CONTAINER
+  .mnt-pm-container
+  {
+    position:relative;
+    @include flex-grow(1);
+
+    height: $mnt-photo-height;
+    width: $mnt-photo-width;
+    margin: $mnt-photo-margin;
+    margin-bottom: 40px;
+
+    box-sizing: border-box;
+    //@include border-radius(4px);
+    @include user-select(none);
+
+    @include transition-duration(0.5s);
+    @include transition-property(background-color,border);
+
+    @include tablet
+    {
+      height: $mnt-photo-height + 30;
+      width: $mnt-photo-width + 30;
+    }
+
+    @include desktop
+    {
+      height: $mnt-photo-height + 50;
+      width: $mnt-photo-width + 60;
+    }
+
+    @include desktop-hd
+    {
+      height: $mnt-photo-height + 60;
+      width: $mnt-photo-width + 70;
+    }
+
+
+  }
+
+  .mnt-pm-photo
+  {
+    height: 100%;
+    width: 100%;
+    
+    background-color: red;
+
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 1px 2px 0px rgba(black, 0.6);
+    background-color: white;
+
+    cursor: move;
+    //@include border-radius($mnt-photo-width/2);
+    @include user-select(none);
+        
+    &:hover > .mnt-pm-delete 
+    { 
+      opacity: 1.0;
+    }
+    
+    &:hover > .mnt-pm-comment 
+    { 
+      opacity: 1.0;
+    }
+
+  }
+
+  //WHEN IMAGE IS IN ORDER
+  .mnt-pm-ordering
+  {
+    @include transition-duration(0.30s);
+    @include transition-property(transform,opacity,box-shadow,top,left);
+    @include transition-timing-function(cubic-bezier(0.365, 0.015, 0.000, 1.395));
+  }
+
+  //WHEN DRAGGING IMAGE
+  .mnt-pm-dragging
+  {
+    @include scale(1.08);
+    //opacity: 0.95;
+    box-shadow: 0px 2px 14px 0px rgba(black, 0.8) !important;
+
+    @include transition-duration(0.25s);
+    @include transition-property(transform,opacity,box-shadow);
+
+  }
+  
+
+  //NORMAL CONTAINER STYLE
+  .mnt-pm-normal
+  { 
+    border: 2px dashed transparentize(white, 1);
+  }
+
+  .mnt-pm-selected { 
+    border: 2px dashed transparentize(black, 1);
+  }
+
+  //CONTAINER AS PLACEHOLDER WHEN DRAGGING
+  .mnt-pm-placeholder {
+    background-color: transparentize(white, 0.90);
+    border: 2px dashed transparentize(white, 0.7);
+
+    span 
+    {
+      pointer-events: none;
+      opacity: 0.0;
+    }
+  }
+
+  //FLEBOX SPACER
+  .mnt-pm-spacer
+  {
+    //background-color: blue;
+    height: 1px;
+    width: $mnt-photo-width;
+
+    @include tablet
+    {
+      width: $mnt-photo-width + 30;
+    }
+
+    @include desktop
+    {
+      width: $mnt-photo-width + 60;
+    }
+
+    @include desktop-hd
+    {
+      width: $mnt-photo-width + 70;
+    }
+
+    margin-left: $mnt-photo-margin * 2;
+    @include flex-grow(1);
+  }
+
+  %mnt-pm-button
+  {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    z-index: 0;
+    //opacity: 0.0;
+    //bottom:0px;
+    width: 49%;
+    height: 30px;
+
+    @include transition-duration(0.25s);
+    @include transition-property(all);
+    
+    background-color: transparentize(black, 0.4);
+    @include desktop-hd
+    {
+      &:hover
+      {
+        background-color:transparentize(white, 0.9);
+      }
+    }
+
+  }
+
+  .mnt-pm-delete
+  {
+    @extend %mnt-pm-button;
+    right:0px;
+
+    
+    @include desktop-hd
+    {
+      &:hover
+      {
+        background-color:transparentize(red, 0.7);
+      }
+    }
+
+  }
+
+  .mnt-pm-comment
+  {
+    @extend %mnt-pm-button;
+    left:0px;
+  }
+
+
+}
+
+
+
+.mnt-pm-banner
+{
+  position:relative;  
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 20px;
+  min-height: 150px;
+  height: 100%;
+  width: 100%;
+
+  @include border-radius(6px);
+  @include transition-duration(0.25s);
+  @include transition-property(all);
+  
+  @include desktop-hd
+  {
+    opacity: 0.6;
+
+    &:hover
+    {
+      opacity: 1.0;
+      background-color:transparentize(white, 0.90);
+    }
+
+    &:active
+    {
+      opacity: 1.0;
+      background-color:transparentize(black, 0.85);
+    }
+  }
+  
+  .mnt-pm-file-input
+  {
+    position:absolute;
+    cursor:pointer;
+    display: block;
+    height: 100%;
+    width: 100%;
+    z-index: 2000;
+    opacity: 0.0;
+    overflow: hidden;
+
+    //font-size:10000px;
+    background-color:red;
+  }
+
+  .mnt-pm-upload-svg
+  {
+    pointer-events:none;
+    display: block;
+    height: auto;
+    width: 70px;
+    margin: 0 auto;
+    padding-top: 10px;
+    fill:white;
+    //background-color: red;
+  }
+
+  .mnt-pm-title
+  {
+    pointer-events:none;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+  }
+
+  .mnt-pm-drop-title
+  {
+    @extend .mnt-pm-title;
+  }
+
+  .mnt-pm-subtitle
+  {
+    pointer-events:none;
+    display: block;
+    text-align: center;
+  }
+
+
+}
+
+.mnt-full-overlay
+{
+  position:fixed;
+  display:none;
+  z-index: 10000;
+  top:0px;
+  left:0px;
+  width: 100%;
+  height: 100%;
+  background-color:transparentize(black, 0.3);
+}
+
+.mnt-pop-up-container
+{
+  position: relative;
+  width: 95%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+  @include border-radius(8px);
+  background-color: $c1;
+
+  @include vertical-align;
+
+  label
+  {
+    text-align: center;
+    line-height: 38px;
+  }
+
+  .mnt-pm-exit
+  {
+    pointer-events:cursor;
+  }
+
+  @include tablet
+  {
+      padding-top:10px;
+  }
+
+}
+
+//little fix
+.nine.u-columns
+{
+  float: right;
+}
+
+.mnt-pm-thumbnail
+{
+  height: 150px;
+  width: 100%;
+  margin: 10px auto;
+  background-image: image-url("delete_icon.png");
+  background-position: center;
+  background-size:  auto 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  @include border-radius(4px);
+
+  @include tablet
+  {
+    margin: 0 auto;
+  }
+  //background-color: blue;
+}
+
+
+
+.mnt-pm-save
+{
+  cursor:pointer;
+}

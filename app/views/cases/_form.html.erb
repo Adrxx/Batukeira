@@ -1,60 +1,140 @@
+<%# Pop over overlay for editing photo details %>
+<div class="mnt-full-overlay">
+  <div class="mnt-pop-up-container">
+    <div class="row">
+      <div class="six columns">
+        <div class="mnt-pm-thumbnail"></div>
+      </div>
+      <div class="six columns">
+          <div class="row">
+            <div class="three u-columns">
+              <label for="">Mes:</label>
+            </div>
+            <div class="nine u-columns">
+              <%= select_month(nil,{ use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre),prompt: 'N/A'}, {:class =>'u-full-width mnt-pm-month-select'}) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="three u-columns">
+              <label for="">Año:</label>
+            </div>
+            <div class="nine u-columns">
+                <%= select_year(nil,{ start_year:Date.today.year , end_year: 1990, prompt: 'N/A'}, { :class=>'u-full-width mnt-pm-year-select'}) %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="three u-columns">
+              <label for="">Peso:</label>
+            </div>
+            <div class="nine u-columns">
+              <input class="mnt-pm-weight-select mnt-pm-numeric-input u-full-width" type="text">
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+      <span class="mnt-pm-save button button-primary u-full-width">Aceptar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Form fields %>
 <%= form_for(@case, :html => { :multipart => true }) do |f| %>
   <% if @case.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@case.errors.count, "Error") %> prohibited this case from being saved:</h2>
-
-      <ul>
-      <% @case.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="error-explanation-header">
+      <%= pluralize(@case.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
     </div>
   <% end %>
 
+<%# Título y descripción %>
+<div class="row">
+ <%= full_field(f,:title,'Nombre del caso' ,'Logró bajar de peso sin ejercicio...') %>
+</div>
+<div class="row">
+  <%= full_text_area(f,:description,'Descripción del caso' ,'Laura Rodrígez tenía 27 años y pesaba 92 Kg, así que...') %>
+</div>
 
+<%# Tiempo invertido y producto utilizado %>
 <div class="row">
-  <%= f.text_field :title %>
-</div>
-<div class="row">
-<label for="exampleEmailInput">Your email</label>
-  <%= f.text_area :description %>
-</div>
-<div class="row">
-  <div class="four columns">
-    <%= f.text_field :eleapsed_time %>
+  <div class="six columns">
+    <%= full_field(f,:eleapsed_time,'Tiempo invertido','2 meses...') %>
   </div>
-  <div class="four columns">
-    <%= f.text_field :weight_loss %>
-  </div>
-  <div class="four columns">
-    <%= f.text_field :product_used %>
+  <div class="six columns">
+    <%= full_field(f,:product_used,'Producto utilizado','Batukeira Extra Cápsulas') %>
   </div>
 </div>
 
+<hr class="mini">
+<%# Peso inicial y final %>
+<div class="row">
+  <div class="six columns">
+    <%= full_numeric_field(f,:weight_before,'Peso inicial','') %>
+  </div>
+  <div class="six columns">
+    <%= full_numeric_field(f,:weight_after,'Peso final','') %>
+  </div>
+</div>
+
+<hr class="mini">
+<%# Medidas de cadera inicial y final %>
+<div class="row">
+  <div class="six columns">
+    <%= full_numeric_field(f,:waist_before,'Cadera inicial','') %>
+  </div>
+  <div class="six columns">
+    <%= full_numeric_field(f,:waist_after,'Cadera final','') %>
+  </div>
+</div>
+
+<hr>
 <div class="row">
   <div class="mnt-photo-manager-container">
-    <%= file_field_tag "batch-input", multiple: true, accept: ".png,.jpeg,.jpg,.gif", class: 'mnt-pm-file-input' %>
+    <div class="mnt-pm-banner">
+      <%= file_field_tag "batch-input", multiple: true, accept: ".png,.jpeg,.jpg,.gif", class: 'mnt-pm-file-input' %>
 
+      <span class="mnt-pm-title" style="font-size:60px;line-height:0;padding-top:14px">
+        <span class="icon-cloud_upload"></span>
+      </span>
+      <span class="mnt-pm-title">
+        <span class="mnt-pm-normal">Seleccione las imágenes</span>
+        <span class="mnt-pm-drop" style="display:none">Ahora puede soltar</span>
+      </span>
+      <span class="mnt-pm-subtitle">
+        <span class="mnt-pm-normal">O arrástrelas y suéltelas aquí</span>
+        <span class="mnt-pm-drop" style="display:none">Para comenzar a cargar las imágenes</span>
+      </span>
+    </div>
     <div class="mnt-photo-manager">
       <%= f.fields_for :photos, @case.photos do |p| %>
-      <div class="container normal">
-        <div class="photo" style="background-image: url(<%= p.object.photo_file.url(:thumb) %>)">
-        <div class="delete"></div>
-
+      <div class="mnt-pm-container mnt-pm-normal">
+        <div class="mnt-pm-photo" style="background-image: url(<%= p.object.photo_file.url(:thumb) %>)">
         </div>
         <%= p.hidden_field :id %>
-        <%= p.hidden_field :order, class: 'ordering' %>
-        <%= p.hidden_field :_destroy, class: 'destroyer' %>
+        <%= p.hidden_field :month, class: 'mnt-pm-p-month' %>
+        <%= p.hidden_field :year, class: 'mnt-pm-p-year' %>
+        <%= p.hidden_field :weight, class: 'mnt-pm-p-weight' %>
+        <%= p.hidden_field :order, class: 'mnt-pm-p-order' %>
+        <%= p.hidden_field :_destroy, class: 'mnt-pm-p-destroyer' %>
+        <span class="mnt-pm-delete icon-delete"></span>
+        <span class="mnt-pm-comment icon-message"></span>
       </div>
       <% end %>
-      <%= echo_spacers(4) %>
+      <%= echo_spacers(3) %>
     </div>
   </div>
 </div>
+<hr>
 
+<div class="row">
+  <div class="six columns">
+    <%= link_to "Salir sin guardar", cases_path, class: 'button u-full-width'  %>
+  </div>
 
-<div class="actions">
-  <%= f.submit %>
+  <div class="six columns">
+    <%= f.submit "Guardar", class: 'button-primary u-full-width' %>
+  </div>
 </div>
 
 <% end %>
