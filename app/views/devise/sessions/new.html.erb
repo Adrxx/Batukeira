@@ -1,0 +1,24 @@
+<div class="login-container">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div id="logo-image"></div>
+  <div class="login-box <%= "animated shake" if flash.alert %>">
+    <div class="login-email">
+      <%= f.email_field :email, autocomplete: "off", placeholder: 'E-mail',  autofocus: true %>
+    </div>
+    <div class="login-password">
+      <%= f.password_field :password, placeholder: 'Password', autocomplete: "off" %>
+    </div>
+
+  </div>
+
+  <%= f.submit "Iniciar sesión", id:'login-button', class: 'c4-button-primary' %>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="remember-me">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me, 'Recordar cuenta' %>
+    </div>
+  <% end -%> 
+<% end %>
+</div>
+

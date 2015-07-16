@@ -1,0 +1,39 @@
+<%# Form fields %>
+<%= form_for(@dealer, :html => { :multipart => true }) do |f| %>
+  <% if @dealer.errors.any? %>
+    <div class="error-explanation-header">
+      <%= pluralize(@dealer.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
+    </div>
+<% end %>
+
+<%# Nombre y dirección %>
+<div class="row">
+ <%= full_field(f,:name,'Nombre del distribuidor' ,'Eduardo Chávez / Farmacias Pablito') %>
+</div>
+<div class="row">
+  <%= full_text_area(f,:address,'Dirección' ,'Calle Zaragoza esq. 5 de Mayo Zona centro Monterrey, N. L., México CP 64000' ) %>
+</div>
+
+<%# Tiempo invertido y producto utilizado %>
+<div class="row">
+  <div class="six columns">
+    <%= full_field(f,:telephone,'Teléfono','') %>
+  </div>
+  <div class="six columns">
+    <%= full_field(f,:telephone2,'Teléfono secundario (opcional)','') %>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="six columns">
+    <%= link_to "Salir sin guardar", dealers_path, class: 'c4-button-secondary u-full-width'  %>
+  </div>
+
+  <div class="six columns">
+    <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
+  </div>
+</div>
+
+<% end %>

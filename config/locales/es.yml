@@ -1,6 +1,18 @@
 es:
+  devise:
+    sessions:
+      user:
+        signed_in: "¡Bienvenido!"
+    failure:
+      user:
+        invalid: "Ingrese un usuario válido."
+        not_found_in_database: "El usuario o la contraseña son incorrectos."
+        unauthenticated: "Por favor inicie sesión."
+
+
   activerecord:
     errors:
       messages:
         blank: "Este campo es necesario."
         too_long: "El campo es demasiado largo."
+        not_a_number: "Este campo debe ser un número."

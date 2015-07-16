@@ -6,10 +6,10 @@ class Case < ActiveRecord::Base
   validates_length_of :title, :minimum => 0, :maximum => 100, :allow_blank => true
   validates :description, presence: true
   # validates :eleapsed_time, presence: true
-  # validates :waist_before, presence: true
-  # validates :waist_after, presence: true
-  # validates :weight_before, presence: true
-  # validates :weight_after, presence: true
+  validates :waist_before, numericality: true, allow_blank:true
+  validates :waist_after, numericality: true, allow_blank:true
+  validates :weight_before, numericality: true, allow_blank:true
+  validates :weight_after, numericality: true, allow_blank:true
   # validates :product_used, presence: true
 
 end

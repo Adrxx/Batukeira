@@ -39,8 +39,8 @@ $(document).on 'page:change', ->
             <input type='hidden'name='batches[#{batch_index}][month][#{file_index}]' class='mnt-pm-p-month'>
             <input type='hidden'name='batches[#{batch_index}][weight][#{file_index}]' class='mnt-pm-p-weigth'>
             <input type='hidden' name='batches[#{batch_index}][deleting][#{file_index}]' class='mnt-pm-p-destroyer' value='0'>
-            <span class='mnt-pm-delete'></span>
-            <span class='mnt-pm-comment'></span>
+            <div class='mnt-pm-delete b'><span class='icon-delete'></span></div>
+            <div class='mnt-pm-comment b'><span class='icon-message'></span></div>
           </div>")
           file_index++
           orderIndexes()

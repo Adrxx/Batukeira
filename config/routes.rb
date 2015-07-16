@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   root 'cases#index'
 
-  get 'admin' => 'admin#index'
   scope 'admin', path_names: { new: 'nuevo', edit: 'editar' } do
+
+    devise_for :users, :controllers => {:sessions => "sessions"} , path: "auth", path_names: { sign_in: 'login', sign_out: 'logout' }
+
     resources :cases, path: 'casos-de-exito'
+    resources :dealers, path: 'distribuidores'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

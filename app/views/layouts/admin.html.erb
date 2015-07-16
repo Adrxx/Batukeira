@@ -3,24 +3,35 @@
 <head>
   <title><%= yield(:title) %></title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <%= stylesheet_link_tag 'c4', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'c4/c4', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-  <% flash.each_with_index do |(key, value),i| %>
-    <%= content_tag :div, class: "c4-flash #{key} animated slideInUp", style:"padding-bottom:#{i*50}px;z-index:#{1000-i};" do %>
-      <div><%= value %></div>
-    <% end %>
+<% flash.each_with_index do |(key, value),i| %>
+  <%= content_tag :div, class: "c4-flash #{key} animated slideInUp", style:"padding-bottom:#{i*50}px;z-index:#{1000-i};" do %>
+    <div><%= value %></div>
+  <% end %>
+<% end %>
+  <%#= color_palette() %>
+
+  <% if user_signed_in? #NAV BAR %>
+    <nav class="c4-nav c4-nav-top">
+      <a href="#"><span class="icon-apps"></span></a>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete)  %>
+    </nav>  
+  <% end %>
+  <div class="overlay"></div>
+  <% if user_signed_in? #NAV BAR %>
+    <div class="c4-header">
+      <%= yield(:header_content) %>
+    </div>
   <% end %>
 
-  <%# color_palette() %>
-  <nav class="c4 nav-opaque">
-    <a href="as"><span class="icon-apps"></span></a>
-  </nav>
-  <br><br><br class="c4">
-  <div class="container animated fadeIn">
+  <div class="container <%= "animated fadeIn" if flash.empty? %>">
+
     <%= yield %>
   </div>
 </body>

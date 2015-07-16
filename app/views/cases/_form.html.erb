@@ -46,7 +46,7 @@
     <div class="error-explanation-header">
       <%= pluralize(@case.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
     </div>
-  <% end %>
+<% end %>
 
 <%# Título y descripción %>
 <div class="row">
@@ -66,7 +66,7 @@
   </div>
 </div>
 
-<hr class="mini">
+<hr class="c4-mini">
 <%# Peso inicial y final %>
 <div class="row">
   <div class="six columns">
@@ -77,7 +77,7 @@
   </div>
 </div>
 
-<hr class="mini">
+<hr class="c4-mini">
 <%# Medidas de cadera inicial y final %>
 <div class="row">
   <div class="six columns">
@@ -117,8 +117,12 @@
         <%= p.hidden_field :weight, class: 'mnt-pm-p-weight' %>
         <%= p.hidden_field :order, class: 'mnt-pm-p-order' %>
         <%= p.hidden_field :_destroy, class: 'mnt-pm-p-destroyer' %>
-        <span class="mnt-pm-delete icon-delete"></span>
-        <span class="mnt-pm-comment icon-message"></span>
+        <div class="mnt-pm-delete b">
+          <span class="icon-delete"></span>
+        </div>
+        <div class="mnt-pm-comment b">
+          <span class="icon-message"></span>
+        </div>
       </div>
       <% end %>
       <%= echo_spacers(3) %>
@@ -129,11 +133,11 @@
 
 <div class="row">
   <div class="six columns">
-    <%= link_to "Salir sin guardar", cases_path, class: 'button u-full-width'  %>
+    <%= link_to "Salir sin guardar", cases_path, class: 'c4-button-secondary u-full-width'  %>
   </div>
 
   <div class="six columns">
-    <%= f.submit "Guardar", class: 'button-primary u-full-width' %>
+    <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
   </div>
 </div>
 

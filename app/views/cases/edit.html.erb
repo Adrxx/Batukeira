@@ -1,4 +1,5 @@
 <%= content_for :title, "Editar" %>
-<h2><b>Editar caso:</b> <%= @case.title %> </h2>
-<hr>
+<% content_for :header_content do %>
+<h1><b>Editar caso:</b> <%= @case.title %></h1>
+<% end %>
 <%= render 'form' %>

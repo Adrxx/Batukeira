@@ -1,0 +1,886 @@
+/* 
+
+C4 Managment System V 1.0.0
+Adrián Rubio 2015
+
+---> Index:
+** Color Palette
+
+* Nav Bars
+* Headers
+* Basic HTML Elements
+* Buttons 
+* Inputs
+* Notifications
+* Data displayers... Cells
+* Smart Behaiviors
+*/
+
+
+@import "_icons";
+
+/* Color Palette
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@function bg-transform($color,$lightness,$saturation) {
+
+  @if (saturation($color) + $saturation) > 100 {
+    $saturation: 80;
+  }
+
+  @if (lightness($color) - $lightness) < 0 {
+    $lightness: 20;
+  }
+
+  @return hsla(hue($color), saturation($color) + $saturation, lightness($color) - $lightness , alpha($color)) ;
+}
+
+@function fg-transform($color,$lightness,$saturation) {
+
+  @if (saturation($color) - $saturation) < 0 {
+    $saturation: 20;
+  }
+
+  @if (lightness($color) + $lightness) > 100 {
+    $lightness: 80;
+  }
+
+  @return hsla(hue($color), saturation($color) - $saturation, lightness($color) + $lightness , alpha($color)) ;
+}
+/*
+ http://coolors.co/app/183138-21897e-7fb8ff-3ba99c-69d1c5 //Atlantis
+ http://coolors.co/app/0a0838-963451-f9564f-f3c677-e5dad0 //Solar
+ http://coolors.co/app/3b1747-4a5187-418fba-c16c8b-efffef
+ http://coolors.co/app/383838-515151-70a7bf-fcce7e-f9f4ed
+ http://coolors.co/app/383838-4b5056-fcce7e-5a9fbc-f9f4ed
+
+ */
+<% s = 'http://coolors.co/app/334f3e-698951-c9e569-8393c1-fffefc' %>
+<% s.sub! 'http://coolors.co/app/', '' %>
+<% a = s.split '-' %>
+
+<% 5.times do |i| %>
+  <%= "$c#{i+1}: ##{a[i]};" %>
+<% end %>
+
+$c1-bg: bg-transform($c1,20,20);
+$c2-bg: bg-transform($c2,20,20);
+$c3-bg: bg-transform($c3,20,20);
+$c4-bg: bg-transform($c4,20,20);
+$c5-bg: bg-transform($c5,30,13);
+
+$c1-fg: fg-transform($c1,20,8);
+$c2-fg: fg-transform($c2,20,8);
+$c3-fg: fg-transform($c3,18,-18);
+$c4-fg: fg-transform($c4,17,-18);
+$c5-fg: fg-transform($c5,20,8);
+
+$c1-inv: invert($c1);
+$c2-inv: invert($c2);
+$c3-inv: invert($c3);
+$c4-inv: invert($c4);
+$c5-inv: invert($c5);
+
+$success-c: #ADCE65;
+$alert-c: #EE691A;
+$warning-c: #EF5240;
+$notice-c: #7AABFF;
+
+
+$success-c-bg: bg-transform($success-c,20,20);
+$alert-c-bg: bg-transform($alert-c,20,20);
+$warning-c-bg: bg-transform($warning-c,20,24);
+$notice-c-bg: bg-transform($notice-c,20,20);
+
+$success-c-fg: fg-transform($success-c,20,8);
+$alert-c-fg: fg-transform($alert-c,18,-18);
+$warning-c-fg: fg-transform($warning-c,17,-18);
+$notice-c-fg: fg-transform($notice-c,13,18);
+
+$light-c: #CDD5D3;
+$dark-c: #020202;
+
+
+$palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg, $c2-fg, $c3-fg, $c4-fg, $c5-fg,$c1-inv, $c2-inv, $c3-inv, $c4-inv, $c5-inv,$success-c, $alert-c, $warning-c, $notice-c ,$success-c, $success-c-bg, $alert-c-bg, $warning-c-bg, $notice-c-bg ,$success-c-bg, $success-c-fg, $alert-c-fg, $warning-c-fg, $notice-c-fg ,$success-c-fg;
+
+
+.palette
+{
+  position:fixed;
+  z-index: 1000;
+  //opacity: 0.1;
+
+  border: solid 2px white;
+  
+  &:hover > .p-color
+  {
+    opacity: 1.0;
+    height: 35px;
+    width: 35px;
+  }
+
+  .p-color 
+  {
+    opacity: 0.4;
+
+    @include transition-duration(0.2s);
+    @include transition-property(all);
+    height: 15px;
+    width: 15px;
+    float: left;
+
+    @for $i from 1 through length($palette) {
+      &:nth-child(#{$i}) {
+        background-color: nth($palette, $i);
+        @if ($i - 1) % 5 == 0 
+        {
+          clear: both;
+        }
+      }
+    }
+  } 
+}
+
+
+/* Nav Bars
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ $nav-bar-height: 55px;
+
+
+.c4-nav-top
+{
+  &:before
+  {
+    //background-color:saturate($c1-bg, 20);
+    //border-bottom: solid 1px $c1-fg !important;
+    background-color: transparentize(black, 0.85) !important;
+
+
+    //@include box-shadow(0px 1px 1px transparentize($c1-bg, 0.3));
+  }
+}
+
+.c4-nav
+{
+  position: fixed;
+  @include horizontal-stack();
+  z-index: 500;
+  width: 100%;
+  height: $nav-bar-height;
+  
+  //@include background-image(linear-gradient(to bottom,$c1, transparentize($c1, 0.30), transparentize($c1, 1.0)));
+ 
+
+
+  &:before
+  {
+    content: "";
+    position: absolute;
+    z-index: -10;
+    display: block;
+    top: 0px;
+    left: 0px;
+    height: 55px;
+    width: 100%;
+    @include transition-duration(0.6s);
+    @include transition-property(all);
+    //border-bottom: solid 1px transparent;
+    background-color: transparentize(black, 1.0);
+
+  }
+
+  a 
+  {
+    text-decoration: none;
+    font-size: 17px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius:2px;
+    //border-radius: 2px;
+
+    background-color:$c3;
+    border: solid 1px transparent;
+    color:$c1;
+    @include transition-duration(0.3s);
+    @include transition-property(all);
+    @include box-shadow(0px 1px 3px $c1);
+    
+    @include tablet {
+      &:hover
+      {
+        background-color:$c3-fg;
+        color: $c3-bg;
+      }
+      &:active
+      {
+        background-color:$c5-bg;
+      } 
+    }
+  }
+}
+
+
+
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.c4-header
+{
+  background-color:$c3;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  padding-top: $nav-bar-height + 10;
+  padding-bottom: 10px;
+  @include box-shadow(0px 1px 3px $c1);
+  color: $c1;
+  text-align: center;
+
+  .actions-container
+  {
+    @include horizontal-stack();
+  }
+
+  a
+  {
+    //@include flex-grow(1);
+    @include transition-duration(0.3s);
+    @include transition-property(all);
+    display: block;
+    font-size: 24px;
+    color:$c1;
+    border-radius: 2px;
+    border:solid 1px $c1;
+    text-decoration: none;
+    padding: 2px 30px;
+    margin: 0 10px;
+    &:hover
+    {
+      border:solid 1px transparentize(black, 1.0);
+      background-color: $c1;
+      color:$c3;
+
+    }
+  }
+
+  h1
+  {
+    margin: 0px;
+    font-size: 2.3em;
+  }
+
+ 
+
+  
+}
+
+
+
+/* Basic HTML Elements
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: $warning-c; }
+a:hover {
+  color: $warning-c-fg;  }
+
+body
+{
+  background-color: $c1;
+  color: $c5;
+}
+
+hr
+{
+  border-top: 1px solid transparentize($light-c, 0.4);
+
+}
+
+hr.c4-mini {
+  width: 92%;
+  margin-top: .6rem;
+  margin-bottom: .7rem;
+  border-width: 0;
+  border-top: 1px dashed transparentize(white, 0.7);
+}
+
+
+
+
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+%c4-button
+{
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 2px;
+  border:none;
+  cursor: pointer;
+  box-sizing: border-box;
+  @include transition-duration(0.3s);
+  @include transition-property(all);
+  width:100%;
+
+  color: $c1;
+  &:hover
+  {
+    color: $c1;
+  }
+}
+
+.c4-button-primary
+{
+  @extend %c4-button;
+  background-color: $c4;
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $c4-bg;
+      background-color: $c4-fg;
+    }
+  }
+}
+
+.c4-button-secondary
+{
+  @extend %c4-button;
+  background-color: $c3;
+
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $c3-bg;
+      background-color: $c3-fg;
+    }
+  }
+}
+
+.c4-button-warning
+{
+  @extend %c4-button;
+  background-color: $warning-c;
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $warning-c-bg;
+      background-color: $warning-c-fg;
+    }
+  }
+}
+
+.c4-button-success
+{
+  @extend %c4-button;
+  background-color: $success-c;
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $success-c-bg;
+      background-color: $success-c-fg;
+    }
+  }
+}
+
+.c4-button-alert
+{
+  @extend %c4-button;
+  background-color: $alert-c;
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $alert-c-bg;
+      background-color: $alert-c-fg;
+    }
+  }
+}
+
+.c4-button-notice
+{
+  @extend %c4-button;
+  background-color: $notice-c;
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $notice-c-bg;
+      background-color: $notice-c-fg;
+    }
+  }
+}
+
+/* Inputs
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+::-webkit-input-placeholder {
+   color: $c1;
+   font-style: italic;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+     color: $c1;
+     font-style: italic;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+     color: $c1;
+     font-style: italic;  
+}
+
+:-ms-input-placeholder {  
+     color: $c1;
+     font-style: italic;  
+}
+
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  @include appearance(none);
+  height: 38px;
+  padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
+  background-color: transparentize(white, 0.7);
+  border: 1px solid transparentize(white, 1);
+  //border-radius: 4px;
+  box-shadow: none;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9em;
+}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  @include appearance(none);
+}
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid $c2-fg;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; 
+}
+
+
+
+.overlay 
+{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-image: image-url("bg.jpg");
+  background-position: center;
+  background-size:  cover;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  pointer-events:none;
+}
+
+#logo-image
+{
+  width: 200px;
+  height: 150px;
+  margin: 10px auto;
+
+  background-image: image-url("admin-logo.png");
+  background-position: center;
+  background-size:  auto 86%;
+  background-repeat: no-repeat;
+}
+
+.login-container
+{
+
+  @include vertical-align();
+  position:fixed;
+  left: 0px;
+  //background-color:blue;
+  width: 100%;
+
+  height: auto;
+  overflow: hidden;
+
+  .title
+  {
+    //background-color:blue;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  
+  .remember-me
+  {
+    //background-color:red;
+    width: 130px;
+    margin: 9px auto;
+
+    input[type="checkbox"] {
+      display: block;
+      float:left;
+      margin: 2px 8px;
+    }
+
+    label
+    {
+      font-weight: 400;
+      font-size: 10px;
+      color: $c4;
+      text-transform: uppercase;
+    }
+
+  }
+
+}
+
+.login-box
+{
+  width: 280px;
+  margin: 10px auto;
+  padding:4px;
+  box-sizing: border-box;
+  border: solid 1px $c4;
+  @include animation-duration(0.8s);
+
+  //@include border-radius(6px);
+  //background-color: $c1-fg;
+  //@include box-shadow();
+  //@include vertical-align;
+}
+
+%field
+{
+  position: relative;
+  font-size:17px;
+  //background-color:transparentize($c4, 0.9);
+  width: 100%;
+  height: 40px;
+  padding: 0px;
+
+
+::-webkit-input-placeholder {
+   color: transparentize($c4, 0.55);
+   font-style: normal;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: transparentize($c4, 0.55);
+   font-style: normal;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: transparentize($c4, 0.55);
+   font-style: normal;
+}
+
+:-ms-input-placeholder {  
+   color: transparentize($c4, 0.55);
+   font-style: normal; 
+}
+
+  input
+  {
+    border:none !important;
+    color: $c4;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color:transparent !important;
+    padding: 0px;
+  }
+
+}
+
+#login-button
+{
+  display: block;
+  margin: 0 auto;
+  width: 280px;
+}
+
+.login-email
+{
+  @extend %field;
+
+}
+
+.login-password
+{
+  @extend %field;
+
+  &:before
+  {
+    bottom: 0px;
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+    height: 1px;
+    background-color:transparentize($c4, 0.0);
+     //@include background-image(linear-gradient(to left,transparent, transparentize(white, 0.70), transparent));
+  }
+
+}
+
+
+.c4-flash
+{
+  position:fixed;
+  z-index: 300;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  bottom: 0px;
+  color: $c1;
+  text-align: center;
+  @include transition-duration(0.5s);
+  @include transition-property(all);
+  cursor: pointer;
+
+  * 
+  {
+    @include user-select(none);
+  }
+}
+
+.success
+{
+  background-color: transparentize($success-c, 0.05);
+  color: saturate(darken($success-c, 40), 60);
+}
+
+.notice
+{
+  background-color: transparentize($notice-c, 0.05);
+  color: saturate(lighten($notice-c, 30), 60);
+}
+
+.alert
+{
+  background-color: transparentize($alert-c, 0.05);
+  color: saturate(darken($alert-c, 40), 60);
+}
+
+.warning
+{
+  background-color: transparentize($warning-c, 0.05);
+  color: saturate(lighten($warning-c, 30), 60);
+}
+
+
+
+
+/* Data displayers
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.c4-list-collection
+{
+  color: transparentize($dark-c, 0.5);
+
+  .c4-list-cell
+  {
+    background-color: $light-c;
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
+    @include box-shadow(0px 1px 2px transparentize(black, 0.6));
+    @include transition-duration(0.5s);
+    @include transition-property(all);
+
+    @include tablet
+    {
+      &:hover
+      {
+        @include box-shadow(0px 2px 8px transparentize(black, 0.35));
+
+      }
+    }
+  }
+
+  .header
+  {
+    &:after
+    {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color:transparentize(black, 0.7);
+      margin-bottom: 12px;
+    }
+  }
+
+  .thumbnail
+  {
+    height: 130px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+
+    @include tablet {
+      height: 160px;
+      padding-left:8%;
+      padding-bottom: 8px;
+
+    }
+  }
+
+  .title
+  {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 300;
+    font-size: 2.1em;
+    line-height: 1.1em;
+    height: 1.1em;
+    overflow: hidden;
+
+    @include tablet {
+      margin-bottom: 10px;
+    }
+
+  }
+
+  .date
+  {
+    width: 100%;
+
+    @include tablet
+    {
+      margin-top:6px;
+      text-align: right;
+    }
+  }
+
+  .properties
+  {
+    margin: 0 10px;
+    ul
+    {
+      margin-bottom: 0px;
+    }
+  }
+
+  .description
+  {
+    position: relative;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    height: auto;
+    max-height: 5.6em;
+    overflow: hidden;
+    margin-bottom: 10px;
+    text-align: justify;
+    margin-top: 10px;
+
+    @include tablet 
+    {
+      margin-top: 0px;
+      font-size: 1.1em;
+      margin-bottom: 14px;
+      height: 7em;
+      max-height: 7em;
+    }
+
+    &:before
+    {
+      content:"";
+      position: absolute;
+      display: block;
+      height: 1.4em;
+      bottom: 0px;
+      width: 50%;
+      right: 0px;
+      @include background-image(linear-gradient(to left,$light-c, transparentize($light-c, 0.10), transparentize($light-c, 1.0)));
+    }
+  }
+
+  .buttons-container
+  {
+    @include horizontal-stack();
+
+    a
+    {
+      color:$light-c;
+    }
+
+    *
+    {
+      font-size: 16px;
+      margin: 0 4px;
+
+      &:first-child
+      {
+        margin-left: 0px;
+      }
+      &:last-child
+      {
+        margin-right: 0px;
+      }
+    }
+
+  }
+
+}

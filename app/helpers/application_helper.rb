@@ -28,6 +28,21 @@ module ApplicationHelper
     <div class="p-color"></div>
     <div class="p-color"></div>
     <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
+    <div class="p-color"></div>
   </div>'.html_safe
   end
 
