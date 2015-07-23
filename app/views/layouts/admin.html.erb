@@ -18,10 +18,23 @@
   <%#= color_palette() %>
 
   <% if user_signed_in? #NAV BAR %>
-    <nav class="c4-nav c4-nav-top">
-      <a href="#"><span class="icon-apps"></span></a>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete)  %>
-    </nav>  
+  <div class="c4-nav">
+  <span class="title">Batukeira</span>
+  <div class="spacer"></div>
+<!--       <a href="#"><span class="icon-apps"></span></a> -->
+      <%= link_to cases_path do %>
+        <span class="icon-users"></span>Casos
+      <% end %>
+      <%= link_to dealers_path do %>
+        <span class="icon-device_hub"></span>Distribuidores
+      <% end %>
+      <%= link_to prefs_path do %>
+        <span class="icon-wrench"></span>Configuración
+      <% end %>
+      <%= link_to destroy_user_session_path, :method => :delete do %>
+        <span class="icon-upload"></span>Salir
+      <% end %>
+  </div>
   <% end %>
   <div class="overlay"></div>
   <% if user_signed_in? #NAV BAR %>
@@ -29,9 +42,7 @@
       <%= yield(:header_content) %>
     </div>
   <% end %>
-
   <div class="container <%= "animated fadeIn" if flash.empty? %>">
-
     <%= yield %>
   </div>
 </body>

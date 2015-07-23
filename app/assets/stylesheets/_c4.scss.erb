@@ -4,6 +4,8 @@ C4 Managment System V 1.0.0
 Adrián Rubio 2015
 
 ---> Index:
+
+** Sass magic
 ** Color Palette
 
 * Nav Bars
@@ -18,6 +20,11 @@ Adrián Rubio 2015
 
 
 @import "_icons";
+
+
+/* Sass
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 
 /* Color Palette
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -53,9 +60,10 @@ Adrián Rubio 2015
  http://coolors.co/app/3b1747-4a5187-418fba-c16c8b-efffef
  http://coolors.co/app/383838-515151-70a7bf-fcce7e-f9f4ed
  http://coolors.co/app/383838-4b5056-fcce7e-5a9fbc-f9f4ed
+ http://coolors.co/app/334f3e-698951-c9e569-8393c1-fffefc
 
  */
-<% s = 'http://coolors.co/app/334f3e-698951-c9e569-8393c1-fffefc' %>
+<% s = 'http://coolors.co/app/183138-21897e-5a83b5-3ba99c-69d1c5' %>
 <% s.sub! 'http://coolors.co/app/', '' %>
 <% a = s.split '-' %>
 
@@ -144,21 +152,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
 
 /* Nav Bars
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
- $nav-bar-height: 55px;
-
-
-.c4-nav-top
-{
-  &:before
-  {
-    //background-color:saturate($c1-bg, 20);
-    //border-bottom: solid 1px $c1-fg !important;
-    background-color: transparentize(black, 0.85) !important;
-
-
-    //@include box-shadow(0px 1px 1px transparentize($c1-bg, 0.3));
-  }
-}
+ $nav-bar-height: 44px;
 
 .c4-nav
 {
@@ -167,49 +161,54 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
   z-index: 500;
   width: 100%;
   height: $nav-bar-height;
-  
-  //@include background-image(linear-gradient(to bottom,$c1, transparentize($c1, 0.30), transparentize($c1, 1.0)));
- 
+  @include single-transition(all,0.3s);
+  background-color: transparentize(black, 0.95);
 
+  @include background-image(linear-gradient(to bottom,$c4, transparentize($c4, 0.30), transparentize($c4, 1.0)));
 
-  &:before
+  .title
   {
-    content: "";
-    position: absolute;
-    z-index: -10;
-    display: block;
-    top: 0px;
-    left: 0px;
-    height: 55px;
-    width: 100%;
-    @include transition-duration(0.6s);
-    @include transition-property(all);
-    //border-bottom: solid 1px transparent;
-    background-color: transparentize(black, 1.0);
+    margin-left: 30px;
+    color:$c1;
+  }
 
+  .spacer
+  {
+    @include flex-grow(1);
+  }
+  
+  &-scrolling
+  {
+    background-color: $c4;
+  }
+
+  [class^="icon"]
+  {
+    margin-right:5px;
   }
 
   a 
   {
     text-decoration: none;
-    font-size: 17px;
-    padding: 5px 10px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
     margin-right: 10px;
     border-radius:2px;
     //border-radius: 2px;
 
-    background-color:$c3;
+    //background-color:$c4;
     border: solid 1px transparent;
     color:$c1;
     @include transition-duration(0.3s);
     @include transition-property(all);
-    @include box-shadow(0px 1px 3px $c1);
     
     @include tablet {
       &:hover
       {
-        background-color:$c3-fg;
-        color: $c3-bg;
+        background-color:$c4-fg;
+        color: $c4-bg;
       }
       &:active
       {
@@ -226,7 +225,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .c4-header
 {
-  background-color:$c3;
+  background-color:$c4;
   width: 100%;
   height: auto;
   margin-bottom: 10px;
@@ -236,10 +235,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
   color: $c1;
   text-align: center;
 
-  .actions-container
-  {
-    @include horizontal-stack();
-  }
+  @include tablet { margin-bottom: 50px; }
 
   a
   {
@@ -329,6 +325,8 @@ hr.c4-mini {
   @include transition-duration(0.3s);
   @include transition-property(all);
   width:100%;
+  margin-bottom: 10px;
+
 
   color: $c1;
   &:hover
@@ -340,23 +338,7 @@ hr.c4-mini {
 .c4-button-primary
 {
   @extend %c4-button;
-  background-color: $c4;
-
-  @include tablet
-  {
-    &:hover,&:focus
-    {
-      color: $c4-bg;
-      background-color: $c4-fg;
-    }
-  }
-}
-
-.c4-button-secondary
-{
-  @extend %c4-button;
   background-color: $c3;
-
 
   @include tablet
   {
@@ -364,6 +346,22 @@ hr.c4-mini {
     {
       color: $c3-bg;
       background-color: $c3-fg;
+    }
+  }
+}
+
+.c4-button-secondary
+{
+  @extend %c4-button;
+  background-color: $c4;
+
+
+  @include tablet
+  {
+    &:hover,&:focus
+    {
+      color: $c4-bg;
+      background-color: $c4-fg;
     }
   }
 }
@@ -434,6 +432,56 @@ hr.c4-mini {
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.error-explanation-header
+{
+  border:solid 1px $warning-c;
+  padding:10px;
+    background-color: transparentize($warning-c-bg, 0.8);
+
+  color: $warning-c;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  @include tablet{
+      font-size: 22px;
+  }
+}
+
+.error-message {
+  text-align: center;
+  color: $warning-c;
+  background-color: transparentize($warning-c-bg, 0.8);
+  border:solid 1px $warning-c;
+  border-top: none;
+  padding: 2px;
+  margin-top: -14px;
+  margin-bottom:10px;
+}
+
+.field_with_errors:first-child {
+  position: relative;
+  &:after
+  {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-bottom: 6px solid transparent;
+    /* left arrow slant */
+    border-top: 6px solid transparent;
+    /* right arrow slant */
+    border-left: 6px solid rgba(239, 82, 64, 0.8);
+    /* bottom, add background color here */
+    font-size: 0;
+    line-height: 0;
+    top: 50%;
+    margin-top: -6px;
+    left: -12px;
+  }
+}
+
 
 ::-webkit-input-placeholder {
    color: $c1;
@@ -518,8 +566,6 @@ label > .label-body {
   margin-left: .5rem;
   font-weight: normal; 
 }
-
-
 
 .overlay 
 {
@@ -696,6 +742,7 @@ label > .label-body {
   @include transition-duration(0.5s);
   @include transition-property(all);
   cursor: pointer;
+  @include box-shadow(0px -1px 10px transparentize($c1, 0.5));
 
   * 
   {
@@ -705,25 +752,25 @@ label > .label-body {
 
 .success
 {
-  background-color: transparentize($success-c, 0.05);
+  background-color: transparentize($success-c, 0.0);
   color: saturate(darken($success-c, 40), 60);
 }
 
 .notice
 {
-  background-color: transparentize($notice-c, 0.05);
+  background-color: transparentize($notice-c, 0.0);
   color: saturate(lighten($notice-c, 30), 60);
 }
 
 .alert
 {
-  background-color: transparentize($alert-c, 0.05);
+  background-color: transparentize($alert-c, 0.0);
   color: saturate(darken($alert-c, 40), 60);
 }
 
 .warning
 {
-  background-color: transparentize($warning-c, 0.05);
+  background-color: transparentize($warning-c, 0.0);
   color: saturate(lighten($warning-c, 30), 60);
 }
 
@@ -737,6 +784,22 @@ label > .label-body {
 {
   color: transparentize($dark-c, 0.5);
 
+  .no-content
+  {
+    color: transparentize($c4, 0.1);
+    text-align:center;
+    margin-top: 40px;
+    padding: 40px;
+    //border:dashed 1px transparentize(white, 0.5);
+    border-radius: 5px;
+
+    [class^="icon"]
+    {
+      font-size: x-large;
+    }
+
+  }
+
   .c4-list-cell
   {
     background-color: $light-c;
@@ -747,17 +810,21 @@ label > .label-body {
     @include transition-duration(0.5s);
     @include transition-property(all);
 
+    &:last-child
+    {
+      margin-bottom: 50px;
+    }
+
     @include tablet
     {
       &:hover
       {
         @include box-shadow(0px 2px 8px transparentize(black, 0.35));
-
       }
     }
   }
 
-  .header
+  .top-row
   {
     &:after
     {
@@ -774,6 +841,7 @@ label > .label-body {
   {
     height: 130px;
     width: 100%;
+    border-radius:2px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -864,6 +932,10 @@ label > .label-body {
     a
     {
       color:$light-c;
+      &:hover
+      {
+        color: inherit;
+      }
     }
 
     *

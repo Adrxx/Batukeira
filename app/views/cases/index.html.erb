@@ -4,13 +4,19 @@
 <h1><strong>Todos los casos</strong></h1>
 <% end %>
 
-<%= link_to new_case_path, id:'new-case-button', class: 'c4-button-success' do %>
+<%= link_to new_case_path, class: 'c4-button-success' do %>
   Agregar nuevo
 <% end %>
 <div class="c4-list-collection">
+  <% if @cases.empty? %>
+    <div class="no-content">
+      <span class="icon-error"></span>
+      <div>Sin contenido</div>
+    </div>
+  <% end %>
   <% @cases.each do |c| %>
   <div class="c4-list-cell">
-    <div class="row header">
+    <div class="row top-row">
       <div class="nine columns">
         <div class="title">
           <%= c.title %>
@@ -45,6 +51,5 @@
     </div>
   </div>
   <% end %>
-  <div class="c4-spacer"></div>
 </div>
 

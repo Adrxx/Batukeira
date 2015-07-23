@@ -32,7 +32,7 @@ $(document).on 'page:change', ->
       for f in this.files
         reader = new FileReader()
         reader.onload = (e) ->
-          $('.mnt-photo-manager').prepend("<div class='mnt-pm-container mnt-pm-normal'>
+          $('.mnt-photo-manager .mnt-pm-spacer').first().before("<div class='mnt-pm-container mnt-pm-normal'>
             <div class='mnt-pm-photo' style='background-image: url(#{e.target.result})'></div>
             <input type='hidden'name='batches[#{batch_index}][ordering][#{file_index}]' class='mnt-pm-p-order'>
             <input type='hidden'name='batches[#{batch_index}][year][#{file_index}]' class='mnt-pm-p-year'>

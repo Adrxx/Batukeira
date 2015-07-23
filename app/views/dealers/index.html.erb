@@ -1,13 +1,19 @@
 <%= content_for :title, "Casos" %>
 
 <% content_for :header_content do %>
-<h1><strong>Todos los casos</strong></h1>
+<h1><strong>Todos los distribuidores</strong></h1>
 <% end %>
 
 <%= link_to new_case_path, id:'new-case-button', class: 'c4-button-success' do %>
   Agregar nuevo
 <% end %>
 <div class="c4-list-collection">
+  <% if @dealers.empty? %>
+    <div class="no-content">
+      <span class="icon-error"></span>
+      <div>Sin contenido</div>
+    </div>
+  <% end %>
   <% @dealers.each do |c| %>
   <div class="c4-list-cell">
     <div class="row header">

@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-g6lige');
-	src:url('fonts/icomoon.eot?#iefix-g6lige') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?-g6lige') format('truetype'),
-		url('fonts/icomoon.woff?-g6lige') format('woff'),
-		url('fonts/icomoon.svg?-g6lige#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-ebjvyg');
+	src:url('fonts/icomoon.eot?#iefix-ebjvyg') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?-ebjvyg') format('truetype'),
+		url('fonts/icomoon.woff?-ebjvyg') format('woff'),
+		url('fonts/icomoon.svg?-ebjvyg#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -53,8 +53,23 @@
 .icon-add_circle_outline:before {
 	content: "\e06c";
 }
+.icon-storage:before {
+	content: "\e0bc";
+}
 .icon-cloud_upload:before {
 	content: "\e0fe";
+}
+.icon-folder:before {
+	content: "\e101";
+}
+.icon-folder_open:before {
+	content: "\e102";
+}
+.icon-folder_shared:before {
+	content: "\e103";
+}
+.icon-device_hub:before {
+	content: "\e130";
 }
 .icon-edit:before {
 	content: "\e15e";
@@ -73,6 +88,9 @@
 }
 .icon-delete:before {
 	content: "\e287";
+}
+.icon-label:before {
+	content: "\e2a6";
 }
 .icon-lock:before {
 	content: "\e2ab";

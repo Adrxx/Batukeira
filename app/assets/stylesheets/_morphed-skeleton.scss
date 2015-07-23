@@ -104,7 +104,7 @@ $i:1;
   transform: translateY(-50%);
 }
 
-@mixin horizontal-stack 
+@mixin horizontal-stack
 {
   @include display-flex();
   @include align-items(center);
@@ -115,6 +115,30 @@ $i:1;
   @include user-select(none);
 
 }
+
+@mixin vertical-stack 
+{
+  @include display-flex();
+  @include align-items(center);
+  //@include align-content(space-around);
+  @include flex-flow(column);
+  @include flex-wrap(nowrap);
+  @include justify-content(flex-end);
+  @include user-select(none);
+
+}
+
+
+.horizontal-stack
+{
+  @include horizontal-stack();
+}
+
+.vertical-stack
+{
+  @include horizontal-stack();
+}
+
 
 
 

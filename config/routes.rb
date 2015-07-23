@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'cases#index'
+  root 'admin#index'
 
+  get 'admin' => 'admin#index'
+  get 'admin/configuracion' => 'admin#prefs', as: 'prefs'
   scope 'admin', path_names: { new: 'nuevo', edit: 'editar' } do
 
     devise_for :users, :controllers => {:sessions => "sessions"} , path: "auth", path_names: { sign_in: 'login', sign_out: 'logout' }
