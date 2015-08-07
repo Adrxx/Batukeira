@@ -1,0 +1,58 @@
+<%= content_for :title, "Editar" %>
+<% content_for :header_content do %>
+<h1><b>Información de contacto</b></h1>
+<% end %>
+
+<%# Form fields %>
+<%= form_for @prefs, url: contact_path do |f|%>
+
+<% if @prefs.errors.any? %>
+    <div class="error-explanation-header">
+      <%= pluralize(@prefs.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
+    </div>
+<% end %>
+
+<%# Redes sociales %>
+<div class="row">
+  <div class="six columns">
+      <%= full_field(f,:facebook,'Link de Facebook','https://www.facebook.com/...') %>
+  </div>
+  <div class="six columns">
+      <%= full_field(f,:twitter,'Link de Twitter','https://twitter.com/...') %>
+  </div>
+</div>
+
+
+<hr class="c4-mini">
+
+<%# Teléfonos %>
+<div class="row">
+  <div class="six columns">
+      <%= full_field(f,:telephone,'Teléfono','') %>
+  </div>
+  <div class="six columns">
+      <%= full_field(f,:telephone2,'Teléfono secundario (opcional)','') %>
+  </div>
+</div>
+
+<hr class="c4-mini">
+
+<%# Email %>
+<div class="row">
+    <%= full_field(f,:email,'Correo electrónico','ejemplo@ejemplo.com') %>
+</div>
+
+<hr>
+
+<!-- <div class="row">
+    <%= text_field_tag "key" %>
+    <%= text_field_tag "value" %>
+</div>
+ -->
+
+<div class="row">
+    <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
+</div>
+
+<% end %>
+

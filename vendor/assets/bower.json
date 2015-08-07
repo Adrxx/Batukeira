@@ -2,6 +2,7 @@
   "name": "dsl-generated dependencies",
   "dependencies": {
     "animate.css": "latest",
-    "normalize.css": "latest"
+    "normalize.css": "latest",
+    "typeahead-addresspicker": "latest"
   }
 }

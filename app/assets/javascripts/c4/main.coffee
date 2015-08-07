@@ -9,8 +9,12 @@ Index->
 $(document).on 'page:change', ->
 
   #_______________________________________________ Main Menu
-  #$('.menu-button').on 'click', ->
-
+  $('.c4-menu-button').on 'click', ->
+    isDisplayed = $('.c4-nav').hasClass("nav-displayed")
+    if isDisplayed
+      $('.c4-nav').removeClass("nav-displayed")
+    else
+      $('.c4-nav').addClass("nav-displayed")
 
 
   #_______________________________________________ Smart Behaiviors

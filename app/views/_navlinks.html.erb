@@ -1,0 +1,35 @@
+<%= link_to cases_path, class: 'c4-grid-cell' do %>
+  <div class="centered">
+    <span class="icon-folder_shared"></span>
+    <span class="name">Casos</span>
+    <span class="description">Edita los casos de usuarios de Batukeira.</span>
+  </div>
+<% end %>
+<%= link_to dealers_path, class: 'c4-grid-cell' do %>
+  <div class="centered">
+    <span class="icon-enlarge"></span>
+    <span class="name">Distribuidores</span>
+    <span class="description">Edita los distribuidores de productos Batukeira.</span>
+  </div>
+<% end %>
+<%= link_to users_path, class: 'c4-grid-cell' do %>
+  <div class="centered">
+    <span class="icon-users"></span>
+    <span class="name">Administradores</span>
+    <span class="description">Edita las cuentas de adminstradores.</span>
+  </div>
+<% end %>
+<%= link_to contact_path, class: 'c4-grid-cell' do %>
+  <div class="centered">
+    <span class="icon-call"></span>
+    <span class="name">Contacto</span>
+    <span class="description">Edita la información de contacto de Batukeira.</span>
+  </div>
+<% end %>
+<%= link_to destroy_user_session_path, :method => :delete, class: 'c4-grid-cell -nav-only' do %>
+  <div class="centered">
+    <span class="icon-upload"></span>
+    <span class="name">Salir</span>
+    <span class="description">Cierra la sesión actual.</span>
+  </div>
+<% end %>

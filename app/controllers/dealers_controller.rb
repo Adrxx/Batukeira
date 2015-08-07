@@ -8,11 +8,6 @@ class DealersController < ApplicationController
     @dealers = Dealer.all
   end
 
-  # GET /dealers/1
-  # GET /dealers/1.json
-  def show
-  end
-
   # GET /dealers/new
   def new
     @dealer = Dealer.new
@@ -28,7 +23,8 @@ class DealersController < ApplicationController
     @dealer = Dealer.new(dealer_params)
     respond_to do |format|
       if @dealer.save
-        format.html { redirect_to @dealer, notice: 'Dealer was successfully created.' }
+        flash[:success] = 'Se han guardado los cambios.'
+        format.html { redirect_to dealers_url }
       else
         format.html { render :new }
       end
@@ -40,7 +36,8 @@ class DealersController < ApplicationController
   def update
     respond_to do |format|
       if @dealer.update(dealer_params)
-        format.html { redirect_to @dealer, notice: 'Dealer was successfully updated.' }
+        flash[:success] = 'Se han guardado los cambios.'
+        format.html { redirect_to dealers_url }
       else
         format.html { render :edit }
       end
@@ -52,8 +49,8 @@ class DealersController < ApplicationController
   def destroy
     @dealer.destroy
     respond_to do |format|
-      format.html { redirect_to dealers_url, notice: 'Dealer was successfully destroyed.' }
-      format.json { head :no_content }
+      flash[:warning] = "Se ha destruído el distribuidor: #{@dealer.name}"
+      format.html { redirect_to dealers_url }
     end
   end
 
@@ -65,6 +62,6 @@ class DealersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dealer_params
-      params.require(:dealer).permit(:name, :telephone, :telephone2, :address, :latitide, :longitude)
+      params.require(:dealer).permit(:name, :telephone, :telephone2, :email, :address, :latitude, :longitude, :hidden_telephone, :hidden_telephone2, :hidden_email, :hidden_address)
     end
 end

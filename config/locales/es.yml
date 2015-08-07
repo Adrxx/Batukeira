@@ -9,11 +9,27 @@ es:
         not_found_in_database: "El usuario o la contraseña son incorrectos."
         unauthenticated: "Por favor inicie sesión."
         already_authenticated: "Sesión ya iniciada."
-
-
   activerecord:
     errors:
       messages:
         blank: "Este campo es necesario."
         too_long: "El campo es demasiado largo."
         not_a_number: "Este campo debe ser un número."
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: "Las contraseñas no coinciden."
+            password:
+              too_long: "La contraseña no puede ser más larga que 30 caractéres."
+              too_short: "La contraseña debe contener mínimo 6 caractéres."
+            email:
+              invalid: "El usuario debe ser una cuenta de correo electrónico."
+        dealer:
+          attributes:
+            telephone2:
+              invalid: "Este campo debe ser un número telefónico."
+            telephone:
+              invalid: "Este campo debe ser un número telefónico."
+            email:
+              invalid: "Este campo debe ser un correo electrónico."

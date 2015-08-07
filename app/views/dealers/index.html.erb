@@ -1,10 +1,10 @@
-<%= content_for :title, "Casos" %>
+<%= content_for :title, "Distribuidores" %>
 
 <% content_for :header_content do %>
 <h1><strong>Todos los distribuidores</strong></h1>
 <% end %>
 
-<%= link_to new_case_path, id:'new-case-button', class: 'c4-button-success' do %>
+<%= link_to new_dealer_path, id:'new-case-button', class: 'c4-button-success' do %>
   Agregar nuevo
 <% end %>
 <div class="c4-list-collection">
@@ -32,15 +32,13 @@
       <div class="twelve columns">
         <div class="properties">
           <ul>
-            <li><strong>Dirección</strong>: <%= c.address %></li>
-            <li><strong>Teléfono</strong>: <%= c.telephone %> </li>
-            <li><strong>Teléfono 2</strong>: <%= c.telephone2 %> </li>
+            <li><%= hidden_icon(c.hidden_address) %><strong>Dirección</strong>: <%= c.address %></li>
+            <li><%= hidden_icon(c.hidden_telephone) %><strong>Teléfono</strong>: <%= c.telephone %> </li>
+            <li><%= hidden_icon(c.hidden_telephone2) %><strong>Teléfono 2</strong>: <%= c.telephone2 %> </li>
+            <li><%= hidden_icon(c.hidden_email) %><strong>Correo electrónico</strong>: <%= c.email %> </li>
           </ul>
         </div>
         <div class="row buttons-container">
-          <%= link_to c, class:'c4-button-primary' do %>
-            <span class="icon-visibility"></span>
-          <% end %>
         <%= link_to edit_dealer_path(c), class:'c4-button-primary' do %>
           <span class="icon-edit"></span>
         <% end %>

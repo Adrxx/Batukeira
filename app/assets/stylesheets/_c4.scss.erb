@@ -11,7 +11,7 @@ Adrián Rubio 2015
 * Nav Bars
 * Headers
 * Basic HTML Elements
-* Buttons 
+* Buttons
 * Inputs
 * Notifications
 * Data displayers... Cells
@@ -158,18 +158,28 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
 {
   position: fixed;
   @include horizontal-stack();
+  @include flex-wrap(wrap);
+  padding-top:$nav-bar-height;
   z-index: 500;
   width: 100%;
-  height: $nav-bar-height;
+  height: auto;
+  overflow: hidden;
   @include single-transition(all,0.3s);
-  background-color: transparentize(black, 0.95);
-
+  background-color: $c4;
+  top:-100%; 
   @include background-image(linear-gradient(to bottom,$c4, transparentize($c4, 0.30), transparentize($c4, 1.0)));
 
-  .title
+  @include tablet
   {
-    margin-left: 30px;
-    color:$c1;
+      height: $nav-bar-height;
+      background-color: transparentize(black, 0.95);
+      padding-top: 0px;
+      top:0px;
+  }
+
+  &.nav-displayed
+  {
+    top: 0px;
   }
 
   .spacer
@@ -189,22 +199,34 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
 
   a 
   {
+    display: block;
+    width: 100%;
     text-decoration: none;
     text-transform: uppercase;
+    text-align: center;
     font-size: 11px;
     font-weight: 600;
-    padding: 4px 8px;
+    padding: 14px 8px;
     margin-right: 10px;
     border-radius:2px;
-    //border-radius: 2px;
 
-    //background-color:$c4;
     border: solid 1px transparent;
     color:$c1;
+
     @include transition-duration(0.3s);
     @include transition-property(all);
+
+    span.description {
+      display: none;
+    }
     
-    @include tablet {
+    @include tablet 
+    {
+
+      display: inline;
+      width: auto;
+      padding: 4px 8px;
+
       &:hover
       {
         background-color:$c4-fg;
@@ -216,6 +238,77 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
       } 
     }
   }
+}
+
+.c4-home-button
+{
+  position:fixed;
+  display: block;
+  top: 0px;
+  left: 0px;
+  padding: 0 10px;
+
+  height: $nav-bar-height;
+  line-height:  $nav-bar-height;
+  text-decoration: none;
+  text-align: center;
+  //background-color: red;
+  z-index: 1000;
+
+  cursor: pointer;
+  @include user-select(none);
+  text-transform: uppercase;
+  font-size: 11px;
+  color: $c1;
+  background-color: $c2-fg;
+  padding-right: 100%;
+
+  &:hover
+  {
+    color: $c1;
+  }
+
+
+  @include tablet
+  {
+    background-color: transparent;
+    padding-right: 0px;
+  }
+
+
+}
+
+
+.c4-menu-button
+{
+
+  position:fixed;
+  display: block;
+  top: 0px;
+  right: 0px;
+  //padding: 0 10px;
+  padding-left:10px;
+
+
+  height: $nav-bar-height;
+  width:  $nav-bar-height;
+  line-height:  $nav-bar-height;
+    color: $c1;
+
+  text-decoration: none;
+  text-align: center;
+  //background-color: red;
+  font-size: x-large;
+  z-index: 1000;
+
+  @include user-select(none);
+  cursor: pointer;
+
+  @include tablet
+  {
+    display: none;
+  }
+
 }
 
 
@@ -235,7 +328,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
   color: $c1;
   text-align: center;
 
-  @include tablet { margin-bottom: 50px; }
+  @include tablet { margin-bottom: 30px; }
 
   a
   {
@@ -261,8 +354,13 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
 
   h1
   {
-    margin: 0px;
-    font-size: 2.3em;
+    margin: 0px 25px;
+    font-size: 1.8em;
+
+    @include tablet
+    {
+      font-size: 2.3em;
+    }
   }
 
  
@@ -432,6 +530,22 @@ hr.c4-mini {
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.field-options-wrapper
+{
+  width: 100%;
+  //text-align: center;
+  margin-top: -5px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-size: 11px;
+
+  input
+  {
+    margin:0 10px;
+  }
+
+}
 
 .error-explanation-header
 {
@@ -889,6 +1003,11 @@ label > .label-body {
     {
       margin-bottom: 0px;
     }
+
+    span[class^="icon-"]
+    {
+      margin-right: 5px;
+    }
   }
 
   .description
@@ -953,6 +1072,95 @@ label > .label-body {
       }
     }
 
+  }
+
+}
+
+.c4-grid-collection
+{    
+
+  .c4-grid-cell
+  {
+    position: relative;
+    display: block;
+    height: 140px;
+    width: 48%;
+    float: left;
+    margin: 1%;
+    text-decoration: none;
+    //border:solid 1px white;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: transparentize(white, 0.95);
+    color: transparentize(white, 0.25);
+
+    @include single-transition(all, 1s);
+
+    @include tablet
+    {
+      height: 200px;
+    }
+
+    &:hover
+    {
+      background-color: transparentize(white, 0.90);
+
+    }
+
+
+
+  }
+
+  .centered
+  {
+    @include vertical-align();
+    position: absolute;
+    height: auto;
+    width: 100%;
+  }
+
+  [class^="icon"]
+  {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: x-large;
+    margin-bottom: 4px;
+    @include tablet
+    {
+      font-size: xx-large;
+    }
+  }
+
+  .name
+  {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    @include tablet
+    {
+      font-size: 22px;
+    }
+  }
+
+  .description
+  {
+    display: block;
+    margin: 0 5px;
+    font-size: 11px;
+    text-align: center;
+    @include tablet
+    {
+          margin: 0 35px;
+
+      font-size: 13px;
+    }
+  }
+
+  .-nav-only
+  {
+    display: none;
   }
 
 }

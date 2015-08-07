@@ -1,10 +1,14 @@
 class CreatePreferences < ActiveRecord::Migration
   def change
     create_table :preferences do |t|
-      t.string :key
-      t.string :value
+      t.text :values
 
-      t.timestamps null: false
+      t.text :facebook
+      t.text :twitter
+      t.string :telephone
+      t.string :telephone2
+      t.string :email
+
     end
   end
 end

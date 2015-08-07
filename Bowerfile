@@ -3,3 +3,4 @@
 
 asset 'animate.css'
 asset 'normalize.css'
+asset 'typeahead-addresspicker'

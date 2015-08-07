@@ -1,5 +1,5 @@
 <%# Form fields %>
-<%= form_for(@dealer, :html => { :multipart => true }) do |f| %>
+<%= form_for(@dealer) do |f| %>
   <% if @dealer.errors.any? %>
     <div class="error-explanation-header">
       <%= pluralize(@dealer.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
@@ -7,24 +7,53 @@
 <% end %>
 
 <%# Nombre y dirección %>
+
 <div class="row">
  <%= full_field(f,:name,'Nombre del distribuidor' ,'Eduardo Chávez / Farmacias Pablito') %>
 </div>
+<div id="map-location-picker">
+</div>
 <div class="row">
-  <%= full_text_area(f,:address,'Dirección' ,'Calle Zaragoza esq. 5 de Mayo Zona centro Monterrey, N. L., México CP 64000' ) %>
+  <%= full_field(f,:address,'Dirección' ,'Calle Zaragoza esq. 5 de Mayo Zona centro Monterrey, N. L., México CP 64000' ) %>
+  <%= f.label :hidden_address, class:'field-options-wrapper' do %>
+        <%= f.check_box :hidden_address %>Esconder de la página principal
+      <% end %>
 </div>
 
-<%# Tiempo invertido y producto utilizado %>
+<%# Latitud y longitud escondidos %>
+<%= f.hidden_field :latitude %>
+<%= f.hidden_field :longitude %>
+
+<hr class="c4-mini">
+
+<%# Teléfonos %>
 <div class="row">
   <div class="six columns">
-    <%= full_field(f,:telephone,'Teléfono','') %>
+      <%= full_field(f,:telephone,'Teléfono','') %>
+      <%= f.label :hidden_telephone, class:'field-options-wrapper' do %>
+        <%= f.check_box :hidden_telephone %>Esconder de la página principal
+      <% end %>
   </div>
   <div class="six columns">
-    <%= full_field(f,:telephone2,'Teléfono secundario (opcional)','') %>
+      <%= full_field(f,:telephone2,'Teléfono secundario (opcional)','') %>
+      <%= f.label :hidden_telephone2, class:'field-options-wrapper' do %>
+        <%= f.check_box :hidden_telephone2 %>Esconder de la página principal
+      <% end %>
   </div>
+</div>
+
+<hr class="c4-mini">
+
+<%# Email %>
+<div class="row">
+    <%= full_field(f,:email,'Correo electrónico','ejemplo@ejemplo.com') %>
+    <%= f.label :hidden_email, class:'field-options-wrapper' do %>
+      <%= f.check_box :hidden_email %>Esconder de la página principal
+    <% end %>
 </div>
 
 <hr>
+
 
 <div class="row">
   <div class="six columns">
@@ -37,3 +66,7 @@
 </div>
 
 <% end %>
+
+<%# Google maps api %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&language=es"></script>
+<%= javascript_include_tag 'location-picker', 'data-turbolinks-track' => true%>

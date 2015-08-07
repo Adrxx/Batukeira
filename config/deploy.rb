@@ -6,7 +6,7 @@ set :repo_url, 'https://github.com/Adrxx/Veduetta'
 set :branch, 'master'
 
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+# ask :branch, proc { `git rev-parse --abbrºev-ref HEAD`.chomp }.call
 
 set :deploy_to, '/home/rails'
 

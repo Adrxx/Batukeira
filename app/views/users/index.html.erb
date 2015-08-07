@@ -1,0 +1,43 @@
+<%= content_for :title, "Usuarios" %>
+
+<% content_for :header_content do %>
+<h1><strong>Usuarios</strong></h1>
+<% end %>
+
+<%= link_to new_user_path, class: 'c4-button-success' do %>
+  Agregar nuevo
+<% end %>
+<div class="c4-list-collection">
+  <% if @users.empty? %>
+    <div class="no-content">
+      <span class="icon-error"></span>
+      <div>Sin contenido</div>
+    </div>
+  <% end %>
+  <% @users.each do |c| %>
+  <div class="c4-list-cell">
+    <div class="row top-row">
+      <div class="nine columns">
+        <div class="title">
+          <%= c.email %>
+        </div>
+      </div>
+      <div class="three columns">
+        <div class="date">
+          <%= c.created_at.strftime('%d/%m/%Y') %>
+        </div>
+      </div>
+    </div>
+    <div class="row buttons-container">
+
+    <%= link_to edit_user_path(c), class:'c4-button-primary' do %>
+      <span class="icon-edit"></span>
+    <% end %>
+      <%= link_to c, method: :delete, data: { confirm: 'Esta acción no puede deshacerse. ¿Está seguro que desea borrar este elemento?'}, class:'c4-button-warning' do %>
+        <span class="icon-delete"></span>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+

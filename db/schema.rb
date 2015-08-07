@@ -29,12 +29,17 @@ ActiveRecord::Schema.define(version: 20150712171659) do
   create_table "dealers", force: :cascade do |t|
     t.string   "name"
     t.string   "telephone"
+    t.boolean  "hidden_telephone"
     t.string   "telephone2"
+    t.boolean  "hidden_telephone2"
+    t.string   "email"
+    t.boolean  "hidden_email"
     t.text     "address"
-    t.float    "latitide"
+    t.boolean  "hidden_address"
+    t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "photos", force: :cascade do |t|
@@ -53,10 +58,12 @@ ActiveRecord::Schema.define(version: 20150712171659) do
   add_index "photos", ["case_id"], name: "index_photos_on_case_id"
 
   create_table "preferences", force: :cascade do |t|
-    t.string   "key"
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text   "values"
+    t.text   "facebook"
+    t.text   "twitter"
+    t.string "telephone"
+    t.string "telephone2"
+    t.string "email"
   end
 
   create_table "users", force: :cascade do |t|

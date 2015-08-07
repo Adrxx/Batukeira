@@ -1,4 +1,5 @@
-<%= content_for :title, "Nuevo" %>
-<h2><b>Nuevo distribuidor:</b></h2>
-<hr>
+<%= content_for :title, "Nuevo distribuidor" %>
+<% content_for :header_content do %>
+<h1><b>Nuevo distribuidor</b></h1>
+<% end %>
 <%= render 'form' %>
