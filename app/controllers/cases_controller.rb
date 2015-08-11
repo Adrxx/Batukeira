@@ -95,7 +95,7 @@ class CasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def case_params
-      params.require(:case).permit(:title, :description, :eleapsed_time, :weight_before, :weight_after, :waist_after, :waist_before, :product_used, photos_attributes: [:id,:photo_file,:month,:year,:weight,:order,:_destroy])
+      params.require(:case).permit(:title, :description, :eleapsed_time, :weight_before, :weight_after, :waist_after, :waist_before, :product_used, :featured, photos_attributes: [:id,:photo_file,:month,:year,:weight,:order,:_destroy])
     end
     
 end

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
 
-  get 'users/edit'
+  get 'casos-de-exito' => 'static_pages#casos', as: 'casos'
 
-  get 'users/new'
+  get 'contacto' => 'static_pages#contact', as: 'contacto'
 
-  root 'admin#index'
+  get 'distribuidores' => 'static_pages#distribuidores', as: 'distribuidores'
+
+  get 'comprar' => 'static_pages#comprar', as: 'comprar'
+
+  root 'static_pages#landing'
+
 
   get 'admin' => 'admin#index'
   scope 'admin', path_names: { new: 'nuevo', edit: 'editar' } do
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
     get 'contacto' => 'admin#contact', as: 'contact'
     patch 'contacto' => 'admin#contact'
 
-    resources :users, except: :show
+    resources :users, path: 'usuarios', except: :show
     resources :cases, path: 'casos-de-exito'
     resources :dealers, path: 'distribuidores', except: :show
   end

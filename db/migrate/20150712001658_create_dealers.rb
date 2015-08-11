@@ -15,6 +15,8 @@ class CreateDealers < ActiveRecord::Migration
       t.text :address
       t.boolean :hidden_address
 
+      t.text :visible_address
+
       t.float :latitude
       t.float :longitude
 

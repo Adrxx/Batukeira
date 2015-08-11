@@ -50,7 +50,10 @@
 
 <%# Título y descripción %>
 <div class="row">
- <%= full_field(f,:title,'Nombre del caso' ,'Logró bajar de peso sin ejercicio...') %>
+  <%= full_field(f,:title,'Nombre del caso' ,'Logró bajar de peso sin ejercicio...') %>
+  <%= f.label :featured, class:'field-options-wrapper' do %>
+      <%= f.check_box :featured %>Mostrar este caso en la página principal
+  <% end %>
 </div>
 <div class="row">
   <%= full_text_area(f,:description,'Descripción del caso' ,'Laura Rodrígez tenía 27 años y pesaba 92 Kg, así que...') %>

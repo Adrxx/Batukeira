@@ -10,4 +10,5 @@ u = User.new
 u.email = "prueba@prueba.com"
 u.password = "prueba"
 u.password_confirmation = "prueba"
+u.role = 1
 u.save

@@ -14,6 +14,9 @@ class CreateCases < ActiveRecord::Migration
 
       t.string :product_used
 
+      t.boolean :featured, default: false
+
+
       t.timestamps null: false
     end
   end

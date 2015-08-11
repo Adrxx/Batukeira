@@ -8,6 +8,17 @@
 Batukeira Admin specific styles only
 */
 
+.dealer_visible_address
+{
+  display: none;
+
+  &.show
+  {
+    display: block;
+  }
+}
+
+
 
 #map-location-picker
 {

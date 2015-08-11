@@ -1,4 +1,7 @@
 class Case < ActiveRecord::Base
+
+  before_save :only_one_featured
+
   has_many :photos, :dependent => :destroy
   accepts_nested_attributes_for :photos, :allow_destroy => true
 
@@ -11,5 +14,14 @@ class Case < ActiveRecord::Base
   validates :weight_before, numericality: true, allow_blank:true
   validates :weight_after, numericality: true, allow_blank:true
   # validates :product_used, presence: true
+
+
+  private
+    def only_one_featured
+      if self.featured
+        Case.update_all(featured: false)
+        self.featured = true
+      end
+    end
 
 end

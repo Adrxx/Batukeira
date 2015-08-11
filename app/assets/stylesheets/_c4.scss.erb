@@ -204,7 +204,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     padding: 14px 8px;
     margin-right: 10px;
@@ -219,6 +219,16 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     span.description {
       display: none;
     }
+
+    &:hover
+    {
+      background-color:transparent;
+      color: $c1;
+    }
+    &:active
+    {
+      background-color:$c1;
+    } 
     
     @include tablet 
     {
@@ -226,6 +236,8 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
       display: inline;
       width: auto;
       padding: 4px 8px;
+      font-size: 11px;
+
 
       &:hover
       {
@@ -234,7 +246,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
       }
       &:active
       {
-        background-color:$c5-bg;
+        background-color:$c1;
       } 
     }
   }
@@ -284,6 +296,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
 
   position:fixed;
   display: block;
+  cursor: pointer;
   top: 0px;
   right: 0px;
   //padding: 0 10px;
@@ -526,6 +539,25 @@ hr.c4-mini {
 
 /* Inputs
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+input[type="text"]
+{
+
+  &:after
+  {
+    position:fixed;
+    top:0px;
+    left: 0px;
+    display: block;
+    content: "";
+    background-color: red;
+    height: 50px;
+    width: 50px;
+  }
+
+}
+
+
 
 
 /* Forms

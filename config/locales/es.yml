@@ -25,6 +25,7 @@ es:
               too_short: "La contraseña debe contener mínimo 6 caractéres."
             email:
               invalid: "El usuario debe ser una cuenta de correo electrónico."
+              taken: "Este correo ya está registrado en otra cuenta."
         dealer:
           attributes:
             telephone2:
@@ -33,3 +34,12 @@ es:
               invalid: "Este campo debe ser un número telefónico."
             email:
               invalid: "Este campo debe ser un correo electrónico."
+        preference:
+          attributes:
+            telephone:
+              invalid: "Este campo debe ser un número telefónico."
+            telephone2:
+              invalid: "Este campo debe ser un número telefónico."
+            email:
+              invalid: "Este campo debe ser un correo electrónico."
+

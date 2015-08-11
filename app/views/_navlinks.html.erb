@@ -12,13 +12,26 @@
     <span class="description">Edita los distribuidores de productos Batukeira.</span>
   </div>
 <% end %>
-<%= link_to users_path, class: 'c4-grid-cell' do %>
-  <div class="centered">
-    <span class="icon-users"></span>
-    <span class="name">Administradores</span>
-    <span class="description">Edita las cuentas de adminstradores.</span>
-  </div>
+
+<% if current_user.role == "admin" %>
+  <%= link_to users_path, class: 'c4-grid-cell' do %>
+    <div class="centered">
+      <span class="icon-users"></span>
+      <span class="name">Usuarios</span>
+      <span class="description">Administra las cuentas del sistema.</span>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to user_path(current_user), class: 'c4-grid-cell' do %>
+    <div class="centered">
+      <span class="icon-users"></span>
+      <span class="name">Usuario</span>
+      <span class="description">Edita tu cuenta.</span>
+    </div>
+  <% end %>
 <% end %>
+
+
 <%= link_to contact_path, class: 'c4-grid-cell' do %>
   <div class="centered">
     <span class="icon-call"></span>

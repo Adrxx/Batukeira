@@ -4,6 +4,7 @@ Index->
   Smart Behaiviors
   Notifications
   Nav Bars
+  Input Tools
 ###
 
 $(document).on 'page:change', ->
@@ -46,6 +47,16 @@ $(document).on 'page:change', ->
   setTimeout(dismissAllNotifications, 3500)
 
   #_______________________________________________ Nav Bars
+    
+  $(window).on 'scroll', ->
+    scroll_top = $(window).scrollTop();
+    unless scroll_top > $('.c4-header').height()
+      $('.c4-nav').removeClass 'c4-nav-scrolling'
+    else
+      $('.c4-nav').addClass 'c4-nav-scrolling'
+
+
+  #_______________________________________________ Input Tools
     
   $(window).on 'scroll', ->
     scroll_top = $(window).scrollTop();

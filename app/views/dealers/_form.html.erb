@@ -18,6 +18,9 @@
   <%= f.label :hidden_address, class:'field-options-wrapper' do %>
         <%= f.check_box :hidden_address %>Esconder de la página principal
       <% end %>
+
+  <%= full_field(f,:visible_address,'Dirección Visible' ,'Atizapán' ) %>
+
 </div>
 
 <%# Latitud y longitud escondidos %>
@@ -69,4 +72,4 @@
 
 <%# Google maps api %>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&language=es"></script>
-<%= javascript_include_tag 'location-picker', 'data-turbolinks-track' => true%>
+<%= javascript_include_tag 'location-picker' %>
