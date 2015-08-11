@@ -12,3 +12,9 @@ u.password = "prueba"
 u.password_confirmation = "prueba"
 u.role = 1
 u.save
+
+c = User.new
+c.email = "cap@cap.com"
+c.password = "prueba"
+c.password_confirmation = "prueba"
+c.save

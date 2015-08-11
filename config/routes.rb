@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root 'static_pages#landing'
 
 
+  #Admin
   get 'admin' => 'admin#index'
   scope 'admin', path_names: { new: 'nuevo', edit: 'editar' } do
 

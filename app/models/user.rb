@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..30 }
   validates :email, uniqueness: true
 
+
 end

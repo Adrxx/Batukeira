@@ -1,6 +1,8 @@
 class AdminController < ApplicationController
+
   before_action :authenticate_user!
   before_action :get_prefs
+
 
   def contact
     if request.patch?

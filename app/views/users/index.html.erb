@@ -8,6 +8,21 @@
   Agregar nuevo
 <% end %>
 
+<%# Pop over overlay for editing photo details %>
+<div class="mnt-full-overlay">
+  <div class="mnt-pop-up-container">
+    <div class="row">
+      <%= password_field(:auth_password,'Contraseña de administrador (Su contraseña)') %>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <span class="mnt-pm-save c4-button-primary u-full-width">Aceptar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="c4-list-collection">
   <% if @users.empty? %>
     <div class="no-content">
@@ -41,4 +56,3 @@
   </div>
   <% end %>
 </div>
-

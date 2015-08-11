@@ -3,12 +3,14 @@ es:
     sessions:
       user:
         signed_in: "¡Bienvenido!"
+        signed_out: "Hasta luego."
     failure:
       user:
         invalid: "Ingrese un usuario válido."
         not_found_in_database: "El usuario o la contraseña son incorrectos."
         unauthenticated: "Por favor inicie sesión."
-        already_authenticated: "Sesión ya iniciada."
+        already_signed_out: "Sesión ya terminada"
+      already_authenticated: "Sesión ya iniciada."
   activerecord:
     errors:
       messages:
@@ -42,4 +44,3 @@ es:
               invalid: "Este campo debe ser un número telefónico."
             email:
               invalid: "Este campo debe ser un correo electrónico."
-
