@@ -17,17 +17,7 @@
 <% end %>
   <%#= color_palette() %>
   <% if user_signed_in? #NAV BAR %>
-    <%= link_to admin_path , class: 'c4-home-button' do %>
-      Batukeira
-    <% end %>
-    <div class="c4-menu-button">
-      <span class="icon-menu"></span>
-    </div>
 
-    <div class="c4-nav">
-      <div class="spacer"></div>
-      <%= render '/navlinks' %>
-    </div>
   <% end %>
 
   <div class="overlay"></div>

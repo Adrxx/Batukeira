@@ -1,8 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :admin_permission, only: [:index, :new, :create, :destroy] #Capturist cannot call these
+
+  before_action :only_admin_permission, only: [:index, :new, :create, :destroy] #Capturist cannot call these
   before_action :only_itself_permission, only: [:edit, :update] #Capturist can edit/update its own user only
+  
+
 
   layout 'admin'
 
@@ -24,11 +27,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    unless password_permitted
-      current_user.errors.add(:auth_password, 'La contraseña no es correcta.')
-    end
-
     @user = User.new(user_params)
+    @user.auth_password_invalid = auth_password_invalid?
     respond_to do |format|
       if @user.save
         flash[:success] = 'Se han guardado los cambios.'
@@ -42,10 +42,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    unless password_permitted
-      current_user.errors.add(:auth_password, 'La contraseña no es correcta.')
-    end
-
+    @user.auth_password_invalid = auth_password_invalid?
     respond_to do |format|
       if @user.update(user_params)
         flash[:success] = 'Se han guardado los cambios.'
@@ -53,7 +50,7 @@ class UsersController < ApplicationController
           if current_user.role == "admin"
             redirect_to users_path
           else
-            redirect_to user_path(current_user)
+            redirect_to edit_user_path(current_user)
           end
         end
       else
@@ -65,11 +62,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    unless password_permitted
-      flash[:warning] = "La contraseña no es correcta."
-      return redirect_to users_path
-    end
-
     flash[:warning] = "Se ha destruído el usuario: #{@user.email}"
     @user.destroy
     respond_to do |format|
@@ -83,25 +75,25 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def admin_permission
-      unless current_user.role == "admin"
+    def only_admin_permission
+      if current_user.role != "admin"
         flash[:warning] = "No tiene permiso para realizar esta acción."
-        return redirect_to edit_user_path(current_user)
+        redirect_to edit_user_path(current_user)
       end
     end
 
     def only_itself_permission
       #Only allow capturist to edit its own account, Admins can edit all
       if current_user.role == "capturist"
-        unless current_user == @user
+        if current_user != @user
           flash[:warning] = "No tiene permiso para realizar esta acción."
-          return redirect_to edit_user_path(current_user)
+          redirect_to edit_user_path(current_user)
         end
       end
     end
 
-    def password_permitted
-      current_user.valid_password?(params[:auth_password])
+    def auth_password_invalid?
+      !current_user.valid_password?(params[:user][:auth_password])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

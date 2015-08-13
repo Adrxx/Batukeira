@@ -16,4 +16,13 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
 
+  attr_accessor :auth_password_invalid
+
+  validate :add_auth_password_error
+
+  def add_auth_password_error
+    errors.add(:auth_password, 'La contraseña no es correcta.') if self.auth_password_invalid
+  end
+
+
 end

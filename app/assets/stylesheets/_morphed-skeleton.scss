@@ -111,7 +111,7 @@ $i:1;
   //@include align-content(space-around);
   @include flex-flow(row);
   @include flex-wrap(nowrap);
-  @include justify-content(flex-end);
+  @include justify-content(center);
   @include user-select(none);
 
 }
@@ -151,7 +151,15 @@ $i:1;
   max-width: 860px;
   margin: 0 auto;
   padding: 0 10px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+   }
+.container-fitted
+{
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 .column,
 .columns {
   width: 100%;

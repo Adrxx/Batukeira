@@ -6,12 +6,17 @@
     </div>
 <% end %>
 
+
+<div class="row">
+  <%= full_password_field(f,:auth_password,'Contraseña de autorización ( Tu contraseña actual )','') %>
+</div>
+<hr>
 <% if @user.new_record? %>
   <% content_for :header_content do %>
     <h1><b>Nuevo usuario</b></h1>
   <% end %>
   <div class="row">
-   <%= full_field(f,:email,'Correo de usuario' ,'ejemplo@ejemplo.com') %>
+    <%= full_field(f,:email,'Correo de usuario' ,'ejemplo@ejemplo.com') %>
   </div>
 <% else %>
   <% content_for :header_content do %>
@@ -19,13 +24,6 @@
   <% end %>
 <% end %>
 
-<div class="row">
-  <% if current_user == @user #Si el usuario actual esta editando su propia contraseña %>
-    <%= password_field(:auth_password,'Contraseña anterior') %>
-  <% else %>
-    <%= password_field(:auth_password,'Contraseña de administrador (Su contraseña)') %>
-  <% end %>
-</div>
 
 <div class="row">
   <div class="six columns">

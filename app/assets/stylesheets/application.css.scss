@@ -12,8 +12,100 @@
  */
 
 @import "global";
+@import "morphed-skeleton";
 
 
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+}
+
+// Colors
+$pale_yellow: #f7f;
 
 
+// Nav Bar...
 
+nav.nav-bar
+{
+  @include horizontal-stack();
+
+  background-color: red;
+  height: 65px;
+
+  a
+  {
+    font-weight: 500;
+    padding:5px 10px;
+    background-color:cyan;
+    margin:0 10px;
+    font-size: 1.2em;
+    text-decoration: none;
+  }
+
+}
+
+//--- LANDING
+
+.batukeira-es
+{
+  background-color: $pale_yellow;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 300;
+
+  div
+  {
+     margin: 20px auto;
+     width: 800px;
+     height: auto;
+     background-color: cyan;
+  }
+
+  strong
+  {
+    margin-bottom: 55px;
+  }
+}
+
+.como-funciona
+{
+
+  background-color:red;
+
+  .titulo
+  {
+    text-align: center;
+    padding: 20px;
+    font-size: 2.1em;
+  }
+
+  .centrado-vertical
+  {
+    @include vertical-align();
+    top: 40%;
+    background-color:blue;
+    text-align: center;
+    padding: 5px 20px;
+  }
+
+  .divisiones
+  {
+    height: 260px;
+  }
+
+  .texto
+  {
+    font-size: 1.9em;
+
+  }
+
+  .descripcion
+  {
+
+  }
+
+}

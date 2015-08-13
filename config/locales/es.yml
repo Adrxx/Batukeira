@@ -6,8 +6,8 @@ es:
         signed_out: "Hasta luego."
     failure:
       user:
-        invalid: "Ingrese un usuario válido."
-        not_found_in_database: "El usuario o la contraseña son incorrectos."
+        invalid: "El usuario o la contraseña son incorrectos." 
+        not_found_in_database: "El usuario o la contraseña son incorrectos." 
         unauthenticated: "Por favor inicie sesión."
         already_signed_out: "Sesión ya terminada"
       already_authenticated: "Sesión ya iniciada."
