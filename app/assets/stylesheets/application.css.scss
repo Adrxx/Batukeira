@@ -14,11 +14,41 @@
 @import "global";
 @import "morphed-skeleton";
 
-// TESTS
+// Colors
+$orange-c: #F6AD4C;
+$pale-orange-c: #F6AD4C;
+$yellow-c: #FDF27A;
+$pale-yellow-c: #FFF45E;
+$green-c: #82D173;
+$pale-green-c: #98E579;
+$text-dark-c: #414141;
+$text-light-c: #C4BD98;
 
 
+// SASS MAGIC UNIVERSAL
 
-// SASS MAGIC
+%fondo
+{
+  background-image: image-url("bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: -1;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  &:after {
+    //Overlay
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: transparentize($text-dark-c , 0.4);
+
+  }
+}
 
 @mixin main-button-style($color) {
   text-decoration: none;
@@ -53,11 +83,6 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-// Colors
-$pale-yellow: #FFF45E;
-$text-dark-c: #f82;
-
-
 // Nav Bar...
 
 nav.nav-bar
@@ -88,17 +113,21 @@ nav.nav-bar
 .baja-de-peso
 {
   position: relative;
-  background-color: orange;
   height: 100vh;
   min-height: 600px;
   max-height: 1200px;
+
+  .fondo
+  {
+    @extend %fondo;
+  }
 
   .curva
   {
     position: absolute;
     width: 100%;
     height: 100%;
-    fill: $pale-yellow;
+    fill: $pale-yellow-c;
   }
 
   .logo
@@ -134,12 +163,15 @@ nav.nav-bar
     text-transform: uppercase;
     line-height: 1.1em;
     font-weight: 500;
+    color:$pale-yellow-c;
   }
 
   .descripcion
   {
     font-size: 2.0em;
     font-weight: 500;
+    color:$pale-yellow-c;
+
   }
 
 
@@ -148,8 +180,9 @@ nav.nav-bar
 
 .batukeira-es
 {
-  background-color: $pale-yellow;
-  padding: 15px 0;
+  background-color: $pale-yellow-c;
+  color:$text-dark-c;
+  padding: 40px 0;
   text-align: center;
   font-weight: 300;
 
@@ -170,10 +203,9 @@ nav.nav-bar
     margin: 20px auto;
     padding: 0 25px;
     height: auto;
-    background-color: cyan;
-  
+
     @include desktop
-    {     
+    {
       padding: 0px;
       width: 650px;
      }
@@ -188,19 +220,23 @@ nav.nav-bar
 
 .como-funciona
 {
+  position: relative;
 
-  background-color:red;
+  .fondo
+  {
+    @extend %fondo;
+  }
 
   .titulo
   {
     text-align: center;
     padding: 20px;
     font-size: 2.5em;
+    color: $pale-yellow-c;
   }
 
   .centrado-vertical
   {
-    background-color:blue;
     text-align: center;
     padding: 22px 42px;
 
@@ -222,7 +258,7 @@ nav.nav-bar
       left: 50%;
       width: 300px;
       margin-left: -150px;
-      background-color: tomato;
+      background-color: $pale-orange-c;
 
       @include tablet
       {
@@ -274,6 +310,7 @@ nav.nav-bar
   .texto
   {
     font-size: 1.9em;
+    color: $pale-yellow-c;
     @include tablet
     {
       font-size: 1.5em;
@@ -287,6 +324,7 @@ nav.nav-bar
   .descripcion
   {
     font-size: 1.2em;
+    color: $text-light-c;
     @include tablet
     {
       font-size: 1em;
@@ -301,14 +339,42 @@ nav.nav-bar
 
 .capsulas-batukeira
 {
-  background-color: cyan;
-  position: relative;
+  background-color: $pale-yellow-c;
+  color: $text-dark-c;
 
+
+  .row
+  {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   .texto
   {
-    padding: 50px 0px;
-    width: 60%;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 300px;
+    padding-bottom: 0px;
+
     float: left;
+
+    @include tablet
+    {
+      padding: 50px 0px;
+      width: 60%;
+      margin-left: 30%;
+    }
+    @include desktop
+    {
+      width: 50%;
+      margin-left: 40%;
+    }
+
+    @include desktop-hd
+    {
+      width: 45%;
+      margin-left: 30%;
+    }
   }
 
   .titulo
@@ -330,45 +396,65 @@ nav.nav-bar
     }
   }
 
+  .contenedor-boton
+  {
+      display: block;
+      width: 100%;
+      float:left;
+      text-align: center;
+      margin: 0 auto;
+      padding: 20px 0px;
+
+
+      @include tablet
+      {
+        padding-top: 0px;
+      }
+
+
+      @include desktop-hd
+      {
+        padding: 0px;
+        display: inline-block;
+        width: 25%;
+        top: 50%;
+        position: absolute;
+        margin-top: -19px;
+
+      }
+
+
+  }
+
   .boton
   {
     @include main-button-style($text-dark-c);
 
-    display: block;
     width: 80%;
-    text-align: center;
-    margin: 0 auto;
-
-    @include tablet
+    @include desktop-hd
     {
-      display: inline-block;
-      top: 50%;
-      width: initial;
-      position: absolute;
-      margin:100px 10px;
-      margin-top: -20px;
-
+      width: auto;
     }
-
   }
 
 }
 
 .ya-usas-batukeira
 {
-
-  padding: 50px 0;
+  background-color: $orange-c;
+  color: $text-dark-c;
+  padding: 30px 0;
   .titulo
   {
     text-align: center;
-    font-size: 3.9em;
+    font-size: 3.1em;
     font-weight: 500;
     padding: 10px 0;
   }
   .descripcion
   {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 400;
     line-height: 1.2em;
   }
@@ -391,7 +477,7 @@ nav.nav-bar
 
   .boton
   {
-    @include main-button-style($pale-yellow);
+    @include main-button-style($pale-yellow-c);
     margin: 30px 0;
   }
 
@@ -439,9 +525,14 @@ nav.nav-bar
 
   .respuesta
   {
-    width: 65%;
+    width: 85%;
     text-align: justify;
     margin: 0 auto;
+
+    @include desktop
+    {
+      width: 65%;
+    }
 
 
   }

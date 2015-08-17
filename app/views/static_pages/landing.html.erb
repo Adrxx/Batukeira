@@ -1,4 +1,5 @@
 <section class="baja-de-peso">
+<div class="fondo"></div>
 <svg class="curva" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
   <path d="M 2 10 H 10 L 11 2 Q 10 10 2 10"></path>
 </svg>
@@ -20,6 +21,7 @@ dietas, sin hacer ejercicio.
 </section>
 
 <section class="row como-funciona">
+  <div class="fondo"></div>
   <div class="row">
     <div class="titulo">¿Cómo funciona?</div>
   </div>
@@ -61,89 +63,88 @@ baja de peso.
 </section>
 
 <section class="row capsulas-batukeira">
-
-  <div class="texto">
-    <div class="titulo">
-      Cápsulas Batukeira®
+  <div class="row">
+    <div class="texto">
+      <div class="titulo">
+        Cápsulas Batukeira®
+      </div>
+      <div class="descripcion">
+        Creadas a base de algas marinas, nopal,
+        bambú, jamaica, cha de bugre, toronja,
+        mango y otras frutas. <br>
+        <br>
+        Ayudan a eliminar la grasa del cuerpo, no
+        deja flacidez alivia el estreñimineto y reduce
+        el colesterol. <span> Te ayudará a quemar de 3 a 6
+        kilos en un mes. </span>
+      </div>
     </div>
-    <div class="descripcion">
-      Creadas a base de algas marinas, nopal,
-      bambú, jamaica, cha de bugre, toronja,
-      mango y otras frutas. <br>
-      <br>
-      Ayudan a eliminar la grasa del cuerpo, no
-      deja flacidez alivia el estreñimineto y reduce
-      el colesterol. <span> Te ayudará a quemar de 3 a 6
-      kilos en un mes. </span>
+    <div class="contenedor-boton">
+      <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
     </div>
   </div>
-  <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
-
-    <!-- <%= link_to dealers_path, class: 'c4-grid-cell' do %>
-      <div class="centered">
-        <span class="icon-enlarge"></span>
-        <span class="name">Distribuidores</span>
-      </div>
-    <% end %> -->
 </section>
 
 <section class="row ya-usas-batukeira">
   <div class="titulo">¿Ya usas Batukeira®?</div>
-  <div class="descripcion">Complementa tu tratamiento y obtén los
+  <div class="descripcion">Complementa tu tratamiento y obtén los <br>
 mejores resultados.</div>
 </section>
 
 <section class="row capsulas-batukeira">
-  <div class="six columns offset-by-three texto">
-    <div class="titulo">
-      Gel Batukeira®
+  <div class="row">
+    <div class="texto">
+      <div class="titulo">
+        Gel Batukeira®
+      </div>
+      <div class="descripcion">
+        Creadas a base de algas marinas, bambú,
+  romero, toronja, piña, lima, mango, ruda,
+  menta, Gotu Kola, colágeno y elastina.
+  <br><br>
+  Sirve para complementar las Cápsulas
+  Batukeira®. Al aplicarse en la piel, ayuda a
+  evitar la flacidez, estrías y piel de naranja al
+  bajar de peso.
+  <br><br>
+  Usarlo 2 veces al día, equivale a realizar 50
+  minutos de ejercicio o 150 abdominales,
+  dependiendo del lugar del cuerpo donde se
+  ponga.
+      </div>
     </div>
-    <div class="descripcion">
-      Creadas a base de algas marinas, bambú,
-romero, toronja, piña, lima, mango, ruda,
-menta, Gotu Kola, colágeno y elastina.
-<br><br>
-Sirve para complementar las Cápsulas
-Batukeira®. Al aplicarse en la piel, ayuda a
-evitar la flacidez, estrías y piel de naranja al
-bajar de peso.
-<br><br>
-Usarlo 2 veces al día, equivale a realizar 50
-minutos de ejercicio o 150 abdominales,
-dependiendo del lugar del cuerpo donde se
-ponga.
+    <div class="contenedor-boton">
+      <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
     </div>
-  </div>
-  <div class="three columns">
-    <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
   </div>
 </section>
 
 <section class="row capsulas-batukeira">
-  <div class="six columns offset-by-three texto">
-    <div class="titulo">
-      Gel Batukeira®
+  <div class="row">
+    <div class="texto">
+      <div class="titulo">
+        Crema Nutritiva
+Batukeira®
+      </div>
+      <div class="descripcion">
+
+Tu nuevo secreto de belleza.
+  <br><br>
+  Contiene colágeno, elastina, aceite de Argán,
+Jalea Real, semilla de uva, vitamina E,
+Alantoína y otros ingredientes naturales.
+  <br><br>
+  Elimina las líneas de expresión y las manchas
+  oscuras en la piel producidas por los rayos UV
+  o por el paso del tiempo.
+      </div>
     </div>
-    <div class="descripcion">
-      Creadas a base de algas marinas, bambú,
-romero, toronja, piña, lima, mango, ruda,
-menta, Gotu Kola, colágeno y elastina.
-<br><br>
-Sirve para complementar las Cápsulas
-Batukeira®. Al aplicarse en la piel, ayuda a
-evitar la flacidez, estrías y piel de naranja al
-bajar de peso.
-<br><br>
-Usarlo 2 veces al día, equivale a realizar 50
-minutos de ejercicio o 150 abdominales,
-dependiendo del lugar del cuerpo donde se
-ponga.
+    <div class="contenedor-boton">
+      <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
     </div>
-  </div>
-  <div class="three columns">
-    <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
   </div>
 </section>
+
 
 <section class="row disenado-para">
   <div class="titulo">Diseñado para tu estilo de vida.</div>
