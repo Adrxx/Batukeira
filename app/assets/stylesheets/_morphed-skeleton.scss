@@ -93,6 +93,49 @@ $i:1;
   }
 }
 
+.ms-mq-test
+{
+
+  position: fixed;
+  z-index: 10000;
+  bottom: 0px;
+  padding: 5px;
+  background-color: white;
+  
+  &:before
+  {
+    content: "normal";
+
+    @include phablet
+    {
+      content: "phablet";
+    }
+
+    @include tablet
+    {
+      content: "tablet";
+    }
+
+    @include desktop
+    {
+      content: "desktop";
+    }
+
+    @include desktop-hd
+    {
+      content: "desktop-hd";
+    }
+
+    @include big-af
+    {
+      content: "big-af";
+    }
+
+  }
+
+
+}
+
 /* Alignment
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
