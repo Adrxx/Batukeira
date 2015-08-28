@@ -58,9 +58,3 @@ $(document).on 'page:change', ->
 
   #_______________________________________________ Input Tools
     
-  $(window).on 'scroll', ->
-    scroll_top = $(window).scrollTop();
-    unless scroll_top > $('.c4-header').height()
-      $('.c4-nav').removeClass 'c4-nav-scrolling'
-    else
-      $('.c4-nav').addClass 'c4-nav-scrolling'

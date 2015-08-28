@@ -38,7 +38,7 @@ Batukeira Admin specific styles only
 
 .tt-suggestion
 {
-  background-color:$light-c;
+  background-color:$c1-bg;
   color: $c4;
   padding: 10px 0px;
   border-bottom:solid 1px $c4-bg;
@@ -52,7 +52,7 @@ Batukeira Admin specific styles only
 
   &.tt-cursor
   {
-    color: $light-c;
+    color: $c1-bg;
     background-color: $c4;
   }
 }

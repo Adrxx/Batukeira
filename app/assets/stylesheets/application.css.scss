@@ -16,9 +16,9 @@
 
 // Colors
 $orange-c: #F6AD4C;
-$pale-orange-c: #F6AD4C;
-$yellow-c: #FDF27A;
-$pale-yellow-c: #FFF45E;
+$pale-orange-c: #FED269;
+$yellow-c: #FFF45E;
+$pale-yellow-c: #FDF27A;
 $green-c: #82D173;
 $pale-green-c: #98E579;
 $text-dark-c: #414141;
@@ -92,17 +92,35 @@ nav.nav-bar
   z-index: 1000;
   @include horizontal-stack();
 
-  background-color: red;
+  background-color: transparent;
   height: 65px;
+
+  @include transition-duration(0.2s);
+  @include transition-property(all);
 
   a
   {
+    color:$pale-yellow-c;
     font-weight: 500;
     padding:5px 10px;
-    background-color:cyan;
     margin:0 10px;
     font-size: 1.2em;
     text-decoration: none;
+
+
+    &:hover
+    {
+      text-decoration: underline;
+    }
+  }
+
+  &.scrolled
+  {
+    background-color: $pale-yellow-c;
+    a
+    {
+      color: $text-dark-c;
+    }
   }
 
 
@@ -163,7 +181,7 @@ nav.nav-bar
     text-transform: uppercase;
     line-height: 1.1em;
     font-weight: 500;
-    color:$pale-yellow-c;
+    color:$pale-orange-c;
   }
 
   .descripcion
@@ -171,7 +189,7 @@ nav.nav-bar
     font-size: 2.0em;
     font-weight: 500;
     color:$pale-yellow-c;
-    opacity: 0.8;
+    opacity: 1.0;
 
   }
 
@@ -234,6 +252,12 @@ nav.nav-bar
     padding: 20px;
     font-size: 2.5em;
     color: $pale-yellow-c;
+      display: none;
+    @include tablet
+    {
+      display: block;
+    }
+
   }
 
   .centrado-vertical
@@ -310,7 +334,7 @@ nav.nav-bar
 
   .texto
   {
-    font-size: 1.9em;
+    font-size: 1.6em;
     color: $pale-yellow-c;
     @include tablet
     {
@@ -342,6 +366,11 @@ nav.nav-bar
 {
   background-color: $pale-yellow-c;
   color: $text-dark-c;
+
+  &.dark
+  {
+    background-color: $pale-orange-c;
+  }
 
 
   .row
@@ -445,19 +474,32 @@ nav.nav-bar
   background-color: $orange-c;
   color: $text-dark-c;
   padding: 30px 0;
+
   .titulo
   {
     text-align: center;
-    font-size: 3.1em;
+    font-size: 1.9em;
     font-weight: 500;
-    padding: 10px 0;
+    padding: 5px 20px;
+
+    @include tablet
+    {
+      font-size: 3.1em;
+      padding: 10px 0;
+
+    }
   }
   .descripcion
   {
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 400;
     line-height: 1.2em;
+    padding: 0 20px;
+    @include tablet
+    {
+      font-size: 1.4em;
+    }
   }
 }
 
@@ -465,6 +507,7 @@ nav.nav-bar
 {
   text-align: center;
   padding: 40px 0px;
+  color: $pale-yellow-c;
 
   .titulo
   {
@@ -484,58 +527,72 @@ nav.nav-bar
 
   .info
   {
-
+    
+    a
+    {
+      color: $orange-c;
+      font-weight: 500;
+    }
   }
 
 }
 
 .casos-destacados
 {
-  background-color: orange;
-  text-align: center;
-
-  .titulo
-  {
-  }
-
-  .descripcion
-  {
-
-  }
-
-
+  @extend .ya-usas-batukeira;
 }
 
 .preguntas-frecuentes
 {
-  text-align: center;
-  .titulo
-  {
+  @extend .ya-usas-batukeira;
+}
 
+.pregunta
+{
+
+  text-align:center;
+  padding: 20px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  color: $text-dark-c;
+
+  @include tablet
+  {
+    font-size: 19px;
   }
 
-  .descripcion
-  {
 
+  &:nth-child(odd)
+  {
+    background-color: $pale-orange-c;
+  }
+  &:nth-child(even)
+  {
+    background-color: $pale-yellow-c;
   }
 
-  .pregunta
-  {
+}
 
+.respuesta
+{
+  width: 85%;
+  text-align: justify;
+  margin: 0 auto;
+  max-height: 0px;
+  overflow: hidden;
+  font-weight:500;
+  @include transition-duration(0.9s);
+  @include transition-property(all);
+
+  @include desktop
+  {
+    width: 65%;
   }
-
-  .respuesta
+  
+  &.exploded
   {
-    width: 85%;
-    text-align: justify;
-    margin: 0 auto;
-
-    @include desktop
-    {
-      width: 65%;
-    }
-
-
+    max-height: 300px;
+    padding-top: 20px;
   }
 
 }
