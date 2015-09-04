@@ -6,6 +6,11 @@ module ApplicationHelper
     result.html_safe
   end
 
+  def num_to_month(num)
+    monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+    monthNames[num-1]
+  end
+
   def color_palette()
     '<div class="palette">
     <div class="p-color"></div>

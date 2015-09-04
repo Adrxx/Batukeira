@@ -1,2 +1,89 @@
-<h1>StaticPages#casos</h1>
-<p>Find me in app/views/static_pages/casos.html.erb</p>
+<section class="casos-de-exito">
+<div class="fondo"></div>
+<h1 class="titulo">
+  Casos de Éxito
+</h1>
+<h5 class="descripcion">
+  Ve los resultados que personas como tú han obtenido con Batukeira®.
+</h5>
+</section>
+
+<section class="casos-listado">
+
+<% @cases.each_with_index do |c,i| %>
+  <div class="celda">
+    <div class="datos">
+      <div class="centrado-vertical">
+        <div class="nombre"><%= c.title %></div>
+
+        <div class="atributo">
+          <% if !c.weight_before.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(c.weight_before, :precision => 2) %> Kg
+          <% end %>
+          <% if !c.weight_after.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(c.weight_after, :precision => 2) %>  Kg
+          <% end %>
+        </div>
+
+        <div class="atributo">
+          <% if !c.waist_before.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(c.waist_before, :precision => 2) %> cm
+          <% end %>
+          <% if !c.waist_after.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(c.waist_after, :precision => 2) %>  cm
+          <% end %>
+        </div>
+
+        <br>
+
+        <% if !c.eleapsed_time.empty? %>
+          <div class="atributo"><span>Tiempo invertido:</span><%= c.eleapsed_time %></div>
+        <% end %>
+
+        <% if !c.product_used.empty? %>
+          <div class="atributo"><span>Producto utilizado:</span><%= c.product_used %></div>
+        <% end %>
+
+        <div class="descripcion"><%= c.title %></div>
+      </div>
+    </div>
+    <div class="galeria">
+      <div class="gallery-top-<%= i %> swiper-container ">
+        <div class="swiper-wrapper">
+          <% c.photos.each do |photo| %>
+            <div class="swiper-slide" style="background-image:url(<%=photo.photo_file.url(:thumb)%>)">
+              <div class="detalles">
+                <% if !photo.month.nil? && !photo.year.nil? %>
+                  <%= num_to_month(photo.month) %> <%= photo.year %>
+                <% end %>
+                <% if !photo.weight.nil? %>
+                   Peso: <%= number_with_precision(photo.weight, :precision => 2) %> Kg
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="swiper-button-next next-<%= i %> swiper-button-white"></div>
+        <div class="swiper-button-prev prev-<%= i %> swiper-button-white"></div>
+      </div>
+
+      <script>
+      var galleryTop = new Swiper('.gallery-top-<%= i %>', {
+          nextButton: '.next-<%= i %>',
+          prevButton: '.prev-<%= i %>',
+          spaceBetween: 0,
+          speed:500,
+          autoplay:3000,
+          slidesPerView:2,
+          keyboardControl: true
+        });
+      </script>
+    </div>
+  </div>
+<% end %>
+
+</section>
+<!-- <section class="batukeria-te-ayudo">
+  <div class="titulo">¿Batukeira te ayudó a ti? <a href="">Envíanos tu caso.</a></div>
+</section> -->

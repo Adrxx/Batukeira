@@ -1,28 +1,25 @@
 <section class="vuelvete">
-<svg class="curva" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-  <path d="M 8 10 H 0 L -1 2 Q 0 10 8 10"></path>
-</svg>
 <div class="fondo"></div>
 <div class="centrado-vertical">
   <h1 class="titulo">Vuélvete un distribuidor <br> Batukeira®</h1>
-  <div class="descripcion">Sin dejar de comer ni hacer ejercicio.</div>
+  <div class="descripcion">Expande tu negocio y ayuda a las personas a alcanzar sus metas.</div>
 </div>
 </section>
 <section class="row beneficios">
 <!-- <h2 class="titulo">Beneficios</h2> -->
 <div class="row">
   <div class="six columns">
-    <div class="titulo">Beneficio 1</div>
-    <div class="descripcion">Explicación del beneficio 1.</div>
+    <div class="titulo">Negocio sencillo en todo el país.</div>
+    <div class="descripcion">Ordena por teléfono y utiliza cualquier forma de pago.</div>
   </div>
   <div class="six columns">
-      <div class="titulo">Beneficio 2</div>
-      <div class="descripcion">Explicación del beneficio 2.</div>
+      <div class="titulo">Los clientes llegan solos</div>
+      <div class="descripcion">Precencia en nuestro sitio web para que tus clientes te encuentren.</div>
   </div>
 </div>
 <div class="row">
-      <div class="titulo">Beneficio 3</div>
-          <div class="descripcion">Explicación del beneficio 3.</div>
+      <div class="titulo">Grandes márgenes de ganancia</div>
+          <div class="descripcion">Tu inversión por grandes retornos.</div>
 </div>
 </section>
 <section class="row como-convertirse">
@@ -64,63 +61,103 @@
   </div>
 </section>
 
-<section class="formulario">
-  <div class="titulo">Comienza aquí.</div>
-    <%= form_for @contact_model, :url => contact_send_mail_path, :method => :post do |f| %>
-        <%= f.text_field :name, class: 'campo', placeholder: "Nombre" %>
-        <%= f.text_field  :email,class: 'campo', placeholder: "Correo elecrónico" %>
-        <%= f.text_field  :subject, class: 'campo', placeholder: "Teléfono" %>
-        <%= f.text_field  :subject, class: 'campo', placeholder: "Teléfono secundario" %>
-        <%= f.text_area  :message, class: 'campo area', placeholder: "Dirección" %>
-        <%= f.hidden_field :nickname %>
-        <%= f.button :Enviar, class: 'boton' %>
-      <% end %>
-</section>
 
 <!-- <section class="pago-en-linea">
   <h2 class="title">| Botones de pago en línea |</h2>
 </section> -->
 
 <section class="row preguntas-frecuentes">
-  <h2 class="titulo">Preguntas Frecuentes</h2>
-  <div class="descripcion">Todo lo que necesitas saber sobre Batukeira®.</div>
+  <div class="titulo">Preguntas Frecuentes</div>
 </section>
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+ ¿Cuánto cuestan los paquetes y qué contienen?
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+Tenemos tres paquetes: 
+
+1. Incluye 6 frascos de cápsulas, 3 geles, 6 muestras y 10 volantes, con un precio de $3,500 MXN. 
+
+2. Incluye 10 frascos de cápsulas, 3 geles, 10 muestras y 15 volantes, con un precio de $5,000 
+MXN. 
+
+3. Incluye 7 cremas, 4 muestras y 5 volantes, con un precio de $2,000 MXN. 
   </div>
 </div>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+¿Los pedidos se envían a mi domicilio? 
+
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+Los pedidos pueden recogerse en Naucalpan, Estado de México o pueden enviarse a su domicilio (más costos de envío). 
   </div>
 </div>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+¿Es necesario comprar una cantidad mínima mensual? 
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+No, puede comprar lo que sea necesario para su negocio. 
   </div>
 </div>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+¿Hay que pagar una suscripción?
+
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+No, por ahora no hay suscripción pero a partir del año del 2016, tendrá un costo de $500 MXN. 
   </div>
 </div>
+<div class="pregunta">
+
+¿Tienen permiso para distribuirlas? 
+  <div class="respuesta">
+Sí, el producto está autorizado por la Secretaría de Saludo y la Cofepris. 
+
+  </div>
+</div>
+<div class="pregunta">
+¿Puedo comprarle a alguien más o debe ser directamente a ustedes?
+  <div class="respuesta">
+Nosotros somos los únicos distribuidores nacionales e internacionales. 
+
+  </div>
+</div>
+<div class="pregunta">
+¿El pago se realiza antes o después de recibir el producto?
+  <div class="respuesta">
+Se realiza antes de recibir el producto, el envío se hace después de efectuar el pago. 
+  </div>
+</div>
+<div class="pregunta">
+¿Hay algún tipo de crédito, mensualidades, abonos, etcétera? 
+
+  <div class="respuesta">
+No, por ahora solo aceptamos pagos de contado. 
+  </div>
+</div>
+<div class="pregunta">
+
+¿En cuánto tiempo llegará mi pedido?
+  <div class="respuesta">
+En un tiempo máximo de 5 días hábiles.
+  </div>
+</div>
+
+<div class="pregunta">
+¿Hay más distribuidores donde estaré yo?
+  <div class="respuesta">
+Buscamos que haya máximo 3 distribuidores por ciudad.</div>
+</div>
+
+<section class="formulario">
+  <div class="centrado">
+    <div class="titulo">Comienza aquí.</div>
+      <%= form_for @contact_model, :url => contact_send_mail_path, :method => :post do |f| %>
+          <%= f.text_field :name, class: 'campo', placeholder: "Nombre" %>
+          <%= f.text_field  :email,class: 'campo', placeholder: "Correo elecrónico" %>
+          <%= f.text_field  :subject, class: 'campo', placeholder: "Teléfono" %>
+          <%= f.text_field  :subject, class: 'campo', placeholder: "Teléfono secundario" %>
+          <%= f.text_area  :message, class: 'campo area', placeholder: "Dirección" %>
+          <%= f.hidden_field :nickname %>
+          <%= f.button :Enviar, class: 'boton' %>
+        <% end %>
+  </div>
+</section>

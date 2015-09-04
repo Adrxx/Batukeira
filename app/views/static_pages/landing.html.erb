@@ -13,9 +13,9 @@
 
 <section class="row batukeira-es">
   <div>
-    Batukeira® es un método 100% natural que quema la grasa
-interna y externa de todo el cuerpo al mismo tiempo. Sin hacer
-dietas, sin hacer ejercicio.
+    Batukeira@ es el único método completo para bajar de peso de forma natural. No es necesario hacer dietas ni ejercicio para quemar la grasa interna y externa del cuerpo. Somos el único método que se asegura de prevenir el rebote una vez que alcanzaste tu peso ideal.
+  </div>
+    <div class="imagen">
   </div>
   <strong>Bajar de peso nunca había sido tan sencillo.</strong>
 </section>
@@ -80,13 +80,13 @@ baja de peso.
       </div>
     </div>
     <div class="contenedor-boton">
-      <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
+      <%= link_to("Comprar ahora", comprar_path, class:'boton') %>
     </div>
   </div>
 </section>
 
 <section class="row ya-usas-batukeira">
-  <div class="titulo">¿Ya usas Batukeira®?</div>
+  <h2 class="titulo">¿Ya usas Batukeira®?</h2>
   <div class="descripcion">Complementa tu tratamiento y obtén los <br>
 mejores resultados.</div>
 </section>
@@ -114,7 +114,7 @@ mejores resultados.</div>
       </div>
     </div>
     <div class="contenedor-boton">
-      <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
+      <%= link_to("Comprar ahora", comprar_path, class:'boton') %>
     </div>
   </div>
 </section>
@@ -140,7 +140,7 @@ Alantoína y otros ingredientes naturales.
       </div>
     </div>
     <div class="contenedor-boton">
-      <%= link_to("Comprar ahora", dealers_path, class:'boton') %>
+      <%= link_to("Comprar ahora", comprar_path, class:'boton') %>
     </div>
   </div>
 </section>
@@ -150,7 +150,7 @@ Alantoína y otros ingredientes naturales.
   <h2 class="titulo">Diseñado para tu estilo de vida.</h2>
   <div class="descripcion">Con Batukeira® puedes obtener el cuerpo
 ideal sin complicaciones.</div>
-  <%= link_to("Inicia tu tratamiento", dealers_path, class:'boton') %>
+  <%= link_to("Inicia tu tratamiento", comprar_path, class:'boton') %>
   <div class="info">¿Tienes tu propio negocio? Descubre cómo puedes volverte un <%= link_to("distribuidor Batukeira®", dealers_path) %></div>
 </section>
 
@@ -159,47 +159,151 @@ ideal sin complicaciones.</div>
   <div class="descripcion">El poder de Batukeira® es real.</div>
 </section>
 
+<section class="caso-destacado">
+<% if !@case.nil? %>
+  <div class="celda">
+    <div class="datos">
+      <div class="centrado-vertical">
+        <div class="nombre"><%= @case.title %></div>
+
+        <div class="atributo">
+          <% if !@case.weight_before.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(@case.weight_before, :precision => 2) %> Kg
+          <% end %>
+          <% if !@case.weight_after.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(@case.weight_after, :precision => 2) %>  Kg
+          <% end %>
+        </div>
+
+        <div class="atributo">
+          <% if !@case.waist_before.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(@case.waist_before, :precision => 2) %> cm
+          <% end %>
+          <% if !@case.waist_after.nil? %>
+            <span>Peso inicial:</span> <%= number_with_precision(@case.waist_after, :precision => 2) %>  cm
+          <% end %>
+        </div>
+
+        <br>
+
+        <% if !@case.eleapsed_time.empty? %>
+          <div class="atributo"><span>Tiempo invertido:</span><%= @case.eleapsed_time %></div>
+        <% end %>
+
+        <% if !@case.product_used.empty? %>
+          <div class="atributo"><span>Producto utilizado:</span><%= @case.product_used %></div>
+        <% end %>
+
+        <div class="descripcion"><%= @case.title %></div>
+      </div>
+    </div>
+    <div class="galeria">
+      <div class="gallery-top swiper-container ">
+        <div class="swiper-wrapper">
+          <% @case.photos.each do |photo| %>
+            <div class="swiper-slide" style="background-image:url(<%=photo.photo_file.url(:thumb)%>)">
+              <div class="detalles">
+                <% if !photo.month.nil? && !photo.year.nil? %>
+                  <%= num_to_month(photo.month) %> <%= photo.year %>
+                <% end %>
+                <% if !photo.weight.nil? %>
+                   Peso: <%= number_with_precision(photo.weight, :precision => 2) %> Kg
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+        <div class="swiper-button-next next- swiper-button-white"></div>
+        <div class="swiper-button-prev prev- swiper-button-white"></div>
+      </div>
+
+      <script>
+      var galleryTop = new Swiper('.gallery-top', {
+          nextButton: '.next-',
+          prevButton: '.prev-',
+          spaceBetween: 0,
+          speed:500,
+          autoplay:3000,
+          slidesPerView:2,
+          keyboardControl: true
+        });
+      </script>
+    </div>
+  </div>
+<% end %>
+</section>
+
 <section class="row preguntas-frecuentes">
   <h2 class="titulo">Preguntas Frecuentes</h2>
   <div class="descripcion">Todo lo que necesitas saber sobre Batukeira®.</div>
 </section>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  ¿Por qué Batukeira@ es un sistema completo para bajar de peso?
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+    Porque, a diferencia de otros métodos, Batukeira@ te ofrece los productos necesarios para cada etapa del proceso, desde quemar grasa  hasta evitar el rebote y la piel de naranja. 
   </div>
 </div>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  ¿Cómo funciona Batukeira@?
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+    Es muy simple, solo debes tomar una cápsula diaria (de preferencia por las noches) y empezarás a quemar grasa en todo el cuerpo. Una vez que hayas alcanzado tu peso ideal, adquiere los productos especializados para evitar el rebote y para prevenir la flacidez. 
+
+Así de simple es tener el físico que siempre soñaste. 
   </div>
 </div>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  ¿Batukeira® me ayuda a bajra de peso sin hacer ejercicio? 
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+    Así es, los ingredientes activos naturales de Batukeira@ permiten la quema de grasa interna y externa de todo el cuerpo, a diferencia de otros productos, podrás quemar de 100 a 200 gramos diarios. 
+
+Si se acompaña de una rutina de ejercicio, podrás obtener mejores resultados y una mejor calidad de vida. 
   </div>
 </div>
 
 <div class="pregunta">
-  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  ¿Los ingredientes de Batukeira® son naturales? 
   <div class="respuesta">
-    Batukeira quema toda la grasa interna y externa
-    en tu cuerpo y hace que la elimines al evacuar.
-    Al usarla, perderas de 100g a 200g diarios, lo que
-    equivale a entre 3 y 6 kilos al mes.
+    Sí, todos los ingredientes de los productos Batukeira@ son 100% naturales para aprovechar así todos sus beneficio.
   </div>
 </div>
+
+<div class="pregunta">
+  Si ya logré bajar de peso, ¿qué debo hacer después? 
+  <div class="respuesta">
+   Lo más importante después de bajar de peso, es evitar el rebote, habla con tu distribuidor para que te informe sobre nuestro productos especializados en el control del rebote y evitar la flacidez (piel de naranja). 
+  </div>
+</div>
+
+<div class="pregunta">
+  ¿En cuánto tiempo empezaré notar cambios en mi cuerpo?
+  <div class="respuesta">
+    Los efectos de las cápsulas y gel Batukeira@ son inmediatos. A partir del cuarto día, empezarás a notar en tu ropa cómo ha disminuido tu grasa corporal. 
+
+  </div>
+</div>
+<div class="pregunta">
+¿Está permitida la distribución de Batukeira@?
+  <div class="respuesta">
+    Sí, los productos Batukeira@ están autorizados por la Secretaría de Salud y la Cofepris. 
+  </div>
+</div>
+<div class="pregunta">
+¿Cómo debe utilizarse el Gel Batukeira®? 
+  <div class="respuesta">
+Se recomiendo utilizarse dos veces al día, una en la mañana y otra en la noche. El Gel Batukeira@ ayuda a eliminar la grasa rápidamente y de manera natural en zonas específicas del cuerpo. Aplicar el gel, que no deja ningún olor, ni sensación grasosa, es equivalente a realizar 40 minutos de ejercicio físico. 
+
+  </div>
+</div>
+
+<div class="pregunta">
+¿Puedo comprar los productos por separado? 
+  <div class="respuesta">
+Sí, los productos Batukeira® se venden por separado, sin embargo,te recomendamos utilizarlos al mismo tiempo para obtener mejores resultados y alcanzar tus metas en el menor tiempo posible. 
+  </div>
+</div>
+
+

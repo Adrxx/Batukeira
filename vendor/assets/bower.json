@@ -3,6 +3,7 @@
   "dependencies": {
     "animate.css": "latest",
     "normalize.css": "latest",
-    "typeahead-addresspicker": "latest"
+    "typeahead-addresspicker": "latest",
+    "swiper": "latest"
   }
 }

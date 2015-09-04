@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,300' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="animated fadeIn">
 <span class="ms-mq-test"></span>
 <div class="menu-button"></div>
 <nav class="nav-bar <%= yield(:fixed_nav) %>">
@@ -21,8 +21,11 @@
 </nav>
 
 <div class="container-fitted">
-  <%= yield %>
+    <%= yield %>
 </div>
+<div class="fondo"></div>
+
+
 
 </body>
 </html>

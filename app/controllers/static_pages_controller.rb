@@ -1,8 +1,15 @@
 class StaticPagesController < ApplicationController
   def landing
+    @case = Case.first
+    Case.all.each do |c|
+      if c.featured
+        @case = c
+      end 
+    end
   end
 
   def casos
+    @cases = Case.all
   end
 
   def contacto
