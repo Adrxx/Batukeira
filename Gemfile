@@ -25,6 +25,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.2"
 gem 'compass-rails', '~> 2.0.4'
 gem 'devise', '~> 3.4.1'
+gem 'simple_form'
+gem 'mail_form'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development

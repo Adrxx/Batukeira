@@ -1,12 +1,58 @@
-<svg class="poly-background" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1">
+<% content_for :fixed_nav, 'scrolled fixed' %>
+<section class="row contacto">
+  <div class="fondo"></div>
+  <div class="info">
+    <div class="centrado-vertical">
+      <h1 class="titulo">Contáctanos</h1>
 
-      <polygon points="0,0 0,10 10,10 10,0 5,1" />
-      <path d="M10 10 H 90 V 90 H 10 L 10 10"/>
 
-  </svg>
+    <% unless @prefs.facebook.empty? %>
+      <div class="texto">Facebook:</div>
+      <ul class="lista">
+        <li><%= @prefs.facebook %></li>
+      </ul>
+    <% end %>
 
-  <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  
-  <path d="M10 10 H 90 V 90 H 10 L 10 10"/>
+    <% unless @prefs.twitter.empty? %>
+      <div class="texto">Twitter:</div>
+      <ul class="lista">
+        <li><%= @prefs.facebook %></li>
+      </ul>
+    <% end %>
 
-</svg>
+    <% unless @prefs.email.empty? %>
+      <div class="texto">Correo electrónico:</div>
+      <ul class="lista">
+        <li><%= @prefs.facebook %></li>
+      </ul>
+    <% end %>
+
+    <% unless @prefs.telephone.empty? && @prefs.telephone2.empty? %>
+      <div class="texto">Teléfono:</div>
+      <ul class="lista">
+       <% unless @prefs.telephone.empty? %>
+        <li><%= @prefs.telephone %></li>
+       <% end %>
+      <% unless @prefs.telephone2.empty? %>
+        <li><%= @prefs.telephone2 %></li>
+       <% end %>
+      </ul>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="forma">
+    <div class="centrado-vertical">
+      <div class="titulo">Envíanos un mensaje.</div>
+      <%= form_for @contact_model, :url => contact_send_mail_path, :method => :post do |f| %>
+        <%= f.text_field :name, class: 'campo', placeholder: "Nombre" %>
+        <%= f.text_field  :email,class: 'campo', placeholder: "Correo elecrónico" %>
+        <%= f.text_field  :subject, class: 'campo', placeholder: "Asunto" %>
+        <%= f.text_area  :message, class: 'campo area', placeholder: "Mensaje" %>
+        <%= f.hidden_field :nickname %>
+        <%= f.button :Enviar, class: 'boton' %>
+      <% end %>
+    </div>
+  </div>
+
+</section>

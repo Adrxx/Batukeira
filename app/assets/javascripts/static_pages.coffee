@@ -5,10 +5,17 @@
 $(document).on 'page:change', ->
   $(window).on 'scroll', ->
     scroll_top = $(window).scrollTop();
-    unless scroll_top > $('.nav-bar').height()
+    unless scroll_top > $('.nav-bar').height() || $('.nav-bar').hasClass('fixed')
       $('.nav-bar').removeClass 'scrolled'
     else
       $('.nav-bar').addClass 'scrolled'
+
+  $('.menu-button').on 'click', ->
+    r = $('.nav-bar')
+    unless r.hasClass 'exploded'
+      $(r).addClass 'exploded'
+    else
+      $(r).removeClass 'exploded'
 
   $('.pregunta').on 'click', ->
     r = $(this).find('.respuesta')

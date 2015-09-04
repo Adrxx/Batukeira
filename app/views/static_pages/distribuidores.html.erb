@@ -1,2 +1,126 @@
-<h1>StaticPages#distribuidores</h1>
-<p>Find me in app/views/static_pages/distribuidores.html.erb</p>
+<section class="vuelvete">
+<svg class="curva" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
+  <path d="M 8 10 H 0 L -1 2 Q 0 10 8 10"></path>
+</svg>
+<div class="fondo"></div>
+<div class="centrado-vertical">
+  <h1 class="titulo">Vuélvete un distribuidor <br> Batukeira®</h1>
+  <div class="descripcion">Sin dejar de comer ni hacer ejercicio.</div>
+</div>
+</section>
+<section class="row beneficios">
+<!-- <h2 class="titulo">Beneficios</h2> -->
+<div class="row">
+  <div class="six columns">
+    <div class="titulo">Beneficio 1</div>
+    <div class="descripcion">Explicación del beneficio 1.</div>
+  </div>
+  <div class="six columns">
+      <div class="titulo">Beneficio 2</div>
+      <div class="descripcion">Explicación del beneficio 2.</div>
+  </div>
+</div>
+<div class="row">
+      <div class="titulo">Beneficio 3</div>
+          <div class="descripcion">Explicación del beneficio 3.</div>
+</div>
+</section>
+<section class="row como-convertirse">
+  <div class="fondo"></div>
+  <div class="row">
+    <h2 class="titulo">¿Cómo convertirse en distribuidor?</h2>
+  </div>
+  <div class="row columnas">
+    <div class="four columns">
+      <div class="centrado-vertical">
+        <div class="texto">
+          Llena el formulario.
+        </div>
+        <div class="descripcion">
+         Para ser registrado como distribuidor.
+        </div>
+      </div>
+    </div>
+    <div class="four columns">
+      <div class="centrado-vertical">
+        <div class="texto">
+          Realiza tus pedidos.
+        </div>
+        <div class="descripcion">
+          Solicita todo el material que vas a vender.
+        </div>
+      </div>
+    </div>
+    <div class="four columns">
+      <div class="centrado-vertical">
+        <div class="texto">
+          Genera utilidad.
+        </div>
+        <div class="descripcion">
+          Expande tu negocio al vender productos Batukeira®.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="formulario">
+  <div class="titulo">Comienza aquí.</div>
+    <%= form_for @contact_model, :url => contact_send_mail_path, :method => :post do |f| %>
+        <%= f.text_field :name, class: 'campo', placeholder: "Nombre" %>
+        <%= f.text_field  :email,class: 'campo', placeholder: "Correo elecrónico" %>
+        <%= f.text_field  :subject, class: 'campo', placeholder: "Teléfono" %>
+        <%= f.text_field  :subject, class: 'campo', placeholder: "Teléfono secundario" %>
+        <%= f.text_area  :message, class: 'campo area', placeholder: "Dirección" %>
+        <%= f.hidden_field :nickname %>
+        <%= f.button :Enviar, class: 'boton' %>
+      <% end %>
+</section>
+
+<!-- <section class="pago-en-linea">
+  <h2 class="title">| Botones de pago en línea |</h2>
+</section> -->
+
+<section class="row preguntas-frecuentes">
+  <h2 class="titulo">Preguntas Frecuentes</h2>
+  <div class="descripcion">Todo lo que necesitas saber sobre Batukeira®.</div>
+</section>
+<div class="pregunta">
+  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  <div class="respuesta">
+    Batukeira quema toda la grasa interna y externa
+    en tu cuerpo y hace que la elimines al evacuar.
+    Al usarla, perderas de 100g a 200g diarios, lo que
+    equivale a entre 3 y 6 kilos al mes.
+  </div>
+</div>
+
+<div class="pregunta">
+  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  <div class="respuesta">
+    Batukeira quema toda la grasa interna y externa
+    en tu cuerpo y hace que la elimines al evacuar.
+    Al usarla, perderas de 100g a 200g diarios, lo que
+    equivale a entre 3 y 6 kilos al mes.
+  </div>
+</div>
+
+<div class="pregunta">
+  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  <div class="respuesta">
+    Batukeira quema toda la grasa interna y externa
+    en tu cuerpo y hace que la elimines al evacuar.
+    Al usarla, perderas de 100g a 200g diarios, lo que
+    equivale a entre 3 y 6 kilos al mes.
+  </div>
+</div>
+
+<div class="pregunta">
+  ¿Cuántas cápsulas Batukeira® debo tomar al día?
+  <div class="respuesta">
+    Batukeira quema toda la grasa interna y externa
+    en tu cuerpo y hace que la elimines al evacuar.
+    Al usarla, perderas de 100g a 200g diarios, lo que
+    equivale a entre 3 y 6 kilos al mes.
+  </div>
+</div>

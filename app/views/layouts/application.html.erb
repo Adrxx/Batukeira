@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Batukeira</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,12 +10,14 @@
 </head>
 <body>
 <span class="ms-mq-test"></span>
-<nav class="nav-bar">
-  <a href="">Batukeira</a>
-  <a href="">Comprar</a>
-  <a href="">Casos de Éxito</a>
-  <a href="">Distribuir</a>
-  <a href="">Contacto </a>
+<div class="menu-button"></div>
+<nav class="nav-bar <%= yield(:fixed_nav) %>">
+  <%= link_to 'Batukeira', root_path %>
+  <%= link_to 'Comprar', comprar_path %>
+  <%= link_to 'Casos de Éxito', casos_path %>
+  <%= link_to 'Distribuir', distribuidores_path %>
+  <%= link_to 'Contacto', contacto_path %>
+
 </nav>
 
 <div class="container-fitted">

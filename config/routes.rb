@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'casos-de-exito' => 'static_pages#casos', as: 'casos'
 
   get 'contacto' => 'static_pages#contacto', as: 'contacto'
+  post '/contact_send_mail' => 'static_pages#contact_send_mail', as: 'contact_send_mail'
 
   get 'distribuidores' => 'static_pages#distribuidores', as: 'distribuidores'
 

@@ -17,8 +17,8 @@
 // Colors
 $orange-c: #F6AD4C;
 $pale-orange-c: #FED269;
-$yellow-c: #FFF45E;
-$pale-yellow-c: #FDF27A;
+$yellow-c: #FDF27A;
+$pale-yellow-c: #FCF4AF;
 $green-c: #82D173;
 $pale-green-c: #98E579;
 $text-dark-c: #414141;
@@ -45,7 +45,7 @@ $text-light-c: #C4BD98;
     width: 100%;
     height: 100%;
     display: block;
-    background-color: transparentize($text-dark-c , 0.4);
+    background-color: transparentize($text-dark-c , 0.25);
 
   }
 }
@@ -79,50 +79,125 @@ $text-light-c: #C4BD98;
 body {
   //font-size: 1.2em; /* currently ems cause chrome bug misinterpreting rems on body element */
   //line-height: 1.2em;
+  background-color: $pale-yellow-c;
   font-weight: 400;
   font-family: 'Raleway', sans-serif;
 }
 
 // Nav Bar...
 
+$nav-bar-height: 65px;
 nav.nav-bar
 {
   position:fixed;
   width: 100%;
   z-index: 1000;
-  @include horizontal-stack();
-
-  background-color: transparent;
-  height: 65px;
-
-  @include transition-duration(0.2s);
+  font-size: 1.2em;
+  overflow: hidden;
+  @include transition-duration(0.8s);
   @include transition-property(all);
+  top:-100%;
+  
+  background-color: $pale-yellow-c;
+  @include box-shadow(0px 2px 0px 0px transparentize(black, 0.9));
+
+  @include desktop
+  {
+    top: 0px;
+    padding:5px 10px;
+    height: $nav-bar-height;
+    @include horizontal-stack();
+    background-color: transparent;
+    @include box-shadow(0px 2px 0px 0px transparentize(black, 1));
+
+  }
+
 
   a
-  {
-    color:$pale-yellow-c;
+  {    
+    display: block;
+    width: 100%;
+    color: $text-dark-c;
     font-weight: 500;
-    padding:5px 10px;
-    margin:0 10px;
-    font-size: 1.2em;
+    height: 20px;
+    padding: 20px 0px;
+    text-align: center;
     text-decoration: none;
-
+    @include transition-duration(0.8s);
+    @include transition-property(all);
 
     &:hover
     {
       text-decoration: underline;
     }
+
+    @include desktop
+    {
+      text-align: initial;
+      color:$pale-yellow-c;
+      font-size: 1.1em;
+      display: inline;
+      width: auto;
+      height: auto;
+      padding:5px 10px;
+      margin:0 10px;
+      font-size: 0.9em;
+    }
   }
 
   &.scrolled
   {
+      background-color: $pale-yellow-c;
+      @include box-shadow(0px 2px 0px 0px transparentize(black, 0.9));
+
+      a
+      {
+        color: $text-dark-c;
+      }
+  }
+
+
+  &.exploded
+  {
+    top:0px;
+    padding-top:$nav-bar-height;
     background-color: $pale-yellow-c;
+    @include box-shadow(0px 2px 0px 0px transparentize(black, 0.9));
+
     a
     {
       color: $text-dark-c;
     }
+
+    @include desktop
+    {
+          padding-top:0;
+
+    }
   }
 
+
+}
+
+.menu-button
+{
+  background-color:$pale-yellow-c;
+  position: fixed;
+  height: $nav-bar-height;
+  width: 100%;
+  z-index: 1200;
+    @include box-shadow(0px 2px 0px 0px transparentize(black, 0.9));
+
+
+  background-image: image-url("logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 85%;
+
+  @include desktop
+  {
+    display: none;
+  }
 
 }
 
@@ -145,7 +220,7 @@ nav.nav-bar
     position: absolute;
     width: 100%;
     height: 100%;
-    fill: $pale-yellow-c;
+    fill: $yellow-c;
   }
 
   .logo
@@ -153,43 +228,110 @@ nav.nav-bar
     position: absolute;
     width: 250px;
     height: 250px;
-    background-color: blue;
-    bottom: 10%;
-    right: 6%;
+    //background-color: blue;
+    background-image: image-url("logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 80%;
+    bottom: 1%;
+    right: 1%;
+    @include desktop
+    {
+      background-size: 100%;
+      bottom: 10%;
+      right: 6%;
+    }
+    //@include box-shadow();
   }
 
   .producto
   {
     position: absolute;
     width: 250px;
-    height: 250px;
-    background-color: red;
+    height: 300px;
+    background-image: image-url("frascos/capsulas.png");
+    background-repeat: no-repeat;
+    background-position: 5px 9px;
+    background-size: 115%;
     bottom: 31%;
     right: 6%;
+    display: none;
+    @include desktop
+    {
+      display: block;
+    }
+  }
+
+  .producto2
+  {
+    position: absolute;
+    width: 265px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: -43px 74px;
+    background-size: 76%;
+    bottom: 31%;
+    right: 6%;
+    background-image: image-url("frascos/extra.png");
+    @include transform2d(rotate(-4deg));
+    display: none;
+
+    @include desktop
+    {
+      display: block;
+    }
+
   }
 
   .centrado-vertical
   {
     @include vertical-align();
-    top: 54%;
+    top: 44%;
     margin-left: 7%;
+
+    @include desktop
+    {
+      top: 54%;
+    }
   }
 
   .titulo
   {
-    font-size: 4.7em;
-    text-transform: uppercase;
+    font-size: 2.0em;
     line-height: 1.1em;
-    font-weight: 500;
+    text-transform: uppercase;
+    //font-weight: 500;
     color:$pale-orange-c;
+    margin-bottom: 5px;
+
+    @include phablet
+    {
+      font-size: 2.5em;
+
+    }
+
+    @include tablet
+    {
+      font-size: 3.0em;
+    }
+    @include desktop-hd
+    {
+      font-size: 4.7em;
+    }
   }
 
   .descripcion
   {
-    font-size: 2.0em;
-    font-weight: 500;
-    color:$pale-yellow-c;
+    //font-weight: 500;
+    font-size: 1.1em;
+    color:$yellow-c;
     opacity: 1.0;
+
+    @include desktop-hd
+    {
+      font-size: 2.0em;
+    }
 
   }
 
@@ -199,7 +341,7 @@ nav.nav-bar
 
 .batukeira-es
 {
-  background-color: $pale-yellow-c;
+  background-color: $yellow-c;
   color:$text-dark-c;
   padding: 40px 0;
   text-align: center;
@@ -240,6 +382,7 @@ nav.nav-bar
 .como-funciona
 {
   position: relative;
+  padding: 20px 0;
 
   .fondo
   {
@@ -249,9 +392,9 @@ nav.nav-bar
   .titulo
   {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     font-size: 2.5em;
-    color: $pale-yellow-c;
+    color: $yellow-c;
       display: none;
     @include tablet
     {
@@ -305,9 +448,11 @@ nav.nav-bar
     max-width: 1200px;
     margin: 0 auto;
     height: auto;
+    padding: 30px 0;
 
     @include tablet
     {
+      padding:0;
       height: 260px;
     }
 
@@ -364,12 +509,36 @@ nav.nav-bar
 
 .capsulas-batukeira
 {
-  background-color: $pale-yellow-c;
+  background-color: $yellow-c;
   color: $text-dark-c;
 
-  &.dark
+  background-image: image-url("frascos/capsulas.png");
+  background-repeat: no-repeat;
+ background-position: center 24px;
+    background-size: 249px;
+
+
+
+
+  @include tablet
   {
-    background-color: $pale-orange-c;
+
+    background-repeat: no-repeat;
+    background-position: 7% 39%;
+    background-size: 140px;
+  }
+
+  @include desktop
+  {
+    background-repeat: no-repeat;
+    background-position: 11% 36%;
+    background-size: 190px;
+  }
+
+  @include desktop-hd
+  {
+            background-position: 12% 50%;
+    background-size: 200px;
   }
 
 
@@ -379,10 +548,11 @@ nav.nav-bar
     max-width: 1200px;
     margin: 0 auto;
   }
+
   .texto
   {
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 35px;
+    padding-left: 35px;
     padding-top: 300px;
     padding-bottom: 0px;
 
@@ -392,7 +562,7 @@ nav.nav-bar
     {
       padding: 50px 0px;
       width: 60%;
-      margin-left: 30%;
+      margin-left: 33%;
     }
     @include desktop
     {
@@ -411,18 +581,27 @@ nav.nav-bar
   {
     font-weight: 500;
     font-size: 2.1em;
-    padding-bottom: 20px;
+
+    @include tablet
+    {
+          padding-bottom: 20px;
+
+    }
 
   }
 
   .descripcion
   {
     text-align: justify;
-    font-size: 1.2em;
+    font-size: 1.0em;
     line-height: 1.2em;
-
     span{
       font-weight: 500;
+    }
+
+    @include tablet 
+    {
+      font-size: 1.0em;
     }
   }
 
@@ -506,7 +685,7 @@ nav.nav-bar
 .disenado-para
 {
   text-align: center;
-  padding: 40px 0px;
+  padding: 40px 30px;
   color: $pale-yellow-c;
 
   .titulo
@@ -537,6 +716,21 @@ nav.nav-bar
 
 }
 
+.gel-batukeira
+{
+  @extend .capsulas-batukeira;
+  background-image: image-url("frascos/gel.png");
+  background-color: $pale-orange-c;
+}
+
+.crema-nutritiva
+{
+  @extend .capsulas-batukeira;
+  background-image: image-url("frascos/cremadia.png");
+}
+
+
+
 .casos-destacados
 {
   @extend .ya-usas-batukeira;
@@ -549,12 +743,15 @@ nav.nav-bar
 
 .pregunta
 {
+  position: relative;
 
   text-align:center;
   padding: 20px 20px;
   font-weight: 600;
   font-size: 15px;
   color: $text-dark-c;
+  @include transition-duration(0.3s);
+  @include transition-property(background-color);
 
   @include tablet
   {
@@ -565,10 +762,18 @@ nav.nav-bar
   &:nth-child(odd)
   {
     background-color: $pale-orange-c;
+    &:hover
+    {
+      background-color: lighten($pale-orange-c, 4%);
+    }
   }
   &:nth-child(even)
   {
-    background-color: $pale-yellow-c;
+    background-color: $yellow-c;
+    &:hover
+    {
+      background-color: lighten($yellow-c, 4%);
+    }
   }
 
 }
@@ -584,6 +789,22 @@ nav.nav-bar
   @include transition-duration(0.9s);
   @include transition-property(all);
 
+  &:before
+  {
+    content: '';
+    display: block;
+    position: relative;
+    height: 1px;
+    margin: 17px 0;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    background-color: transparent;
+    @include transition-duration(0.9s);
+    @include transition-property(all);
+    //@include transition-delay(0.2s);
+  }
+
   @include desktop
   {
     width: 65%;
@@ -592,7 +813,435 @@ nav.nav-bar
   &.exploded
   {
     max-height: 300px;
-    padding-top: 20px;
+    //padding-top: 20px;
+    &:before
+    {
+      width: 300px;
+      margin-left: -150px;
+      background-color: $text-dark-c;
+    }
   }
 
 }
+
+//CONTACTO
+
+
+.contacto
+{
+  height: 100vh;
+  @include desktop
+  {
+    min-height: 600px;
+  }
+
+  .fondo
+  {
+    @extend %fondo;
+  }
+
+  .centrado-vertical
+  {
+    @include vertical-align();
+    top: 50%;
+    margin-left: 15%;
+  }
+
+  .info
+  {
+    float: left;
+    //background-color:blue;
+    width: 100%;
+    height: 700px;
+
+    @include desktop
+    {
+      width: 55%;
+      height: 100%;
+
+    }
+
+    .titulo
+    {
+      color: $pale-orange-c;
+      font-weight: 500;
+      //padding-bottom: 20px;
+    }
+
+    .texto
+    {
+      color: $orange-c;
+      font-size: 1.2em;
+      padding-left: 25px;
+
+    }
+
+    .lista
+    {
+      color: $pale-yellow-c;
+      padding-left: 50px;
+    }
+
+
+  }
+
+  .forma
+  {
+    float: left;
+    background-color:$pale-orange-c;
+    width: 100%;
+    height: 500px;
+
+    .centrado-vertical
+    {
+      @include vertical-align();
+      top: 50%;
+      margin-left: 0%;
+    }
+
+
+    @include desktop
+    {    
+      height: 100%;
+      width: 45%;
+
+    }
+    
+    .titulo
+    {
+      text-align: center;
+      color: $text-dark-c;
+      font-size: 2.0em;
+      @include desktop
+      {
+        padding-top:$nav-bar-height*1.5;
+      }
+    }
+    .campo
+    {
+      @include appearance(none);
+      display: block;
+      border-radius: 5px;
+      width: 80%;
+      margin: 17px auto;
+      padding: 12px 12px;
+      background-color: transparentize(white, 0.7);
+      border: 1px solid transparentize(white, 1);
+      &.area
+      {
+        height: 100px;
+      }
+    }
+
+    .boton
+    {
+      @include main-button-style($text-dark-c);
+      display: block;
+      background-color: transparent;
+      width: 85%;
+      margin: 5px auto;
+    }
+
+  }
+
+  
+}
+
+//DISTRIBUIDORES
+.vuelvete
+{
+    position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 1200px;
+
+  .curva
+  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    fill: $yellow-c;
+  }
+
+  .fondo
+  {
+    @extend %fondo;
+  }
+  .centrado-vertical
+  {
+    @include vertical-align();
+    top: 50%;
+    padding: 0 20px;
+
+    @include desktop
+    {
+      top: 54%;
+    }
+  }
+
+  .titulo
+  {
+    font-size: 2.0em;
+    line-height: 1.1em;
+    //font-weight: 500;
+    text-align: center;
+    color:$pale-orange-c;
+    margin-bottom: 5px;
+
+    @include phablet
+    {
+      font-size: 2.5em;
+
+    }
+
+    @include tablet
+    {
+      font-size: 3.0em;
+    }
+    @include desktop-hd
+    {
+      font-size: 4.7em;
+    }
+  }
+
+  .descripcion
+  {
+    //font-weight: 500;
+    font-size: 1.1em;
+    text-align: center;
+
+    color:$yellow-c;
+    opacity: 1.0;
+
+    @include desktop-hd
+    {
+      font-size: 2.0em;
+    }
+
+  }
+
+
+}
+
+.como-convertirse
+{
+  @extend .como-funciona;
+}
+
+.beneficios
+{
+  background-color:$yellow-c;
+  padding: 20px 0;
+
+  h2.titulo
+  {
+    text-align: center;
+    background-color:$yellow-c;
+  }
+
+  .titulo
+  {
+    text-align: center;
+    padding: 20px;
+    font-size: 2.2em;
+    color: $text-dark-c;
+  }
+  .descripcion
+  {
+    text-align: center;
+    padding: 0 30px;
+    padding-bottom: 30px;
+    font-size: 1.2em;
+    color: $text-dark-c;
+
+
+  }
+}
+
+.pago-en-linea
+{
+  background-color:$yellow-c;
+  text-align:center;
+
+  .title
+  {
+    font-size: 3.0em;
+    margin-bottom: 0;
+    padding: 50px 0;
+  }
+
+}
+
+.formulario
+{
+  background-color: $pale-orange-c;
+  padding: 30px 0;
+
+  form
+  {
+    margin-bottom: 0;
+  }
+    .titulo
+    {
+      text-align: center;
+      color: $text-dark-c;
+      font-size: 2.0em;
+      padding: 10px;
+    }
+    .campo
+    {
+      @include appearance(none);
+      display: block;
+      border-radius: 5px;
+      width: 80%;
+      margin: 17px auto;
+      padding: 12px 12px;
+      background-color: transparentize(white, 0.7);
+      border: 1px solid transparentize(white, 1);
+      &.area
+      {
+        height: 100px;
+      }
+    }
+
+    .boton
+    {
+      @include main-button-style($text-dark-c);
+      display: block;
+      background-color: transparent;
+      width: 80%;
+      margin: 0px auto;
+    }
+}
+
+//COMPRAR
+.distribuidores-cerca
+{
+  padding: 0 30px;
+  padding-top:180px;
+  padding-bottom: 120px;
+  .fondo
+  {
+    @extend %fondo;
+  }
+
+  .titulo
+  {
+    text-align: center;
+    color: $pale-orange-c;
+  }
+
+  .descripcion
+  {
+    text-align: center;
+    color: $pale-yellow-c;
+
+  }
+
+
+}
+
+.distribuidores-listado
+{
+  .centrado-vertical
+  {
+    @include vertical-align();
+    top: 50%;
+  }
+
+  .celda
+  {
+    position:relative;
+    width: 100%;
+    height: 200px;
+    float:left;
+
+    &:nth-child(odd)
+    {
+      background-color: $yellow-c;
+    }
+    &:nth-child(even)
+    {
+      background-color: $pale-orange-c;
+    }
+
+    @include tablet
+    {
+      width: 50%;
+
+      &:nth-child(4n)
+      {
+        background-color: $yellow-c;
+      }
+      &:nth-child(4n+1)
+      {
+        background-color: $yellow-c;
+      }
+      &:nth-child(4n+2)
+      {
+        background-color: $pale-orange-c;
+      }
+      &:nth-child(4n+3)
+      {
+        background-color: $pale-orange-c;
+      }
+    }
+
+  }
+
+  .nombre
+  {
+    color: $text-dark-c;
+    padding: 2px 30px;
+    padding-bottom:10px;
+    font-weight: 500;
+    span
+    {
+      display: inline-block;
+      padding: 0 15px;
+      font-weight: 300;
+      font-size: 1.0em;
+    }
+  }
+
+  .direccion
+  {    
+    color: $text-dark-c;
+    padding: 2px 30px;
+    padding-bottom:10px;
+    font-weight: 300;
+    text-align:justify;
+
+    line-height: 1.2em;
+
+  }
+
+  .telefono
+  {
+    color: $text-dark-c;
+    padding: 1px 30px;
+    line-height: 1.1em;
+    text-decoration: none;
+
+    &:after
+    {
+      display: inline-block;
+      margin-left: 13px;
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 4px 0 4px 5px;
+      border-color: transparent transparent transparent $text-dark-c;
+    }
+
+  }
+
+  .email
+  {
+    @extend .telefono;
+    padding-bottom: 10px;
+  }
+
+}
+
