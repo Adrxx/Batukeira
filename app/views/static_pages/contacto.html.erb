@@ -23,7 +23,7 @@
     <% unless @prefs.email.empty? %>
       <div class="texto">Correo electrónico:</div>
       <ul class="lista">
-        <li><%= @prefs.facebook %></li>
+        <li><%= @prefs.email %></li>
       </ul>
     <% end %>
 
@@ -31,10 +31,10 @@
       <div class="texto">Teléfono:</div>
       <ul class="lista">
        <% unless @prefs.telephone.empty? %>
-        <li><%= @prefs.telephone %></li>
+        <li><a href="tel:<%= @prefs.telephone %>" class="telefono"><%= @prefs.telephone %></a></li>
        <% end %>
       <% unless @prefs.telephone2.empty? %>
-        <li><%= @prefs.telephone2 %></li>
+        <li><a href="tel:<%= @prefs.telephone2 %>" class="telefono"><%= @prefs.telephone2 %></a></li>
        <% end %>
       </ul>
     <% end %>

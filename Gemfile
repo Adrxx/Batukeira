@@ -27,7 +27,6 @@ gem 'compass-rails', '~> 2.0.4'
 gem 'devise', '~> 3.4.1'
 gem 'simple_form'
 gem 'mail_form'
-
 # Use Capistrano for deployment
 gem 'capistrano-rails', group: :development
 

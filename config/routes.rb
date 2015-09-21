@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'distribuidores' => 'static_pages#distribuidores', as: 'distribuidores'
 
   get 'comprar' => 'static_pages#comprar', as: 'comprar'
+  post 'locate_me' => 'static_pages#locate_me'
 
   root 'static_pages#landing'
 

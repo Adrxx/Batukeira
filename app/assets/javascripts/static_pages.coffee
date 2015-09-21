@@ -24,3 +24,17 @@ $(document).on 'page:change', ->
     else
       $(r).removeClass 'exploded'
 
+  got_location = (position) ->
+    $.ajax
+      type: 'POST'
+      url: "/locate_me"
+      data: {lat: position.coords.latitude, lng: position.coords.longitude }
+      success: (data, textStatus, jqXHR) ->
+        $('body').append "Successful AJAX call: #{data}"
+
+  element =  document.getElementById('geolocation');
+  if (typeof(element) != 'undefined' && element != null)
+    console.log('asds')
+    if navigator.geolocation
+      navigator.geolocation.getCurrentPosition(got_location)
+

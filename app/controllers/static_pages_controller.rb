@@ -8,6 +8,23 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def locate_me
+    lat = params[:lat]
+    lng = params[:lng]
+
+    sorted = Dealer.all
+    sorted.sort do |d|
+      diss = haversine_distance( lat.to_d, lng.to_d, d.latitude, d.longitude )
+      puts diss[:km]
+      diss[:km]
+    end
+
+    #byebug
+
+    render :text =>"GEOOO#{lat} O #{lng}"
+
+  end
+
   def casos
     @cases = Case.all
   end
@@ -44,22 +61,37 @@ class StaticPagesController < ApplicationController
   def comprar
     @dealers = Dealer.all
   end
+  private 
+    def haversine_distance( lat1, lon1, lat2, lon2 )
 
-  private
-      def distance loc1, loc2
-        rad_per_deg = Math::PI/180  # PI / 180
-        rkm = 6371                  # Earth radius in kilometers
-        rm = rkm * 1000             # Radius in meters
+    rad_per_deg = 0.017453293
+    rmiles  = 3956           # radius of the great circle in miles
+    rkm     = 6371           # radius in kilometers, some algorithms use 6367
+    rfeet   = rmiles * 5282  # radius in feet
+    rmeters = rkm * 1000  
 
-        dlat_rad = (loc2[0]-loc1[0]) * rad_per_deg  # Delta, converted to rad
-        dlon_rad = (loc2[1]-loc1[1]) * rad_per_deg
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
 
-        lat1_rad, lon1_rad = loc1.map {|i| i * rad_per_deg }
-        lat2_rad, lon2_rad = loc2.map {|i| i * rad_per_deg }
+    dlon_rad = dlon * rad_per_deg
+    dlat_rad = dlat * rad_per_deg
 
-        a = Math.sin(dlat_rad/2)**2 + Math.cos(lat1_rad) * Math.cos(lat2_rad) * Math.sin(dlon_rad/2)**2
-        c = 2 * Math::atan2(Math::sqrt(a), Math::sqrt(1-a))
+    lat1_rad = lat1 * rad_per_deg
+    lon1_rad = lon1 * rad_per_deg
 
-        rm * c # Delta in meters
-      end
+    lat2_rad = lat2 * rad_per_deg
+    lon2_rad = lon2 * rad_per_deg
+
+    a = (Math.sin(dlat_rad/2))**2 + Math.cos(lat1_rad) *
+         Math.cos(lat2_rad) * (Math.sin(dlon_rad/2))**2
+    c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a))
+
+    dMi     = nil #rmiles * c      # delta between the two points in miles
+    dKm     = rkm * c         # delta in kilometers
+    dFeet   = nil #rfeet * c       # delta in feet
+    dMeters = nil #rmeters * c     # delta in meters
+
+    { :mi => dMi, :km => dKm, :ft => dFeet, :m => dMeters }
+  end
+
 end

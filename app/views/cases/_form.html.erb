@@ -24,7 +24,7 @@
           </div>
           <div class="row">
             <div class="three u-columns">
-              <label for="">Peso:</label>
+              <label for="">Peso (Kg):</label>
             </div>
             <div class="nine u-columns">
               <input class="mnt-pm-weight-select mnt-pm-numeric-input u-full-width" type="text">
@@ -73,10 +73,10 @@
 <%# Peso inicial y final %>
 <div class="row">
   <div class="six columns">
-    <%= full_numeric_field(f,:weight_before,'Peso inicial','') %>
+    <%= full_numeric_field(f,:weight_before,'Peso inicial (Kg)','') %>
   </div>
   <div class="six columns">
-    <%= full_numeric_field(f,:weight_after,'Peso final','') %>
+    <%= full_numeric_field(f,:weight_after,'Peso final (Kg)','') %>
   </div>
 </div>
 
@@ -84,10 +84,10 @@
 <%# Medidas de cadera inicial y final %>
 <div class="row">
   <div class="six columns">
-    <%= full_numeric_field(f,:waist_before,'Cadera inicial','') %>
+    <%= full_numeric_field(f,:waist_before,'Cadera inicial (cm)','') %>
   </div>
   <div class="six columns">
-    <%= full_numeric_field(f,:waist_after,'Cadera final','') %>
+    <%= full_numeric_field(f,:waist_after,'Cadera final (cm)' ,'') %>
   </div>
 </div>
 

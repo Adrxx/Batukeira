@@ -34,9 +34,15 @@
   </div>
 </div>
 
-<hr>
-<div class="row">
   <% if current_user.role == "admin" %>
+
+<div class="row">
+  <%= f.label(:role, 'Privilegios') %>
+  <%= f.select :role, [['Capturista','capturist'],['Administrador','admin']],{ include_blank: false}, {:class => 'u-full-width'} %>
+</div>
+<hr>
+
+<div class="row">
     <div class="six columns">
       <%= link_to "Salir sin guardar", users_path, class: 'c4-button-secondary u-full-width'  %>
     </div>
@@ -47,7 +53,9 @@
     <div class="twelve columns">
       <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
     </div>
-  <% end %>
 </div>
+
+
+  <% end %>
 
 <% end %>

@@ -1,0 +1,19 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/signal.h>
+
+int main(int argc, char *argv[])
+{ 
+
+  if (argc!=2) { //restrains the number of arguments that the program can receive
+    printf("Error: Bad Usage\n"); //prints an error message for breaking the above restriction
+    exit(-1);
+  }
+  execlp("program","","-e",argv[1],NULL);
+  //printf("Error: Process Execution\n"); //prints error message if index equals 0
+  exit(-1);
+
+}
+

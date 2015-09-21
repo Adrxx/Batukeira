@@ -25,6 +25,7 @@ $(document).on 'page:change', ->
 
   setMapCoordinates = (lat,lng,zoom,map) ->
     marker = new google.maps.Marker
+      #draggable:true
       position:
         lat: lat
         lng: lng
@@ -35,10 +36,11 @@ $(document).on 'page:change', ->
       lng: lng
 
     map.setZoom zoom
+
     
   lat = parseFloat $('#dealer_latitude').val()
   lng = parseFloat $('#dealer_longitude').val()
-  console.log lat
-  console.log lng
+  #console.log lat
+  #console.log lng
 
   setMapCoordinates(lat,lng,16,addressPicker.map)
