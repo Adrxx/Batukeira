@@ -4,24 +4,23 @@ class StaticPagesController < ApplicationController
     Case.all.each do |c|
       if c.featured
         @case = c
-      end 
+      end
     end
   end
 
   def locate_me
+
     lat = params[:lat]
     lng = params[:lng]
 
-    sorted = Dealer.all
-    sorted.sort do |d|
-      diss = haversine_distance( lat.to_d, lng.to_d, d.latitude, d.longitude )
+    @ajax_dealers = Dealer.all.sort_by do |d|
+      diss = haversine_distance( lat.to_d, lng.to_d, d.latitude, d.longitude)
       puts diss[:km]
+      d.km = diss[:km]
       diss[:km]
     end
 
-    #byebug
-
-    render :text =>"GEOOO#{lat} O #{lng}"
+    render  'lista_distribuidores', :layout => false
 
   end
 
@@ -61,14 +60,14 @@ class StaticPagesController < ApplicationController
   def comprar
     @dealers = Dealer.all
   end
-  private 
+  private
     def haversine_distance( lat1, lon1, lat2, lon2 )
 
     rad_per_deg = 0.017453293
     rmiles  = 3956           # radius of the great circle in miles
     rkm     = 6371           # radius in kilometers, some algorithms use 6367
     rfeet   = rmiles * 5282  # radius in feet
-    rmeters = rkm * 1000  
+    rmeters = rkm * 1000
 
     dlon = lon2 - lon1
     dlat = lat2 - lat1

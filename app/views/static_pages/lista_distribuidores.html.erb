@@ -1,0 +1,15 @@
+<% @ajax_dealers.each_with_index do |d,i| %>
+  <div class="celda animated fadeIn" style="animation-delay:<%= i * 0.2 %>s">
+    <div class="centrado-vertical">
+      <div class="nombre"><%= d.name %><span>- <%= d.km.round(2) %> Km</span></div>
+      <div class="direccion"><%= d.hidden_address ? d.visible_address : d.address %></div>
+      <% if !d.email.empty? %>
+        <a href="mailto:<%= d.email %>?Subject=Batukeira" target="_top" class="email"><%= d.email %></a>
+      <% end %>
+      <a href="tel:<%= d.telephone %>" class="telefono"><%= d.telephone %></a>
+      <% if !d.telephone2.empty? %>
+        <a href="tel:<%= d.telephone2 %>" class="telefono"><%= d.telephone2 %></a>
+      <% end %>
+    </div>
+  </div>
+<% end %>

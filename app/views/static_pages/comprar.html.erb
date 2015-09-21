@@ -9,42 +9,30 @@
 </h5>
 </section>
 
-<section class="distribuidores-listado u-cf">
-
-<% @dealers.each do |d| %>
-  <div class="celda">
-    <div class="centrado-vertical">
-      <div class="nombre"><%= d.name %><span></span></div>
-      <div class="direccion"><%= d.hidden_address ? d.visible_address : d.address %></div>
-      <% if !d.email.empty? %>
-        <a href="mailto:<%= d.email %>?Subject=Batukeira" target="_top" class="email"><%= d.email %></a>
-      <% end %>
-      <a href="tel:<%= d.telephone %>" class="telefono"><%= d.telephone %></a>
-      <a href="tel:555-555-5555" class="telefono">555-555-5555</a>
-    </div>
-  </div>
-<% end %>
-
-</section>
 
 <section class="todos-los-distribuidores">
-  <div class="titulo">Aquí está toda la lista de distribuidores:</div>
+  <div class="titulo">Estamos tratando de localizarte...</div>
 </section>
 
-<section class="distribuidores-listado u-cf">
+<section class="distribuidores-listado u-cf" style="display:none">
 
 <% @dealers.each do |d| %>
   <div class="celda">
     <div class="centrado-vertical">
-      <div class="nombre"><%= d.name %><span></span></div>
+      <div class="nombre"><%= d.name %></div>
       <div class="direccion"><%= d.hidden_address ? d.visible_address : d.address %></div>
       <% if !d.email.empty? %>
         <a href="mailto:<%= d.email %>?Subject=Batukeira" target="_top" class="email"><%= d.email %></a>
       <% end %>
       <a href="tel:<%= d.telephone %>" class="telefono"><%= d.telephone %></a>
-      <a href="tel:555-555-5555" class="telefono">555-555-5555</a>
+      <% if !d.telephone2.empty? %>
+        <a href="tel:<%= d.telephone2 %>" class="telefono"><%= d.telephone2 %></a>
+      <% end %>
     </div>
   </div>
 <% end %>
 
 </section>
+
+
+<!-- distribuidores aquí -->

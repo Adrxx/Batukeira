@@ -27,14 +27,18 @@ $(document).on 'page:change', ->
   got_location = (position) ->
     $.ajax
       type: 'POST'
+      async: true
       url: "/locate_me"
       data: {lat: position.coords.latitude, lng: position.coords.longitude }
       success: (data, textStatus, jqXHR) ->
-        $('body').append "Successful AJAX call: #{data}"
+        $('.todos-los-distribuidores .titulo').html 'Estos son los distribuidores más cercanos a ti.'
+        $('.distribuidores-listado').html data
+      error: (jqXHR, textStatus, errorThrown) ->
+        $('.todos-los-distribuidores .titulo').html 'No pudimos localizarte... Esta es la lista entera de distribuidores.'
+
 
   element =  document.getElementById('geolocation');
   if (typeof(element) != 'undefined' && element != null)
-    console.log('asds')
+    #console.log('asds')
     if navigator.geolocation
       navigator.geolocation.getCurrentPosition(got_location)
-
