@@ -1,0 +1,2247 @@
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+@import url(normalize.css/_normalize.css);
+@import url(animate.css/_animate.css);
+/*
+* Morphed Skeleton V 1.1.0
+* Adrián Rubio 2015
+
+* Based on Skeleton
+* ORIGINAL CREDIT 
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+
+Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Debugging
+- Media Queries
+- Alignment
+- Structural Basics
+- Base Styles
+- Typography
+- Links
+- Forms
+- Lists
+- Code
+- Tables
+- Spacing
+- Utilities
+- Clearing
+*/
+/* Debugging
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Media Queries
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url(swiper.css);
+/* line 96, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.ms-mq-test {
+  position: fixed;
+  z-index: 10000;
+  bottom: 0px;
+  padding: 5px;
+  background-color: white;
+}
+/* line 105, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.ms-mq-test:before {
+  content: "normal";
+}
+@media (min-width: 400px) {
+  /* line 105, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .ms-mq-test:before {
+    content: "phablet";
+  }
+}
+@media (min-width: 550px) {
+  /* line 105, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .ms-mq-test:before {
+    content: "tablet";
+  }
+}
+@media (min-width: 750px) {
+  /* line 105, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .ms-mq-test:before {
+    content: "desktop";
+  }
+}
+@media (min-width: 1000px) {
+  /* line 105, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .ms-mq-test:before {
+    content: "desktop-hd";
+  }
+}
+@media (min-width: 1200px) {
+  /* line 105, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .ms-mq-test:before {
+    content: "big-af";
+  }
+}
+
+/* Alignment
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 175, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.horizontal-stack {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* line 180, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.vertical-stack {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-flex-flow: row;
+  flex-flow: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Structural Basics
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 191, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* line 199, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.container-fitted {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* line 206, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box;
+}
+
+/* line 212, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.u-columns, .u-column {
+  float: left;
+  box-sizing: border-box;
+}
+
+/* line 219, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.one.u-column,
+.one.u-columns {
+  width: 4.66666666667%;
+}
+
+/* line 221, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.two.u-columns {
+  width: 13.3333333333%;
+}
+
+/* line 222, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.three.u-columns {
+  width: 22%;
+}
+
+/* line 223, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.four.u-columns {
+  width: 30.6666666667%;
+}
+
+/* line 224, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.five.u-columns {
+  width: 39.3333333333%;
+}
+
+/* line 225, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.six.u-columns {
+  width: 48%;
+}
+
+/* line 226, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.seven.u-columns {
+  width: 56.6666666667%;
+}
+
+/* line 227, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.eight.u-columns {
+  width: 65.3333333333%;
+}
+
+/* line 228, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.nine.u-columns {
+  width: 74.0%;
+}
+
+/* line 229, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.ten.u-columns {
+  width: 82.6666666667%;
+}
+
+/* line 230, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.eleven.u-columns {
+  width: 91.3333333333%;
+}
+
+/* line 231, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.twelve.u-columns {
+  width: 100%;
+  margin-left: 0;
+}
+
+/* line 233, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.one-third.u-column {
+  width: 30.6666666667%;
+}
+
+/* line 234, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.two-thirds.u-column {
+  width: 65.3333333333%;
+}
+
+/* line 236, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.one-half.u-column {
+  width: 48%;
+}
+
+/* Offsets */
+/* line 239, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-one.u-column,
+.offset-by-one.u-columns {
+  margin-left: 8.66666666667%;
+}
+
+/* line 241, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-two.u-column,
+.offset-by-two.u-columns {
+  margin-left: 17.3333333333%;
+}
+
+/* line 243, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-three.u-column,
+.offset-by-three.u-columns {
+  margin-left: 26%;
+}
+
+/* line 245, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-four.u-column,
+.offset-by-four.u-columns {
+  margin-left: 34.6666666667%;
+}
+
+/* line 247, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-five.u-column,
+.offset-by-five.u-columns {
+  margin-left: 43.3333333333%;
+}
+
+/* line 249, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-six.u-column,
+.offset-by-six.u-columns {
+  margin-left: 52%;
+}
+
+/* line 251, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-seven.u-column,
+.offset-by-seven.u-columns {
+  margin-left: 60.6666666667%;
+}
+
+/* line 253, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-eight.u-column,
+.offset-by-eight.u-columns {
+  margin-left: 69.3333333333%;
+}
+
+/* line 255, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-nine.u-column,
+.offset-by-nine.u-columns {
+  margin-left: 78.0%;
+}
+
+/* line 257, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-ten.u-column,
+.offset-by-ten.u-columns {
+  margin-left: 86.6666666667%;
+}
+
+/* line 259, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-eleven.u-column,
+.offset-by-eleven.u-columns {
+  margin-left: 95.3333333333%;
+}
+
+/* line 262, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-one-third.u-column,
+.offset-by-one-third.u-columns {
+  margin-left: 34.6666666667%;
+}
+
+/* line 264, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-two-thirds.u-column,
+.offset-by-two-thirds.u-columns {
+  margin-left: 69.3333333333%;
+}
+
+/* line 267, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.offset-by-one-half.u-column,
+.offset-by-one-half.u-columns {
+  margin-left: 52%;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+  /* line 272, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .container {
+    width: 95%;
+    padding: 0;
+  }
+}
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  /* line 279, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .container {
+    width: 80%;
+  }
+
+  /* line 281, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .column,
+  .columns {
+    margin-left: 4%;
+  }
+
+  /* line 284, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0;
+  }
+
+  /* line 288, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .one.column,
+  .one.columns {
+    width: 4.66666666667%;
+  }
+
+  /* line 290, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .two.columns {
+    width: 13.3333333333%;
+  }
+
+  /* line 291, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .three.columns {
+    width: 22%;
+  }
+
+  /* line 292, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .four.columns {
+    width: 30.6666666667%;
+  }
+
+  /* line 293, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .five.columns {
+    width: 39.3333333333%;
+  }
+
+  /* line 294, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .six.columns {
+    width: 48%;
+  }
+
+  /* line 295, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .seven.columns {
+    width: 56.6666666667%;
+  }
+
+  /* line 296, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .eight.columns {
+    width: 65.3333333333%;
+  }
+
+  /* line 297, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .nine.columns {
+    width: 74.0%;
+  }
+
+  /* line 298, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .ten.columns {
+    width: 82.6666666667%;
+  }
+
+  /* line 299, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .eleven.columns {
+    width: 91.3333333333%;
+  }
+
+  /* line 300, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .twelve.columns {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* line 302, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .one-third.column {
+    width: 30.6666666667%;
+  }
+
+  /* line 303, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .two-thirds.column {
+    width: 65.3333333333%;
+  }
+
+  /* line 305, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .one-half.column {
+    width: 48%;
+  }
+
+  /* Offsets */
+  /* line 308, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-one.column,
+  .offset-by-one.columns {
+    margin-left: 8.66666666667%;
+  }
+
+  /* line 310, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-two.column,
+  .offset-by-two.columns {
+    margin-left: 17.3333333333%;
+  }
+
+  /* line 312, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-three.column,
+  .offset-by-three.columns {
+    margin-left: 26%;
+  }
+
+  /* line 314, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-four.column,
+  .offset-by-four.columns {
+    margin-left: 34.6666666667%;
+  }
+
+  /* line 316, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-five.column,
+  .offset-by-five.columns {
+    margin-left: 43.3333333333%;
+  }
+
+  /* line 318, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-six.column,
+  .offset-by-six.columns {
+    margin-left: 52%;
+  }
+
+  /* line 320, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-seven.column,
+  .offset-by-seven.columns {
+    margin-left: 60.6666666667%;
+  }
+
+  /* line 322, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-eight.column,
+  .offset-by-eight.columns {
+    margin-left: 69.3333333333%;
+  }
+
+  /* line 324, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-nine.column,
+  .offset-by-nine.columns {
+    margin-left: 78.0%;
+  }
+
+  /* line 326, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-ten.column,
+  .offset-by-ten.columns {
+    margin-left: 86.6666666667%;
+  }
+
+  /* line 328, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns {
+    margin-left: 95.3333333333%;
+  }
+
+  /* line 331, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns {
+    margin-left: 34.6666666667%;
+  }
+
+  /* line 333, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns {
+    margin-left: 69.3333333333%;
+  }
+
+  /* line 336, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns {
+    margin-left: 52%;
+  }
+}
+/* Base Styles
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* NOTE
+html is set to 62.5% so that all the REM measurements throughout Skeleton
+are based on 10px sizing. So basically 1.5rem = 15px :) */
+/* line 347, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 349, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+body {
+  font-size: 1.5em;
+  /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+}
+
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 359, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+/* line 363, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h1 {
+  font-size: 4.0rem;
+  line-height: 1.2;
+  letter-spacing: -.1rem;
+}
+
+/* line 364, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h2 {
+  font-size: 3.6rem;
+  line-height: 1.25;
+  letter-spacing: -.1rem;
+}
+
+/* line 365, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h3 {
+  font-size: 3.0rem;
+  line-height: 1.3;
+  letter-spacing: -.1rem;
+}
+
+/* line 366, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h4 {
+  font-size: 2.4rem;
+  line-height: 1.35;
+  letter-spacing: -.08rem;
+}
+
+/* line 367, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h5 {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  letter-spacing: -.05rem;
+}
+
+/* line 368, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+h6 {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  /* line 372, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  h1 {
+    font-size: 5.0rem;
+  }
+
+  /* line 373, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  h2 {
+    font-size: 4.2rem;
+  }
+
+  /* line 374, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  h3 {
+    font-size: 3.6rem;
+  }
+
+  /* line 375, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  h4 {
+    font-size: 3.0rem;
+  }
+
+  /* line 376, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  h5 {
+    font-size: 2.4rem;
+  }
+
+  /* line 377, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+  h6 {
+    font-size: 1.5rem;
+  }
+}
+/* line 380, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+p {
+  margin-top: 0;
+}
+
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 387, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+ul {
+  list-style: circle inside;
+}
+
+/* line 389, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+ol {
+  list-style: decimal inside;
+}
+
+/* line 391, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+ol, ul {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+/* line 394, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin: 1.5rem 0 1.5rem 3rem;
+  font-size: 90%;
+}
+
+/* line 400, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+li {
+  margin-bottom: 1rem;
+}
+
+/* Code
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 406, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+code {
+  padding: .2rem .5rem;
+  margin: 0 .2rem;
+  font-size: 90%;
+  white-space: nowrap;
+  background: #F1F1F1;
+  border: 1px solid #E1E1E1;
+  border-radius: 4px;
+}
+
+/* line 414, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 422, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #E1E1E1;
+}
+
+/* line 427, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+th:first-child,
+td:first-child {
+  padding-left: 0;
+}
+
+/* line 430, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+th:last-child,
+td:last-child {
+  padding-right: 0;
+}
+
+/* Spacing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 437, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+button,
+.button {
+  margin-bottom: 1rem;
+}
+
+/* line 440, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+input,
+textarea,
+select,
+fieldset {
+  margin-bottom: 1.5rem;
+}
+
+/* line 445, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+pre,
+blockquote,
+dl,
+figure,
+table,
+p,
+ul,
+ol,
+form {
+  margin-bottom: 2.5rem;
+}
+
+/* Utilities
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 459, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.u-full-width {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 462, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+textarea.u-full-width {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+/* line 465, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.u-max-full-width {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 468, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.u-pull-right {
+  float: right;
+}
+
+/* line 470, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.u-pull-left {
+  float: left;
+}
+
+/* Misc
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* line 476, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  border-width: 0;
+  border-top: 1px solid white;
+}
+
+/* Clearing
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Self Clearing Goodness */
+/* line 487, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/_morphed-skeleton.scss */
+.container:after,
+.row:after,
+.u-cf {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 43, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .fondo, .como-funciona .fondo, .como-convertirse .fondo, .contacto .fondo, .vuelvete .fondo, .distribuidores-cerca .fondo, .casos-de-exito .fondo {
+  background-image: url(/assets/bg-c18afdb8d33b6c73a35a753e812ea797.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: -1;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+}
+/* line 54, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .fondo:after, .como-funciona .fondo:after, .como-convertirse .fondo:after, .contacto .fondo:after, .vuelvete .fondo:after, .distribuidores-cerca .fondo:after, .casos-de-exito .fondo:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: rgba(65, 65, 65, 0.75);
+}
+
+/* line 114, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+body {
+  background-color: #414141;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* line 125, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  font-size: 1.2em;
+  overflow: hidden;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  top: -100%;
+  background-color: #FCF4AF;
+  -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 750px) {
+  /* line 125, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  nav.nav-bar {
+    top: 0px;
+    padding: 5px 10px;
+    height: 65px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    -moz-box-shadow: 0px 2px 0px 0px transparent;
+    -webkit-box-shadow: 0px 2px 0px 0px transparent;
+    box-shadow: 0px 2px 0px 0px transparent;
+  }
+}
+/* line 151, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar a {
+  display: block;
+  width: 100%;
+  color: #414141;
+  font-weight: 500;
+  height: 20px;
+  padding: 20px 0px;
+  text-align: center;
+  text-decoration: none;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+/* line 164, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 750px) {
+  /* line 151, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  nav.nav-bar a {
+    text-align: initial;
+    color: #FCF4AF;
+    font-size: 1.1em;
+    display: inline;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    margin: 0 10px;
+    font-size: 0.9em;
+  }
+}
+/* line 183, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar.scrolled {
+  background-color: #FCF4AF;
+  -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+}
+/* line 188, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar.scrolled a {
+  color: #414141;
+}
+/* line 195, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar.exploded {
+  top: 0px;
+  padding-top: 65px;
+  background-color: #FCF4AF;
+  -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+}
+/* line 202, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+nav.nav-bar.exploded a {
+  color: #414141;
+}
+@media (min-width: 750px) {
+  /* line 195, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  nav.nav-bar.exploded {
+    padding-top: 0;
+  }
+}
+
+/* line 217, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.menu-button {
+  background-color: #FCF4AF;
+  position: fixed;
+  height: 65px;
+  width: 100%;
+  z-index: 1200;
+  -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.1);
+  background-image: url(/assets/logo-fd19ec4673918f64b520a4a42bd5a91e.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 85%;
+}
+@media (min-width: 750px) {
+  /* line 217, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .menu-button {
+    display: none;
+  }
+}
+
+/* line 241, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 1200px;
+}
+/* line 253, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .curva {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: #fdf27a;
+}
+/* line 262, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .logo {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background-image: url(/assets/logo-fd19ec4673918f64b520a4a42bd5a91e.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  bottom: 1%;
+  right: 1%;
+}
+@media (min-width: 750px) {
+  /* line 262, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .logo {
+    background-size: 100%;
+    bottom: 10%;
+    right: 6%;
+  }
+}
+/* line 284, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .producto {
+  position: absolute;
+  width: 250px;
+  height: 300px;
+  background-image: url(/assets/frascos/capsulas-0322b87129bd8c166d5aea7e5eb529c9.png);
+  background-repeat: no-repeat;
+  background-position: 5px 9px;
+  background-size: 115%;
+  bottom: 31%;
+  right: 6%;
+  display: none;
+}
+@media (min-width: 750px) {
+  /* line 284, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .producto {
+    display: block;
+  }
+}
+/* line 302, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .producto2 {
+  position: absolute;
+  width: 265px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: -43px 74px;
+  background-size: 76%;
+  bottom: 31%;
+  right: 6%;
+  background-image: url(/assets/frascos/extra-1c40c33e57eedffef5a55209a4a1d4e0.png);
+  -moz-transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+  display: none;
+}
+@media (min-width: 750px) {
+  /* line 302, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .producto2 {
+    display: block;
+  }
+}
+/* line 323, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .centrado-vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 44%;
+  margin-left: 7%;
+}
+@media (min-width: 750px) {
+  /* line 323, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .centrado-vertical {
+    top: 54%;
+  }
+}
+/* line 335, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .titulo {
+  font-size: 2.0em;
+  line-height: 1.1em;
+  text-transform: uppercase;
+  color: #FED269;
+  margin-bottom: 5px;
+}
+@media (min-width: 400px) {
+  /* line 335, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .titulo {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 550px) {
+  /* line 335, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .titulo {
+    font-size: 3.0em;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 335, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .titulo {
+    font-size: 4.7em;
+  }
+}
+/* line 360, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.baja-de-peso .descripcion {
+  font-size: 1.1em;
+  color: #FDF27A;
+  opacity: 1.0;
+}
+@media (min-width: 1000px) {
+  /* line 360, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .baja-de-peso .descripcion {
+    font-size: 2.0em;
+  }
+}
+
+/* line 378, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.batukeira-es {
+  background-color: #fdf27a;
+  color: #414141;
+  padding: 40px 0;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.1em;
+}
+@media (min-width: 550px) {
+  /* line 378, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .batukeira-es {
+    font-size: 1.3em;
+  }
+}
+@media (min-width: 750px) {
+  /* line 378, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .batukeira-es {
+    font-size: 1.4em;
+  }
+}
+/* line 399, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.batukeira-es .imagen {
+  background-position: center;
+  background-origin: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  width: 200px;
+  float: left;
+  background-image: url(/assets/bajas-593123c919f63e0025592e5f11e8fb3c.gif);
+}
+/* line 411, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.batukeira-es div {
+  margin: 20px auto;
+  padding: 0 25px;
+  height: auto;
+}
+@media (min-width: 750px) {
+  /* line 411, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .batukeira-es div {
+    padding: 0px;
+    width: 650px;
+  }
+}
+/* line 424, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.batukeira-es strong {
+  margin-bottom: 55px;
+}
+
+/* line 431, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona, .como-convertirse {
+  position: relative;
+  padding: 20px 0;
+}
+/* line 441, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .titulo, .como-convertirse .titulo {
+  text-align: center;
+  padding: 30px;
+  font-size: 2.5em;
+  color: #FDF27A;
+  display: none;
+}
+@media (min-width: 550px) {
+  /* line 441, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .titulo, .como-convertirse .titulo {
+    display: block;
+  }
+}
+/* line 455, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .centrado-vertical, .como-convertirse .centrado-vertical {
+  text-align: center;
+  padding: 22px 42px;
+}
+@media (min-width: 550px) {
+  /* line 455, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .centrado-vertical, .como-convertirse .centrado-vertical {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 40%;
+    padding: 5px 20px;
+  }
+}
+/* line 468, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .centrado-vertical::after, .como-convertirse .centrado-vertical::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  margin-top: 26px;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  background-color: #FED269;
+}
+@media (min-width: 550px) {
+  /* line 468, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .centrado-vertical::after, .como-convertirse .centrado-vertical::after {
+    height: 200px;
+    margin-top: -100px;
+    top: 50%;
+    right: -7%;
+    left: initial;
+    width: 2px;
+    margin-left: 0;
+  }
+}
+/* line 494, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .columnas, .como-convertirse .columnas {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  padding: 30px 0;
+}
+@media (min-width: 550px) {
+  /* line 494, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .columnas, .como-convertirse .columnas {
+    padding: 0;
+    height: 260px;
+  }
+}
+@media (min-width: 750px) {
+  /* line 494, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .columnas, .como-convertirse .columnas {
+    width: 85%;
+  }
+}
+/* line 516, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .columns, .como-convertirse .columns {
+  height: 100%;
+}
+/* line 522, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .columns:last-child .centrado-vertical::after, .como-convertirse .columns:last-child .centrado-vertical::after {
+  display: none;
+}
+/* line 529, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .texto, .como-convertirse .texto {
+  font-size: 1.6em;
+  color: #FCF4AF;
+}
+@media (min-width: 550px) {
+  /* line 529, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .texto, .como-convertirse .texto {
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 750px) {
+  /* line 529, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .texto, .como-convertirse .texto {
+    font-size: 1.9em;
+  }
+}
+/* line 543, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.como-funciona .descripcion, .como-convertirse .descripcion {
+  font-size: 1.2em;
+  color: #C4BD98;
+}
+@media (min-width: 550px) {
+  /* line 543, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .descripcion, .como-convertirse .descripcion {
+    font-size: 1em;
+  }
+}
+@media (min-width: 750px) {
+  /* line 543, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .como-funciona .descripcion, .como-convertirse .descripcion {
+    font-size: 1.2em;
+  }
+}
+
+/* line 559, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira, .gel-batukeira, .crema-nutritiva {
+  background-color: rgba(253, 242, 122, 0.87);
+  color: #414141;
+  background-image: url(/assets/frascos/capsulas-0322b87129bd8c166d5aea7e5eb529c9.png);
+  background-repeat: no-repeat;
+  background-position: center 24px;
+  background-size: 249px;
+}
+@media (min-width: 550px) {
+  /* line 559, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira, .gel-batukeira, .crema-nutritiva {
+    background-repeat: no-repeat;
+    background-position: 7% 39%;
+    background-size: 140px;
+  }
+}
+@media (min-width: 750px) {
+  /* line 559, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira, .gel-batukeira, .crema-nutritiva {
+    background-repeat: no-repeat;
+    background-position: 11% 36%;
+    background-size: 190px;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 559, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira, .gel-batukeira, .crema-nutritiva {
+    background-position: 12% 50%;
+    background-size: 200px;
+  }
+}
+/* line 594, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .row, .gel-batukeira .row, .crema-nutritiva .row {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* line 601, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .texto, .gel-batukeira .texto, .crema-nutritiva .texto {
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-top: 300px;
+  padding-bottom: 0px;
+  float: left;
+}
+@media (min-width: 550px) {
+  /* line 601, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .texto, .gel-batukeira .texto, .crema-nutritiva .texto {
+    padding: 50px 0px;
+    width: 60%;
+    margin-left: 33%;
+  }
+}
+@media (min-width: 750px) {
+  /* line 601, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .texto, .gel-batukeira .texto, .crema-nutritiva .texto {
+    width: 50%;
+    margin-left: 40%;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 601, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .texto, .gel-batukeira .texto, .crema-nutritiva .texto {
+    width: 45%;
+    margin-left: 30%;
+  }
+}
+/* line 629, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .titulo, .gel-batukeira .titulo, .crema-nutritiva .titulo {
+  font-weight: 500;
+  font-size: 2.1em;
+}
+@media (min-width: 550px) {
+  /* line 629, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .titulo, .gel-batukeira .titulo, .crema-nutritiva .titulo {
+    padding-bottom: 20px;
+  }
+}
+/* line 642, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .descripcion, .gel-batukeira .descripcion, .crema-nutritiva .descripcion {
+  text-align: justify;
+  font-size: 1.0em;
+  line-height: 1.2em;
+}
+/* line 647, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .descripcion span, .gel-batukeira .descripcion span, .crema-nutritiva .descripcion span {
+  font-weight: 500;
+}
+@media (min-width: 550px) {
+  /* line 642, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .descripcion, .gel-batukeira .descripcion, .crema-nutritiva .descripcion {
+    font-size: 1.0em;
+  }
+}
+/* line 657, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .contenedor-boton, .gel-batukeira .contenedor-boton, .crema-nutritiva .contenedor-boton {
+  display: block;
+  width: 100%;
+  float: left;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+@media (min-width: 550px) {
+  /* line 657, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .contenedor-boton, .gel-batukeira .contenedor-boton, .crema-nutritiva .contenedor-boton {
+    padding-top: 0px;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 657, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .contenedor-boton, .gel-batukeira .contenedor-boton, .crema-nutritiva .contenedor-boton {
+    padding: 0px;
+    display: inline-block;
+    width: 25%;
+    top: 50%;
+    position: absolute;
+    margin-top: -19px;
+  }
+}
+/* line 687, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .boton, .gel-batukeira .boton, .crema-nutritiva .boton {
+  text-decoration: none;
+  padding: 6px 20px;
+  border: solid 1px #414141;
+  color: #414141;
+  display: inline-block;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  width: 80%;
+}
+/* line 81, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.capsulas-batukeira .boton:after, .gel-batukeira .boton:after, .crema-nutritiva .boton:after {
+  display: inline-block;
+  margin-left: 17px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #414141;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+@media (min-width: 750px) {
+  /* line 97, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .boton:hover, .gel-batukeira .boton:hover, .crema-nutritiva .boton:hover {
+    color: #bebebe;
+    background-color: #414141;
+  }
+  /* line 102, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .boton:hover:after, .gel-batukeira .boton:hover:after, .crema-nutritiva .boton:hover:after {
+    border-color: transparent transparent transparent #bebebe;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 687, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .capsulas-batukeira .boton, .gel-batukeira .boton, .crema-nutritiva .boton {
+    width: auto;
+  }
+}
+
+/* line 700, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.ya-usas-batukeira, .casos-destacados, .preguntas-frecuentes {
+  background-color: rgba(246, 173, 76, 0.87);
+  color: #414141;
+  padding: 30px 0;
+}
+/* line 706, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.ya-usas-batukeira .titulo, .casos-destacados .titulo, .preguntas-frecuentes .titulo {
+  text-align: center;
+  font-size: 1.9em;
+  font-weight: 500;
+  padding: 5px 20px;
+  margin-bottom: 0;
+}
+@media (min-width: 550px) {
+  /* line 706, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .ya-usas-batukeira .titulo, .casos-destacados .titulo, .preguntas-frecuentes .titulo {
+    font-size: 3.1em;
+    padding: 10px 0;
+  }
+}
+/* line 721, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.ya-usas-batukeira .descripcion, .casos-destacados .descripcion, .preguntas-frecuentes .descripcion {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.2em;
+  padding: 0 20px;
+  padding-bottom: 15px;
+}
+@media (min-width: 550px) {
+  /* line 721, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .ya-usas-batukeira .descripcion, .casos-destacados .descripcion, .preguntas-frecuentes .descripcion {
+    font-size: 1.4em;
+  }
+}
+
+/* line 737, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.disenado-para {
+  text-align: center;
+  padding: 40px 30px;
+  color: #FCF4AF;
+}
+/* line 743, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.disenado-para .titulo {
+  font-size: 2.4em;
+}
+/* line 748, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.disenado-para .descripcion {
+  font-size: 1.2em;
+}
+/* line 753, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.disenado-para .boton {
+  text-decoration: none;
+  padding: 6px 20px;
+  border: solid 1px #FCF4AF;
+  color: #FCF4AF;
+  display: inline-block;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  margin: 30px 0;
+}
+/* line 81, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.disenado-para .boton:after {
+  display: inline-block;
+  margin-left: 17px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #FCF4AF;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+@media (min-width: 750px) {
+  /* line 97, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .disenado-para .boton:hover {
+    color: #030b50;
+    background-color: #FCF4AF;
+  }
+  /* line 102, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .disenado-para .boton:hover:after {
+    border-color: transparent transparent transparent #030b50;
+  }
+}
+/* line 762, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.disenado-para .info a {
+  color: #F6AD4C;
+  font-weight: 500;
+}
+
+/* line 771, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.gel-batukeira {
+  background-image: url(/assets/frascos/gel-d4c881dd2741a7cd2f2f622eb919fd99.png);
+  background-color: rgba(254, 210, 105, 0.87);
+}
+
+/* line 778, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.crema-nutritiva {
+  background-image: url(/assets/frascos/cremadia-0c7909b793c805e966c1fee6f88293ca.png);
+}
+
+/* line 801, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pregunta {
+  position: relative;
+  text-align: center;
+  padding: 20px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #414141;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: background-color;
+  -o-transition-property: background-color;
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+}
+@media (min-width: 550px) {
+  /* line 801, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .pregunta {
+    font-size: 19px;
+  }
+}
+/* line 819, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pregunta:nth-child(odd) {
+  background-color: rgba(254, 210, 105, 0.87);
+}
+/* line 822, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pregunta:nth-child(odd):hover {
+  background-color: rgba(254, 216, 125, 0.87);
+}
+/* line 827, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pregunta:nth-child(even) {
+  background-color: rgba(253, 242, 122, 0.87);
+}
+/* line 830, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pregunta:nth-child(even):hover {
+  background-color: rgba(253, 244, 142, 0.87);
+}
+
+/* line 838, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.respuesta {
+  width: 85%;
+  text-align: center;
+  margin: 0 auto;
+  max-height: 0px;
+  overflow: hidden;
+  font-weight: 500;
+  -moz-transition-duration: 0.9s;
+  -o-transition-duration: 0.9s;
+  -webkit-transition-duration: 0.9s;
+  transition-duration: 0.9s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+/* line 849, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.respuesta:before {
+  content: '';
+  display: block;
+  position: relative;
+  height: 1px;
+  margin: 17px 0;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  background-color: transparent;
+  -moz-transition-duration: 0.9s;
+  -o-transition-duration: 0.9s;
+  -webkit-transition-duration: 0.9s;
+  transition-duration: 0.9s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+@media (min-width: 750px) {
+  /* line 838, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .respuesta {
+    width: 65%;
+  }
+}
+/* line 870, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.respuesta.exploded {
+  max-height: 300px;
+}
+/* line 874, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.respuesta.exploded:before {
+  width: 300px;
+  margin-left: -150px;
+  background-color: #414141;
+}
+
+/* line 887, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto {
+  height: 100vh;
+}
+@media (min-width: 750px) {
+  /* line 887, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .contacto {
+    min-height: 600px;
+  }
+}
+/* line 900, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .centrado-vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+  margin-left: 15%;
+}
+/* line 907, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .info {
+  float: left;
+  width: 100%;
+  height: 700px;
+}
+@media (min-width: 750px) {
+  /* line 907, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .contacto .info {
+    width: 55%;
+    height: 100%;
+  }
+}
+/* line 921, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .info .titulo {
+  color: #FED269;
+  font-weight: 500;
+}
+/* line 928, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .info .texto {
+  color: #F6AD4C;
+  font-size: 1.2em;
+  padding-left: 25px;
+}
+/* line 936, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .info .lista {
+  color: #FCF4AF;
+  padding-left: 50px;
+}
+/* line 941, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .info .lista a {
+  text-decoration: none;
+  color: #FDF27A;
+}
+/* line 951, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma {
+  float: left;
+  background-color: #FED269;
+  width: 100%;
+  height: 500px;
+}
+/* line 958, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma .centrado-vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+  margin-left: 0%;
+}
+@media (min-width: 750px) {
+  /* line 951, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .contacto .forma {
+    height: 100%;
+    width: 45%;
+  }
+}
+/* line 973, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma .titulo {
+  text-align: center;
+  color: #414141;
+  font-size: 2.0em;
+}
+@media (min-width: 750px) {
+  /* line 973, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .contacto .forma .titulo {
+    padding-top: 97.5px;
+  }
+}
+/* line 983, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma .campo {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  border-radius: 5px;
+  width: 80%;
+  margin: 17px auto;
+  padding: 12px 12px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+/* line 993, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma .campo.area {
+  height: 100px;
+}
+/* line 999, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma .boton {
+  text-decoration: none;
+  padding: 6px 20px;
+  border: solid 1px #414141;
+  color: #414141;
+  display: inline-block;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  display: block;
+  background-color: transparent;
+  width: 85%;
+  margin: 5px auto;
+}
+/* line 81, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.contacto .forma .boton:after {
+  display: inline-block;
+  margin-left: 17px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #414141;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+@media (min-width: 750px) {
+  /* line 97, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .contacto .forma .boton:hover {
+    color: #bebebe;
+    background-color: #414141;
+  }
+  /* line 102, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .contacto .forma .boton:hover:after {
+    border-color: transparent transparent transparent #bebebe;
+  }
+}
+
+/* line 1014, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.vuelvete {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 1200px;
+}
+/* line 1021, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.vuelvete .curva {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: rgba(253, 242, 122, 0.87);
+}
+/* line 1034, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.vuelvete .centrado-vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+  padding: 0 15px;
+}
+@media (min-width: 750px) {
+  /* line 1034, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .vuelvete .centrado-vertical {
+    top: 54%;
+  }
+}
+/* line 1046, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.vuelvete .titulo {
+  font-size: 2.0em;
+  line-height: 1.1em;
+  text-align: center;
+  color: #FED269;
+  margin-bottom: 5px;
+}
+@media (min-width: 400px) {
+  /* line 1046, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .vuelvete .titulo {
+    font-size: 2.5em;
+  }
+}
+@media (min-width: 550px) {
+  /* line 1046, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .vuelvete .titulo {
+    font-size: 3.0em;
+  }
+}
+@media (min-width: 1000px) {
+  /* line 1046, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .vuelvete .titulo {
+    font-size: 4.0em;
+  }
+}
+/* line 1071, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.vuelvete .descripcion {
+  font-size: 1.2em;
+  text-align: center;
+  padding: 0 25px;
+  color: #FDF27A;
+  opacity: 1.0;
+}
+@media (min-width: 1000px) {
+  /* line 1071, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .vuelvete .descripcion {
+    font-size: 1.4em;
+  }
+}
+
+/* line 1096, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.beneficios {
+  background-color: rgba(253, 242, 122, 0.87);
+  padding: 20px 0;
+}
+/* line 1101, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.beneficios h2.titulo {
+  text-align: center;
+  background-color: rgba(253, 242, 122, 0.87);
+}
+/* line 1107, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.beneficios .titulo {
+  text-align: center;
+  padding: 20px;
+  font-size: 2.2em;
+  color: #414141;
+}
+/* line 1114, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.beneficios .descripcion {
+  text-align: center;
+  padding: 0 30px;
+  padding-bottom: 30px;
+  font-size: 1.2em;
+  color: #414141;
+}
+
+/* line 1126, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pago-en-linea {
+  background-color: #FDF27A;
+  text-align: center;
+}
+/* line 1131, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pago-en-linea .title {
+  font-size: 3.0em;
+  margin-bottom: 0;
+  padding: 50px 0;
+}
+/* line 1138, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.pago-en-linea form {
+  margin-bottom: 0px;
+}
+
+/* line 1145, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario {
+  background-color: #FED269;
+  padding: 30px 0;
+}
+/* line 1150, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario form {
+  margin-bottom: 0;
+}
+/* line 1155, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario .centrado {
+  margin: 0 auto;
+  max-width: 600px;
+}
+/* line 1160, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario .titulo {
+  text-align: center;
+  color: #414141;
+  font-size: 2.0em;
+  padding: 10px;
+}
+/* line 1167, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario .campo {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  border-radius: 5px;
+  width: 80%;
+  margin: 17px auto;
+  padding: 10px 12px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+/* line 1177, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario .campo.area {
+  height: 100px;
+}
+/* line 1183, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario .boton {
+  text-decoration: none;
+  padding: 6px 20px;
+  border: solid 1px #414141;
+  color: #414141;
+  display: inline-block;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+  display: block;
+  background-color: transparent;
+  width: 83%;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+/* line 81, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.formulario .boton:after {
+  display: inline-block;
+  margin-left: 17px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 6px;
+  border-color: transparent transparent transparent #414141;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+@media (min-width: 750px) {
+  /* line 97, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .formulario .boton:hover {
+    color: #bebebe;
+    background-color: #414141;
+  }
+  /* line 102, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .formulario .boton:hover:after {
+    border-color: transparent transparent transparent #bebebe;
+  }
+}
+
+/* line 1196, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-cerca, .casos-de-exito {
+  padding: 0 30px;
+  padding-top: 180px;
+  padding-bottom: 120px;
+}
+/* line 1206, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-cerca .titulo, .casos-de-exito .titulo {
+  text-align: center;
+  color: #FED269;
+}
+/* line 1212, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-cerca .descripcion, .casos-de-exito .descripcion {
+  text-align: center;
+  color: #FCF4AF;
+}
+
+/* line 1225, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .centrado-vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  top: 50%;
+}
+/* line 1231, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .celda {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  float: left;
+}
+/* line 1238, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .celda:nth-child(odd) {
+  background-color: rgba(253, 242, 122, 0.87);
+}
+/* line 1243, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .celda:nth-child(even) {
+  background-color: rgba(254, 210, 105, 0.87);
+}
+@media (min-width: 550px) {
+  /* line 1231, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda {
+    width: 50%;
+  }
+  /* line 1252, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda:nth-child(4n) {
+    background-color: rgba(253, 242, 122, 0.87);
+  }
+  /* line 1257, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda:nth-child(4n+1) {
+    background-color: rgba(253, 242, 122, 0.87);
+  }
+  /* line 1262, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda:nth-child(4n+2) {
+    background-color: rgba(254, 210, 105, 0.87);
+  }
+  /* line 1266, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda:nth-child(4n+3) {
+    background-color: rgba(254, 210, 105, 0.87);
+  }
+}
+@media (min-width: 750px) {
+  /* line 1231, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda {
+    width: 33.33333333%;
+  }
+  /* line 1275, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda:nth-child(odd) {
+    background-color: rgba(253, 242, 122, 0.87);
+  }
+  /* line 1279, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .distribuidores-listado .celda:nth-child(even) {
+    background-color: rgba(254, 210, 105, 0.87);
+  }
+}
+/* line 1287, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .nombre {
+  color: #414141;
+  padding: 2px 30px;
+  padding-bottom: 5px;
+  font-weight: 500;
+  font-size: 1.4em;
+}
+/* line 1294, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .nombre span {
+  display: inline-block;
+  padding: 0 15px;
+  font-weight: 300;
+  font-size: 1.0em;
+}
+/* line 1303, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .direccion {
+  color: #414141;
+  padding: 2px 30px;
+  padding-bottom: 10px;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 1.2em;
+}
+/* line 1315, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .telefono, .distribuidores-listado .email {
+  color: #414141;
+  display: block;
+  padding: 1px 30px;
+  line-height: 1.1em;
+  text-decoration: none;
+}
+/* line 1323, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .telefono:after, .distribuidores-listado .email:after {
+  display: inline-block;
+  margin-left: 13px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 5px;
+  border-color: transparent transparent transparent #414141;
+}
+/* line 1337, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.distribuidores-listado .email {
+  padding-bottom: 10px;
+}
+
+/* line 1345, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.todos-los-distribuidores {
+  background-color: rgba(246, 173, 76, 0.87) !important;
+}
+
+/* line 1359, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado, .caso-destacado {
+  color: #414141;
+}
+/* line 1362, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .celda, .caso-destacado .celda {
+  height: 650px;
+}
+@media (min-width: 750px) {
+  /* line 1362, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .casos-listado .celda, .caso-destacado .celda {
+    height: 325px;
+  }
+}
+/* line 1370, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .celda:nth-child(odd), .caso-destacado .celda:nth-child(odd) {
+  background-color: rgba(253, 242, 122, 0.87);
+}
+/* line 1375, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .celda:nth-child(even), .caso-destacado .celda:nth-child(even) {
+  background-color: rgba(246, 173, 76, 0.87);
+}
+/* line 1378, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .celda:nth-child(even) .galeria, .caso-destacado .celda:nth-child(even) .galeria {
+  float: right;
+}
+/* line 1379, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .celda:nth-child(even) .datos, .caso-destacado .celda:nth-child(even) .datos {
+  float: right;
+}
+/* line 1383, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .datos, .caso-destacado .datos {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  float: left;
+}
+@media (min-width: 750px) {
+  /* line 1383, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .casos-listado .datos, .caso-destacado .datos {
+    height: 100%;
+    width: 50%;
+  }
+}
+/* line 1396, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .centrado-vertical, .caso-destacado .centrado-vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/* line 1401, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .nombre, .caso-destacado .nombre {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8em;
+  padding: 10px;
+  padding-top: 0;
+}
+/* line 1410, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .atributo, .caso-destacado .atributo {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.3em;
+  font-weight: 500;
+}
+/* line 1416, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .atributo span, .caso-destacado .atributo span {
+  font-weight: 600;
+  padding: 0 10px;
+}
+/* line 1423, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .descripcion, .caso-destacado .descripcion {
+  text-align: center;
+  padding: 10px 30px;
+  line-height: 1.3em;
+  font-size: 1.1em;
+}
+/* line 1433, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .galeria, .caso-destacado .galeria {
+  height: 50%;
+  width: 100%;
+  float: left;
+}
+@media (min-width: 750px) {
+  /* line 1433, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+  .casos-listado .galeria, .caso-destacado .galeria {
+    height: 100%;
+    width: 50%;
+  }
+}
+/* line 1446, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado [class^="gallery-top"], .caso-destacado [class^="gallery-top"] {
+  height: 100%;
+}
+/* line 1451, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .swiper-slide, .caso-destacado .swiper-slide {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* line 1459, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.casos-listado .detalles, .caso-destacado .detalles {
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  padding: 10px 0;
+  background-color: rgba(254, 210, 105, 0.95);
+}
+
+/* line 1472, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.batukeria-te-ayudo, .todos-los-distribuidores {
+  background-color: rgba(253, 242, 122, 0.87);
+  text-align: center;
+  font-size: 1.4em;
+  padding: 40px 20px;
+  color: #414141;
+}
+/* line 1480, /Users/Adrian/Documents/Projects/Rails/Batukeira/app/assets/stylesheets/application.css.scss */
+.batukeria-te-ayudo a, .todos-los-distribuidores a {
+  text-decoration: none;
+  color: #414141;
+  font-weight: 500;
+}
