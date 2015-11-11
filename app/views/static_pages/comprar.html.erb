@@ -21,11 +21,11 @@
     <div class="centrado-vertical">
       <div class="nombre"><%= d.name %></div>
       <div class="direccion"><%= d.hidden_address ? d.visible_address : d.address %></div>
-      <% if !d.email.empty? %>
+      <% if d.email.present? %>
         <a href="mailto:<%= d.email %>?Subject=Batukeira" target="_top" class="email"><%= d.email %></a>
       <% end %>
       <a href="tel:<%= d.telephone %>" class="telefono"><%= d.telephone %></a>
-      <% if !d.telephone2.empty? %>
+      <% if d.telephone2.present? %>
         <a href="tel:<%= d.telephone2 %>" class="telefono"><%= d.telephone2 %></a>
       <% end %>
     </div>

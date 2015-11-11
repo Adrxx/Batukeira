@@ -9,25 +9,32 @@
     <% if @prefs.facebook.present? %>
       <div class="texto">Facebook:</div>
       <ul class="lista">
-        <li><%= @prefs.facebook %></li>
+        <li><a href="<%= @prefs.facebook %>"><%= @prefs.facebook %></a></li>
       </ul>
     <% end %>
 
     <% if @prefs.twitter.present? %>
       <div class="texto">Twitter:</div>
       <ul class="lista">
-        <li><%= @prefs.facebook %></li>
+        <li><a href="<%= @prefs.twitter %>"><%= @prefs.twitter %></a></li>
+      </ul>
+    <% end %>
+
+    <% if @prefs.values.present? %>
+      <div class="texto">Correo electrónico:</div>
+      <ul class="lista">
+        <li><a href="mailto:<%= @prefs.email %>?Subject=Batukeira" target="_top" class="email"><%= @prefs.email %></a></li>
       </ul>
     <% end %>
 
     <% if @prefs.email.present? %>
       <div class="texto">Correo electrónico:</div>
       <ul class="lista">
-        <li><%= @prefs.email %></li>
+        <li><a href="mailto:<%= @prefs.email %>?Subject=Batukeira" target="_top" class="email"><%= @prefs.email %></a></li>
       </ul>
     <% end %>
 
-    <% if @prefs.telephone.present? && @prefs.telephone2.present? %>
+    <% if @prefs.telephone.present? || @prefs.telephone2.present? %>
       <div class="texto">Teléfono:</div>
       <ul class="lista">
        <% if @prefs.telephone.present? %>
@@ -41,7 +48,7 @@
     </div>
   </div>
 
-  <div class="forma">
+<!--   <div class="forma">
     <div class="centrado-vertical">
       <div class="titulo">Envíanos un mensaje.</div>
       <%= form_for @contact_model, :url => contact_send_mail_path, :method => :post do |f| %>
@@ -53,6 +60,6 @@
         <%= f.button :Enviar, class: 'boton' %>
       <% end %>
     </div>
-  </div>
+  </div> -->
 
 </section>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   get 'casos-de-exito' => 'static_pages#casos', as: 'casos'
 
   get 'contacto' => 'static_pages#contacto', as: 'contacto'
@@ -13,7 +12,6 @@ Rails.application.routes.draw do
 
   root 'static_pages#landing'
 
-
   #Admin
   get 'admin' => 'admin#index'
   scope 'admin', path_names: { new: 'nuevo', edit: 'editar' } do
@@ -22,10 +20,13 @@ Rails.application.routes.draw do
 
     get 'contacto' => 'admin#contact', as: 'contact'
     patch 'contacto' => 'admin#contact'
+    delete 'contacto' => 'admin#pref_del'
+
 
     resources :users, path: 'usuarios', except: :show
     resources :cases, path: 'casos-de-exito'
     resources :dealers, path: 'distribuidores', except: :show
+    
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
