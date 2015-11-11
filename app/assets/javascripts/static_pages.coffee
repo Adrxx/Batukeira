@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'ready page:change', ->
+ready = ->
   $(window).on 'scroll', ->
     scroll_top = $(window).scrollTop();
     unless scroll_top > $('.nav-bar').height() || $('.nav-bar').hasClass('fixed')
@@ -42,3 +42,7 @@ $(document).on 'ready page:change', ->
     #console.log('asds')
     if navigator.geolocation
       navigator.geolocation.getCurrentPosition(got_location)
+
+
+#$(document).on('ready page:load', console.log("ASHKDJHASKJHDKASJH")) IT DOESNT FUCKING WORK
+$(document).on('ready', ready)

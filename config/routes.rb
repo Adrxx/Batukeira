@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :users, path: 'usuarios', except: :show
     resources :cases, path: 'casos-de-exito'
     resources :dealers, path: 'distribuidores', except: :show
-    
+
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
