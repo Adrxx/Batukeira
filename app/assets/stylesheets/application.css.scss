@@ -280,7 +280,7 @@ nav.nav-bar
     //@include box-shadow();
   }
 
-  .producto
+  .producto_capsulas
   {
     position: absolute;
     width: 250px;
@@ -297,8 +297,48 @@ nav.nav-bar
       display: block;
     }
   }
+  
+  .producto_cremanoche
+  {
+   position: absolute;
+    width: 265px;
+    height: 300px;
+    background-repeat: no-repeat;
+background-position: -18px 74px;
+background-size: 58%;
+bottom: 9%;
+right: 11%;
+    background-image: image-url("frascos/cremanoche.png");
+    @include transform2d(rotate(-4deg));
+    display: none;
 
-  .producto2
+    @include desktop
+    {
+      display: block;
+    }
+  }
+
+  .producto_cremadia
+  {
+   position: absolute;
+    width: 265px;
+    height: 300px;
+   background-repeat: no-repeat;
+background-position: -23px 74px;
+background-size: 55%;
+bottom: 9%;
+right: 17%;
+    background-image: image-url("frascos/cremadia.png");
+    @include transform2d(rotate(-4deg));
+    display: none;
+
+    @include desktop
+    {
+      display: block;
+    }
+  }
+
+  .producto_extra
   {
     position: absolute;
     width: 265px;
@@ -309,6 +349,27 @@ nav.nav-bar
     bottom: 31%;
     right: 6%;
     background-image: image-url("frascos/extra.png");
+    @include transform2d(rotate(-4deg));
+    display: none;
+
+    @include desktop
+    {
+      display: block;
+    }
+
+  }
+
+  .producto_gel
+  {
+    position: absolute;
+    width: 265px;
+    height: 300px;
+    background-repeat: no-repeat;
+background-position: -35px 74px;
+background-size: 71%;
+bottom: 21%;
+right: 13%;
+    background-image: image-url("frascos/gel.png");
     @include transform2d(rotate(-4deg));
     display: none;
 
@@ -779,6 +840,14 @@ nav.nav-bar
   @extend .capsulas-batukeira;
   background-image: image-url("frascos/cremadia.png");
 }
+
+.crema-nutritiva-noche
+{
+  @extend .capsulas-batukeira;
+  background-image: image-url("frascos/cremanoche.png");
+  background-color: transparentize($pale-orange-c, $transparency);
+}
+
 
 
 

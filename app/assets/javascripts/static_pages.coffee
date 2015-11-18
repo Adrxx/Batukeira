@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-ready = ->
+$(document).on 'page:change', ->
   $(window).on 'scroll', ->
     scroll_top = $(window).scrollTop();
     unless scroll_top > $('.nav-bar').height() || $('.nav-bar').hasClass('fixed')
@@ -45,4 +45,3 @@ ready = ->
 
 
 #$(document).on('ready page:load', console.log("ASHKDJHASKJHDKASJH")) IT DOESNT FUCKING WORK
-$(document).on('ready', ready)

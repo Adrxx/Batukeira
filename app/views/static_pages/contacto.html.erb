@@ -20,13 +20,6 @@
       </ul>
     <% end %>
 
-    <% if @prefs.values.present? %>
-      <div class="texto">Correo electrónico:</div>
-      <ul class="lista">
-        <li><a href="mailto:<%= @prefs.email %>?Subject=Batukeira" target="_top" class="email"><%= @prefs.email %></a></li>
-      </ul>
-    <% end %>
-
     <% if @prefs.email.present? %>
       <div class="texto">Correo electrónico:</div>
       <ul class="lista">
