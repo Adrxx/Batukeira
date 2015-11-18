@@ -8,9 +8,8 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
   <%# Google maps api %>
-  <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&language=es" data-turbolinks-track="true"></script>
 </head>
-<body>
+<body data-no-turbolink='true' >
 
 <% flash.each_with_index do |(key, value),i| %>
   <%= content_tag :div, class: "c4-flash #{key} animated slideInUp", style:"padding-bottom:#{i*50}px;z-index:#{1000-i};" do %>

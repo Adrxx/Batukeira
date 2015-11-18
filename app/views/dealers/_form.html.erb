@@ -1,4 +1,7 @@
 <%# Form fields %>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&language=es"></script>
+<%= javascript_include_tag 'location-picker'  %>
+
 <%= form_for(@dealer) do |f| %>
   <% if @dealer.errors.any? %>
     <div class="error-explanation-header">
