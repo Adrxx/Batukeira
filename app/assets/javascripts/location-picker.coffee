@@ -1,4 +1,4 @@
-$(document).on 'ready page:change', ->
+$(document).on 'ready', ->
   addressPicker = new AddressPicker
     map:
       id: '#map-location-picker'

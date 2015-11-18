@@ -33,8 +33,12 @@ $(document).on 'page:change', ->
       success: (data, textStatus, jqXHR) ->
         $('.todos-los-distribuidores .titulo').html 'Estos son los distribuidores más cercanos a ti.'
         $('.distribuidores-listado').html data
+        #$('.distribuidores-listado').show()
+
       error: (jqXHR, textStatus, errorThrown) ->
         $('.todos-los-distribuidores .titulo').html 'No pudimos localizarte... Esta es la lista entera de distribuidores.'
+        #$('.distribuidores-listado').show()
+
 
 
   element =  document.getElementById('geolocation');
