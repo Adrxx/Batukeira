@@ -12,7 +12,7 @@
 
 <% @cases.each_with_index do |c,i| %>
   <div class="celda">
-    <div class="datos">
+    <div class="datos <%= "solo-datos".html_safe %>">
       <div class="centrado-vertical">
         <div class="nombre"><%= c.title %></div>
 
@@ -44,7 +44,7 @@
           <div class="atributo"><span>Producto utilizado:</span><%= c.product_used %></div>
         <% end %>
 
-        <div class="descripcion"><%= c.title %></div>
+        <div class="descripcion"><%= c.description %></div>
       </div>
     </div>
     <div class="galeria">
@@ -83,4 +83,8 @@
   </div>
 <% end %>
 
+</section>
+
+<section class="batukeria-te-ayudo">    
+  <div class="titulo">¿Batukeira te ayudó a ti? <a href="mailto:grace@batukeira.com">Envíanos tu caso.</a></div>   
 </section>

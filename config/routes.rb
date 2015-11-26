@@ -3,14 +3,18 @@ Rails.application.routes.draw do
   get 'casos-de-exito' => 'static_pages#casos', as: 'casos'
 
   get 'contacto' => 'static_pages#contacto', as: 'contacto'
-  post '/contact_send_mail' => 'static_pages#contact_send_mail', as: 'contact_send_mail'
-
+ 
   get 'distribuidores' => 'static_pages#distribuidores', as: 'distribuidores'
 
   get 'comprar' => 'static_pages#comprar', as: 'comprar'
   post 'locate_me' => 'static_pages#locate_me'
-
   root 'static_pages#landing'
+
+  #Mail
+  # => Post mail...
+  post '/enviar_contacto' => 'static_pages#enviar_contacto', as: 'enviar_contacto'
+  post '/enviar_distribuidor' => 'static_pages#enviar_distribuidor', as: 'enviar_distribuidor'
+
 
   #Admin
   get 'admin' => 'admin#index'

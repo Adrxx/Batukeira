@@ -44,44 +44,6 @@
 
 <hr>
 
-<!-- 
-<h4>Información extra:</h4>
-
-
-<div class="row">
-    <div class="three columns">
-      <%= label_tag("key", "Nombre") %>
-      <%= text_field_tag "key",nil , class: 'u-full-width', placeholder: 'Ej. Youtube' %>
-    </div>
-    <div class="nine columns">
-      <%= label_tag("value", "Información") %>
-      <%= text_field_tag "value",nil, class: 'u-full-width', placeholder: 'Ej. www.youtube.com/batukeira' %>
-    </div>
-</div>
-
-<% if @prefs.values.present? %>
-  <% @prefs.values.each do |k,v| %>
-    <div class="row">
-        <hr class="c4-mini"></hr>
-         <%= hidden_field_tag :_destroy, class: 'destroyer' %>
-        <div class="three columns">
-          <span><%= k.capitalize %></span>
-        </div>
-
-        <div class="seven columns">
-          <span><%= v.capitalize %></span>
-        </div>
-
-        <div class="two columns">
-          <div class="extra_delete c4-button-warning">
-            <span class="icon-delete"></span>
-          </div>
-        </div>
-    </div>
-  <% end %>
-<% end %>
- -->
-
 <div class="row">
     <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
 </div>

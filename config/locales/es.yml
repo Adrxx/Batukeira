@@ -1,4 +1,37 @@
 es:
+  mail_form:
+    attributes:
+      contact:
+        name: "Nombre"
+        email: "E-mail"
+        subject: "Asunto"
+        message: "Mensaje"
+      dealer_contact:
+        name: "Nombre"
+        email: "E-mail"
+        address: "Dirección"
+        telephone: "Teléfono"
+        telephone2: "Teléfono secundario"
+    errors:
+      models:
+        contact:
+          attributes:
+            name:
+              blank: "Por favor proporcione su nombre."
+            email:
+              blank: "Por favor proporcione un correo electrónico."
+              invalid: "El correo electrónico no es válido."
+            message:
+              blank: "El mensaje no puede estar vacío."
+        dealer_contact:
+          attributes:
+            name:
+              blank: "Por favor proporcione su nombre."
+            email:
+              blank: "Por favor proporcione un correo electrónico."
+              invalid: "El correo electrónico no es válido."
+            telephone:
+              blank: "Por favor proporcione un teléfono."
   devise:
     sessions:
       user:

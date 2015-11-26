@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'ready', ->
 
   #Used to set the ordering atribute to each of each photo
   orderIndexes = ->

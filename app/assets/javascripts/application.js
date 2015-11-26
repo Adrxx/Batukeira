@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require swiper/dist/js/swiper
 //= require static_pages

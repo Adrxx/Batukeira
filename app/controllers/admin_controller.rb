@@ -46,7 +46,6 @@ class AdminController < ApplicationController
 
 
   private
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def prefs_params
       params.require(:preference).permit(:facebook,:twitter,:telephone,:telephone2,:email,:key,:value)

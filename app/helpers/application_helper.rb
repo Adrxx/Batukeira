@@ -99,5 +99,20 @@ module ApplicationHelper
     end
   end
 
+  def full_field_batukeira(form,name,placeholder)
+    str = ''
+    str += form.text_field(name, class: 'campo', placeholder: placeholder)
+    str += error_if_exists(form.object,name)
+    str.html_safe      
+  end 
+
+  def full_text_batukeira(form,name,placeholder)
+    str = ''
+    str += form.text_area(name, class: 'campo area', placeholder: placeholder)
+    str += error_if_exists(form.object,name)
+    str.html_safe      
+  end
+
+
 
 end

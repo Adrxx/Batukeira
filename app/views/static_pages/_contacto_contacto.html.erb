@@ -1,0 +1,11 @@
+  <div class="titulo">Envíanos un mensaje.</div>
+  <%= form_for @contact, :url => enviar_contacto_path, :method => :post, remote: true do |f| %>
+    <%= full_field_batukeira f, :name, "Nombre" %>
+    <%= full_field_batukeira f, :email, "Correo electrónico" %>
+
+    <%= full_field_batukeira f, :subject, "Asunto" %>
+    <%= full_text_batukeira f, :message, "Mensaje" %>
+
+    <%= f.hidden_field :nickname %>
+    <%= f.button :Enviar, class: 'boton' %>
+  <% end %>

@@ -29,37 +29,49 @@ class StaticPagesController < ApplicationController
   end
 
   def contacto
+
     if Preference.first.nil?
       p = Preference.new
       p.save
     end
     @prefs = Preference.first
-    @contact_model = ContactModel.new
+    @contact = Contact.new
 
   end
 
-  def contact_send_mail
-    begin
-      @contact_form = ContactForm.new(params[:contact_form])
-      @contact_form.request = request
-      if @contact_form.deliver
-        flash.now[:notice] = 'Thank you for your message!'
-      else
-        render :new
-      end
-    rescue ScriptError
-      flash[:error] = 'Sorry, this message appears to be spam and was not delivered.'
+  def enviar_contacto
+    @prefs = Preference.first
+    @contact = Contact.new(params[:contact])
+    @contact.request = request
+
+    if @contact.deliver
+      render partial: 'distribuidores_contacto_success'
+    else
+      render partial: 'contacto_contacto'
     end
   end
 
-
   def distribuidores
-    @contact_model = ContactModel.new
+    @dealer_contact = DealerContact.new
+  end
+
+  def enviar_distribuidor
+    @dealer_contact = DealerContact.new(params[:dealer_contact])
+    @dealer_contact.request = request
+
+    if @dealer_contact.deliver
+      render partial: 'distribuidores_contacto_success'
+    else
+      render partial: 'distribuidores_contacto'
+    end
+
   end
 
   def comprar
     @dealers = Dealer.all
   end
+
+
   private
     def haversine_distance( lat1, lon1, lat2, lon2 )
 

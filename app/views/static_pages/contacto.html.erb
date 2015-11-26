@@ -41,18 +41,10 @@
     </div>
   </div>
 
-<!--   <div class="forma">
-    <div class="centrado-vertical">
-      <div class="titulo">Envíanos un mensaje.</div>
-      <%= form_for @contact_model, :url => contact_send_mail_path, :method => :post do |f| %>
-        <%= f.text_field :name, class: 'campo', placeholder: "Nombre" %>
-        <%= f.text_field  :email,class: 'campo', placeholder: "Correo elecrónico" %>
-        <%= f.text_field  :subject, class: 'campo', placeholder: "Asunto" %>
-        <%= f.text_area  :message, class: 'campo area', placeholder: "Mensaje" %>
-        <%= f.hidden_field :nickname %>
-        <%= f.button :Enviar, class: 'boton' %>
-      <% end %>
+  <div class="forma">
+    <div id="contact-form" class="centrado-vertical-forma">
+      <%= render "contacto_contacto" %>
     </div>
-  </div> -->
+  </div>
 
 </section>

@@ -1,0 +1,10 @@
+<div class="titulo">Llena este formulario</div>
+<%= form_for @dealer_contact, :url => enviar_distribuidor_path, :method => :post, remote: true do |f| %>
+    <%= full_field_batukeira f, :name, "Nombre" %>
+    <%= full_field_batukeira f, :email, "Correo electrónico" %>
+    <%= full_field_batukeira f, :telephone, "Teléfono" %>
+    <%= full_field_batukeira f, :telephone2, "Teléfono 2 (opcional)" %>
+    <%= full_text_batukeira f, :address, "Dirección" %>
+    <%= f.hidden_field :nickname %>
+    <%= f.button :Enviar, class: 'boton' %>
+  <% end %>

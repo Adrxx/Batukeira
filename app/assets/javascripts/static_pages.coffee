@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'page:change', ->
+$(document).on 'ready', ->
   $(window).on 'scroll', ->
     scroll_top = $(window).scrollTop();
     unless scroll_top > $('.nav-bar').height() || $('.nav-bar').hasClass('fixed')
@@ -11,18 +11,23 @@ $(document).on 'page:change', ->
       $('.nav-bar').addClass 'scrolled'
 
   $('.menu-button').on 'click', ->
-    r = $('.nav-bar')
-    unless r.hasClass 'exploded'
+    r = '.nav-bar'
+    unless $(r).hasClass 'exploded'
       $(r).addClass 'exploded'
     else
       $(r).removeClass 'exploded'
 
   $('.pregunta').on 'click', ->
-    r = $(this).find('.respuesta')
+    r = $(@).find('.respuesta')
     unless r.hasClass 'exploded'
       $(r).addClass 'exploded'
     else
       $(r).removeClass 'exploded'
+
+  $("#contact-form").on("ajax:success", (e, data, status, xhr) ->
+    $('#contact-form').html data
+  ).on "ajax:error", (e, xhr, status, error) ->
+    alert "Hubo un error al enviar el correo, intente de nuevo más tarde."
 
   got_location = (position) ->
     $.ajax

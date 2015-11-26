@@ -27,6 +27,15 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+   ActionMailer::Base.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "gmail.com",
+    user_name: 'grace@batukeira.com',
+    password: 'melanie2',
+    authentification: "plain",
+    enable_starttls_auto: true
+  }
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
