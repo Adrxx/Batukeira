@@ -24,9 +24,15 @@ $(document).on 'ready', ->
     else
       $(r).removeClass 'exploded'
 
-  $("#contact-form").on("ajax:success", (e, data, status, xhr) ->
-    $('#contact-form').html data
+
+  $("#contact-form button").on 'click', ->
+    $(@).html 'Enviando...'
+
+  $("#contact-form").on("ajax:success", (e, data, status, xhr) -> 
+    $(@).html data
+    $(@).find('button').html 'Intentar de nuevo'
   ).on "ajax:error", (e, xhr, status, error) ->
+    $(@).find('button').html 'Intentar de nuevo'
     alert "Hubo un error al enviar el correo, intente de nuevo más tarde."
 
   got_location = (position) ->

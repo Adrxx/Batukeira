@@ -7,7 +7,7 @@ Index->
   Input Tools
 ###
 
-$(document).on 'page:change', ->
+$(document).on 'ready', ->
 
   #_______________________________________________ Main Menu
   $('.c4-menu-button').on 'click', ->

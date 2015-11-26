@@ -2,6 +2,7 @@ $(document).on 'ready', ->
 
   #Used to set the ordering atribute to each of each photo
   orderIndexes = ->
+
     $('.mnt-photo-manager').children('.mnt-pm-container').each ->
         $(this).children('.mnt-pm-p-order').val($(this).index())
 
@@ -53,6 +54,7 @@ $(document).on 'ready', ->
 
   #Open edit photo pop up overlay read values from hidden input tags
   $('.mnt-photo-manager').on "click", '.mnt-pm-comment', ->
+    console.log 'hola'
     $('.mnt-photo-manager').children('.mnt-pm-normal').each ->
       $(this).find('.mnt-pm-photo').removeClass "mnt-pm-top"
     $('.mnt-full-overlay').fadeIn()
