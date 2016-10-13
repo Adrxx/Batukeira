@@ -950,7 +950,13 @@ right: 13%;
 }
 
 //CONTACTO
-
+#whatsapp {
+  background-image: image-url("whatsapp-logo.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+}
 
 .contacto
 {
@@ -989,7 +995,6 @@ right: 13%;
     {
       width: 55%;
       height: 100%;
-
     }
 
     .titulo
