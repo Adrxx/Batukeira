@@ -1,4 +1,4 @@
-/* 
+/*
 
 C4 Managment System V 1.0.0
 Adrián Rubio 2015
@@ -119,7 +119,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
   //opacity: 0.1;
 
   border: solid 2px white;
-  
+
   &:hover > .p-color
   {
     opacity: 1.0;
@@ -127,7 +127,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     width: 35px;
   }
 
-  .p-color 
+  .p-color
   {
     opacity: 0.4;
 
@@ -140,13 +140,13 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     @for $i from 1 through length($palette) {
       &:nth-child(#{$i}) {
         background-color: nth($palette, $i);
-        @if ($i - 1) % 5 == 0 
+        @if ($i - 1) % 5 == 0
         {
           clear: both;
         }
       }
     }
-  } 
+  }
 }
 
 
@@ -166,7 +166,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
   overflow: hidden;
   @include single-transition(all,0.3s);
   background-color: $c4;
-  top:-100%; 
+  top:-100%;
   @include background-image(linear-gradient(to bottom,$c4, transparentize($c4, 0.30), transparentize($c4, 1.0)));
 
   @include tablet
@@ -186,7 +186,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
   {
     @include flex-grow(1);
   }
-  
+
   &-scrolling
   {
     background-color: $c4;
@@ -197,7 +197,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     margin-right:5px;
   }
 
-  a 
+  a
   {
     display: block;
     width: 100%;
@@ -228,9 +228,9 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     &:active
     {
       background-color:$c1;
-    } 
-    
-    @include tablet 
+    }
+
+    @include tablet
     {
 
       display: inline;
@@ -247,7 +247,7 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
       &:active
       {
         background-color:$c1;
-      } 
+      }
     }
   }
 }
@@ -376,9 +376,9 @@ $palette: $c1, $c2, $c3, $c4, $c5, $c1-bg, $c2-bg, $c3-bg, $c4-bg, $c5-bg,$c1-fg
     }
   }
 
- 
 
-  
+
+
 }
 
 
@@ -641,12 +641,12 @@ input[type="text"]
 
 ::-moz-placeholder {  /* Firefox 19+ */
      color: $c1;
-     font-style: italic;  
+     font-style: italic;
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
      color: $c1;
-     font-style: italic;  
+     font-style: italic;
 }
 
 
@@ -710,10 +710,10 @@ input[type="radio"] {
 label > .label-body {
   display: inline-block;
   margin-left: .5rem;
-  font-weight: normal; 
+  font-weight: normal;
 }
 
-.overlay 
+.overlay
 {
   position: fixed;
   width: 100%;
@@ -759,7 +759,7 @@ label > .label-body {
     text-transform: uppercase;
     font-size: 12px;
   }
-  
+
   .remember-me
   {
     //background-color:red;
@@ -824,9 +824,9 @@ label > .label-body {
    font-style: normal;
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
    color: transparentize($c4, 0.55);
-   font-style: normal; 
+   font-style: normal;
 }
 
   input
@@ -890,7 +890,7 @@ label > .label-body {
   cursor: pointer;
   @include box-shadow(0px -1px 10px transparentize($c1, 0.5));
 
-  * 
+  *
   {
     @include user-select(none);
   }
@@ -1054,7 +1054,7 @@ label > .label-body {
     text-align: justify;
     margin-top: 10px;
 
-    @include tablet 
+    @include tablet
     {
       margin-top: 0px;
       font-size: 1.1em;
@@ -1109,7 +1109,7 @@ label > .label-body {
 }
 
 .c4-grid-collection
-{    
+{
 
   .c4-grid-cell
   {

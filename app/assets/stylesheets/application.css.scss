@@ -131,7 +131,7 @@ nav.nav-bar
   @include transition-duration(0.8s);
   @include transition-property(all);
   top:-100%;
-  
+
   background-color: $pale-yellow-c;
   @include box-shadow(0px 2px 0px 0px transparentize(black, 0.9));
 
@@ -148,7 +148,7 @@ nav.nav-bar
 
 
   a
-  {    
+  {
     display: block;
     width: 100%;
     color: $text-dark-c;
@@ -297,7 +297,7 @@ nav.nav-bar
       display: block;
     }
   }
-  
+
   .producto_cremanoche
   {
    position: absolute;
@@ -455,7 +455,7 @@ right: 13%;
   {
     font-size: 1.4em;
   }
-  
+
   .imagen
   {
     background-position: center;
@@ -708,7 +708,7 @@ right: 13%;
       font-weight: 500;
     }
 
-    @include tablet 
+    @include tablet
     {
       font-size: 1.0em;
     }
@@ -818,7 +818,7 @@ right: 13%;
 
   .info
   {
-    
+
     a
     {
       color: $orange-c;
@@ -934,7 +934,7 @@ right: 13%;
   {
     width: 65%;
   }
-  
+
   &.exploded
   {
     max-height: 300px;
@@ -983,7 +983,7 @@ right: 13%;
     //background-color:blue;
     width: 100%;
     height: 700px;
-    overflow: hidden; 
+    overflow: hidden;
 
     @include desktop
     {
@@ -1049,17 +1049,17 @@ right: 13%;
         top: 50%;
         margin-left: 0%;
       }
- 
+
     }
 
 
     @include desktop
-    {    
+    {
       height: 100%;
       width: 45%;
 
     }
-    
+
     .titulo
     {
       text-align: center;
@@ -1098,7 +1098,7 @@ right: 13%;
 
   }
 
-  
+
 }
 
 //DISTRIBUIDORES
@@ -1228,7 +1228,7 @@ right: 13%;
     padding-top: 20px;
   }
 
-  form 
+  form
   {
     margin-bottom: 0px;
   }
@@ -1436,7 +1436,7 @@ right: 13%;
   }
 
   .direccion
-  {    
+  {
     color: $text-dark-c;
     padding: 2px 30px;
     padding-bottom:10px;
@@ -1619,4 +1619,3 @@ right: 13%;
     font-weight: 500;
   }
 }
-
