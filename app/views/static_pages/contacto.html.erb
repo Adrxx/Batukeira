@@ -28,8 +28,7 @@
     <% end %>
 
     <% if @prefs.telephone.present? || @prefs.telephone2.present? %>
-      <div id="whatsapp">as</div>
-      <div class="texto">Teléfono:</div>
+      <div class="texto whatsapp">Teléfono (Whats App)</div>
       <ul class="lista">
        <% if @prefs.telephone.present? %>
         <li><a href="tel:<%= @prefs.telephone %>" class="telefono"><%= @prefs.telephone %></a></li>
