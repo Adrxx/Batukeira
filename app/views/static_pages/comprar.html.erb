@@ -1,3 +1,16 @@
+<section class="baja-de-peso" style="height: 600px">
+  <div class="logo"></div>
+  <div class="centrado-vertical">
+    <h1 class="titulo animated fadeInLeft">Productos <br> Batukeira</h1>
+    <div class="descripcion animated fadeInLeft">Compra en línea o encuentra tu distribuidor <br> más cercano.</div>
+  </div>
+</section>
+
+<section class="pago-en-linea">
+  <h2 class="title">Pago en línea</h2>
+  <%= Preference.first.paypal.html_safe %>
+</section>
+
 <div id="geolocation"></div>
 <section class="distribuidores-cerca">
 <div class="fondo"></div>
@@ -8,6 +21,7 @@
   Adquiere y empieza a gozar los beneficios de los <br> productos Batukeira®.
 </h5>
 </section>
+
 
 
 <section class="todos-los-distribuidores">

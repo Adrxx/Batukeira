@@ -235,6 +235,46 @@ nav.nav-bar
 
 }
 
+.anuncio {
+  position: fixed;
+  z-index: 10000;
+  width: 300px;
+  height: 200px;
+  bottom: 10px;
+  right: 10px;
+  animation-delay: 2s;
+  background-color: black;
+  border-radius: 6px;
+  .close {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1000;
+    top: 0px;
+    right: 0px;
+    height: 20px;
+    border: solid 2px white;
+    border-radius: 10px;
+    padding: 2px;
+    color: red;
+    opacity: 0.7;
+    background-color: white;
+    transition: 0.5s opacity;
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+  }
+
+}
+
 //--- LANDING
 
 .baja-de-peso
@@ -243,6 +283,10 @@ nav.nav-bar
   height: 100vh;
   min-height: 600px;
   max-height: 1200px;
+
+  .title {
+
+  }
 
   .fondo
   {
@@ -261,10 +305,10 @@ nav.nav-bar
   .logo
   {
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 410px;
+    height: 410px;
     //background-color: blue;
-    background-image: image-url("logo.png");
+    background-image: image-url("logo-p.png");
     background-repeat: no-repeat;
     background-position: center;
 
@@ -865,6 +909,14 @@ nav.nav-bar
   background-color: transparentize($pale-orange-c, $transparency);
 }
 
+.colageno
+{
+  @extend .capsulas-batukeira;
+  background-image: image-url("frascos/colageno.png");
+  background-color: transparentize($pale-orange-c, $transparency);
+}
+
+
 
 
 
@@ -1253,6 +1305,13 @@ nav.nav-bar
     padding-bottom: 10px;
     padding-top: 20px;
   }
+
+  input, select {
+    display: block;
+    margin: 0 auto;
+  }
+
+
 
   form
   {

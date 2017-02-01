@@ -1,26 +1,26 @@
-<%= content_for :title, "Distribuidores" %>
+<%= content_for :title, "Anuncios" %>
 
 <% content_for :header_content do %>
-<h1><strong>Todos los distribuidores</strong></h1>
+<h1><strong>Todos los Anuncios</strong></h1>
 <% end %>
 
-<%= link_to new_announcement_path, id:'new-case-button', class: 'c4-button-success' do %>
+<%= link_to new_announcement_path, class: 'c4-button-success' do %>
   Agregar nuevo
 <% end %>
-
 <div class="c4-list-collection">
-  <% if @dealers.empty? %>
+  <% if @cases.empty? %>
     <div class="no-content">
       <span class="icon-error"></span>
       <div>Sin contenido</div>
     </div>
   <% end %>
-  <% @dealers.each do |c| %>
+  <% @cases.each do |c| %>
   <div class="c4-list-cell">
-    <div class="row header">
+    <div class="row top-row">
       <div class="nine columns">
         <div class="title">
-          <%= c.name %>
+          <%= '<span class="icon-view_carousel"></span>'.html_safe if c.featured %>
+          <%= c.title %>
         </div>
       </div>
       <div class="three columns">
@@ -30,17 +30,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="twelve columns">
-        <div class="properties">
-          <ul>
-            <li><%= hidden_icon(c.hidden_address) %><strong>Dirección</strong>: <%= c.address %></li>
-            <li><%= hidden_icon(c.hidden_telephone) %><strong>Teléfono</strong>: <%= c.telephone %> </li>
-            <li><%= hidden_icon(c.hidden_telephone2) %><strong>Teléfono 2</strong>: <%= c.telephone2 %> </li>
-            <li><%= hidden_icon(c.hidden_email) %><strong>Correo electrónico</strong>: <%= c.email %> </li>
-          </ul>
+    <div class="four columns">
+      <div class="thumbnail" style="background-image: url(<%= c.image.url(:thumb) %>)"></div>
+    </div>
+      <div class="eight columns">
+        <div class="description">
+          <%= c.link %>
         </div>
         <div class="row buttons-container">
-        <%= link_to edit_dealer_path(c), class:'c4-button-primary' do %>
+        <%= link_to edit_announcement_path(c), class:'c4-button-primary' do %>
           <span class="icon-edit"></span>
         <% end %>
           <%= link_to c, method: :delete, data: { confirm: 'Esta acción no puede deshacerse. ¿Está seguro que desea borrar este elemento?'}, class:'c4-button-warning' do %>
@@ -51,7 +49,5 @@
     </div>
   </div>
   <% end %>
-  <div class="c4-spacer"></div>
 </div>
-
 

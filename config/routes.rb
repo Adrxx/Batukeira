@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'casos-de-exito' => 'static_pages#casos', as: 'casos'
 
   get 'contacto' => 'static_pages#contacto', as: 'contacto'
- 
+
   get 'distribuidores' => 'static_pages#distribuidores', as: 'distribuidores'
 
   get 'comprar' => 'static_pages#comprar', as: 'comprar'
@@ -26,8 +26,14 @@ Rails.application.routes.draw do
     patch 'contacto' => 'admin#contact'
     delete 'contacto' => 'admin#pref_del'
 
+    get 'paypal' => 'admin#paypal', as: 'paypal'
+    patch 'paypal' => 'admin#paypal'
+
 
     resources :users, path: 'usuarios', except: :show
+
+    resources :announcements, path: 'anuncios', except: :show
+
     resources :cases, path: 'casos-de-exito'
     resources :dealers, path: 'distribuidores', except: :show
 

@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
 
     lat = params[:lat]
     lng = params[:lng]
-    
+
     @ajax_dealers = Dealer.all.sort_by do |d|
       diss = haversine_distance( lat.to_d, lng.to_d, d.latitude, d.longitude)
       puts diss[:km]

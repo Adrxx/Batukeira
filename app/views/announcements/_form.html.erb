@@ -1,0 +1,30 @@
+<%# Form fields %>
+<%= form_for(@case, :html => { :multipart => true }) do |f| %>
+  <% if @case.errors.any? %>
+    <div class="error-explanation-header">
+      <%= pluralize(@case.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
+    </div>
+<% end %>
+
+<%# Título y descripción %>
+<div class="row">
+  <%= full_field(f,:title,'Titulo del anuncio' ,'Nueva promoción de descuentos...') %>
+  <%= full_field(f,:link,'Link' ,'http://...') %>
+  Imagen de anuncio:
+  <%= f.file_field :image, class: "form-control" %>
+  <%= f.label :featured, class:'field-options-wrapper' do %>
+      <%= f.check_box :featured %>Anuncio Actual
+  <% end %>
+</div>
+
+<div class="row">
+  <div class="six columns">
+    <%= link_to "Salir sin guardar", cases_path, class: 'c4-button-secondary u-full-width'  %>
+  </div>
+
+  <div class="six columns">
+    <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
+  </div>
+</div>
+
+<% end %>

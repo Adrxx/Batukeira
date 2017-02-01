@@ -13,6 +13,14 @@
   </div>
 <% end %>
 
+<%= link_to announcements_path, class: 'c4-grid-cell' do %>
+  <div class="centered">
+    <span class="icon-edit"></span>
+    <span class="name">Anuncios</span>
+    <span class="description">Administra las preferencias de los anuncios.</span>
+  </div>
+<% end %>
+
 <% if current_user.role == "admin" %>
   <%= link_to users_path, class: 'c4-grid-cell' do %>
     <div class="centered">
@@ -22,11 +30,11 @@
     </div>
   <% end %>
 
-  <%= link_to users_path, class: 'c4-grid-cell' do %>
+  <%= link_to paypal_path, class: 'c4-grid-cell' do %>
     <div class="centered">
       <span class="icon-edit"></span>
-      <span class="name">Tienda y Anuncios</span>
-      <span class="description">Administra las preferencias de los anuncios y los precios con pay-pal.</span>
+      <span class="name">Paypal</span>
+      <span class="description">Administra el panel de pago en paypal</span>
     </div>
   <% end %>
 

@@ -1,0 +1,28 @@
+<%= content_for :title, "Editar" %>
+<% content_for :header_content do %>
+<h1><b>Código de pago Paypal</b></h1>
+<% end %>
+
+<%# Form fields %>
+<%= form_for @prefs, url: paypal_path do |f|%>
+
+<% if @prefs.errors.any? %>
+    <div class="error-explanation-header">
+      <%= pluralize(@prefs.errors.count, "error impidió", "errores impidieron") %> que se guardaran los cambios.
+    </div>
+<% end %>
+
+<%# Email %>
+<div class="row">
+    <h3>Advertencia: Pegar con mucho cuidado el código de paypal solamente.</h3>
+    <%= full_text_area(f,:paypal,'Código de pago paypal','<form action="https://www.paypal.com.............</form>') %>
+</div>
+
+<hr>
+
+<div class="row">
+    <%= f.submit "Guardar", class: 'c4-button-primary u-full-width' %>
+</div>
+
+<% end %>
+

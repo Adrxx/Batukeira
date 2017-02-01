@@ -4,6 +4,25 @@ class AdminController < ApplicationController
   before_action :get_prefs
 
 
+  def paypal
+    if request.patch?
+      paypal = prefs_params[:paypal]
+      paypal.gsub! "<td>", ""
+      paypal.gsub! "</tr>", ""
+      paypal.gsub! "<tr>", ""
+      paypal.gsub! "</td>", ""
+      paypal.gsub! "</table>", ""
+      paypal.gsub! "<table>", ""
+      prefs_params[:paypal] = paypal
+      if @prefs.update(prefs_params)
+        flash[:success] = 'Se han guardado los cambios.'
+        redirect_to paypal_path
+      else
+        render :paypal
+      end
+    end
+  end
+
   def contact
     key = params[:key]
     value = params[:value]
@@ -48,7 +67,7 @@ class AdminController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def prefs_params
-      params.require(:preference).permit(:facebook,:twitter,:telephone,:telephone2,:email,:key,:value)
+      params.require(:preference).permit(:facebook,:twitter,:telephone,:telephone2,:email,:key,:value,:paypal)
     end
 
 end
