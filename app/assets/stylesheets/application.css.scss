@@ -305,21 +305,21 @@ nav.nav-bar
   .logo
   {
     position: absolute;
-    width: 410px;
-    height: 410px;
+    width: 300px;
+    height: 300px;
+
     //background-color: blue;
     background-image: image-url("logo-p.png");
     background-repeat: no-repeat;
     background-position: center;
 
-    background-size: 80%;
-    bottom: 1%;
-    right: 1%;
-    @include desktop
-    {
-      background-size: 100%;
-      bottom: 10%;
-      right: 6%;
+    background-size: 100%;
+    bottom: 0;
+    right: 0;
+
+    @include desktop {
+      width: 35vw;
+      height: 35vw;
     }
     //@include box-shadow();
   }
@@ -913,6 +913,15 @@ nav.nav-bar
 {
   @extend .capsulas-batukeira;
   background-image: image-url("frascos/colageno.png");
+
+}
+
+.disclaimer
+{
+  padding: 20px 35px;
+  font-size: 0.9em;
+  text-align: justify;
+  background-color: transparentize($pale-orange-c, $transparency);
 
 }
 
