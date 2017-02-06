@@ -10,7 +10,7 @@ set :repo_url, 'git@github.com:Adrxx/Batukeira.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/rails/'
 
-set :ip , '107.170.8.20'
+set :ip , '107.170.72.66'
 
 set :ssh_options, {
  keys: %w(~/.ssh/id_rsa),
