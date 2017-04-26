@@ -2,7 +2,6 @@ $(document).on 'ready', ->
 
   #Used to set the ordering atribute to each of each photo
   orderIndexes = ->
-
     $('.mnt-photo-manager').children('.mnt-pm-container').each ->
         $(this).children('.mnt-pm-p-order').val($(this).index())
 
@@ -142,5 +141,5 @@ $(document).on 'ready', ->
         return
     if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105))
       e.preventDefault();
-        
+
 
