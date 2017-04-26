@@ -11,9 +11,10 @@ pipeline {
         git(url: 'https://github.com/Adrxx/Batukeira', branch: 'master')
       }
     }
-    stage('ls') {
+    stage('Docker Compose') {
       steps {
-        sh 'ls'
+        sh 'docker-compose build'
+        sh 'docker-compose up'
       }
     }
   }
