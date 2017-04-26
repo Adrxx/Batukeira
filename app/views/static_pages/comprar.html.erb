@@ -8,7 +8,9 @@
 
 <section class="pago-en-linea">
   <h2 class="title">Pago en línea</h2>
+  <% if Preference.first.paypal %>
   <%= Preference.first.paypal.html_safe %>
+  <% end %>
 </section>
 
 <div id="geolocation"></div>

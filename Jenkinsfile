@@ -3,7 +3,7 @@ pipeline {
     node {
       label 'batukeira_docker'
     }
-    
+
   }
   stages {
     stage('Checkout SCM') {
@@ -13,8 +13,9 @@ pipeline {
     }
     stage('Docker Compose') {
       steps {
+        sh 'docker-compose down'
         sh 'docker-compose build'
-        sh 'docker-compose up'
+        sh 'docker-compose up -d'
       }
     }
   }

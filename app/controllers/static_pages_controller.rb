@@ -1,4 +1,13 @@
 class StaticPagesController < ApplicationController
+
+  def initialize
+    super
+    if Preference.first.nil?
+      p = Preference.new
+      p.save
+    end
+  end
+
   def landing
     @case = Case.first
     Case.all.each do |c|
@@ -29,14 +38,8 @@ class StaticPagesController < ApplicationController
   end
 
   def contacto
-
-    if Preference.first.nil?
-      p = Preference.new
-      p.save
-    end
     @prefs = Preference.first
     @contact = Contact.new
-
   end
 
   def enviar_contacto
