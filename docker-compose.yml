@@ -10,7 +10,7 @@ services:
         - ./postgres-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
-  web:
+  batukeira:
     build: .
     entrypoint: /Batukeira/entrypoint.sh
     environment:

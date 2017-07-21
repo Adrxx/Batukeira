@@ -25,6 +25,6 @@ production:
   database: rails
   pool: 5
   username: rails
-  password: <%= ENV['RAILS_POSTGRES_PASSWORD'] %>
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
   port: 5432
-  host: db
+  host: 127.0.0.1
