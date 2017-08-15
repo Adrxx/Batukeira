@@ -247,22 +247,32 @@ nav.nav-bar
   border-radius: 6px;
   .close {
     position: absolute;
-    cursor: pointer;
-    z-index: 1000;
-    top: 0px;
-    right: 0px;
-    height: 20px;
-    border: solid 2px white;
-    border-radius: 10px;
-    padding: 2px;
-    color: red;
-    opacity: 0.7;
-    background-color: white;
-    transition: 0.5s opacity;
-    &:hover {
-      opacity: 1.0;
-    }
+    z-index: 100;
+    right: 3px;
+    top: 3px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
   }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    content: '';
+    height: 33px;
+    width: 2px;
+    background-color: white;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+
   a {
     display: block;
     width: 100%;
@@ -305,8 +315,8 @@ nav.nav-bar
   .logo
   {
     position: absolute;
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height: 400px;
 
     //background-color: blue;
     background-image: image-url("logo-p.png");
@@ -920,7 +930,7 @@ nav.nav-bar
 {
   padding: 20px 35px;
   font-size: 0.9em;
-  background-color: transparentize($pale-orange-c, $transparency);
+  background-color: transparentize(lighten($orange-c,10%), $transparency);
   text-align: center;
 }
 

@@ -21,7 +21,7 @@
 <body class="animated fadeIn">
 <% if Announcement.find_by(featured: true) %>
 <div class="anuncio animated fadeInUp">
-  <div class="close">Cerrar</div>
+  <div class="close"></div>
   <a href="<%= Announcement.find_by(featured: true).link %>" style="background-image: url(<%= Announcement.find_by(featured: true).image.url %>)">
   </a>
 </div>
