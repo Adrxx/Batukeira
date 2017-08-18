@@ -101,9 +101,7 @@ namespace :deploy do
   desc "Symlink public system files (images)"
   task :add_symlink do
     on roles(:web) do
-      execute 'mv /home/rails/current/public/system /home/rails/current/public/invalidFiles'
       execute 'ln -s /home/rails/shared/public/system /home/rails/current/public/system'
-      execute 'ln -s /home/rails/current /home/rails/rails_project'
     end
   end
 
