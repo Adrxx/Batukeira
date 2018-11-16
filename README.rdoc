@@ -1,28 +1,34 @@
-== README
+= README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+La página está hosteada en un servidor de Digital Ocean, Para poder correr la página web en el servidor remoto es necesario un mínimo de 512mb de RAM y tener preinstalado Rails Versión 4.2.0
 
-Things you may want to cover:
+El control del DNS de dominio batukeira.com Se encuentran en DigitalOcean
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+La base de datos que usa la página web se llama POSTGRES
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Para accessar via SSH se necesita escribir en la terminal el commando:
+
+"ssh root@107.170.72.66"
+
+Y es necesario contar con un ssh key válido.
+
+
+
+Dentro del servidor de Digital Ocean, el código vive dentro del path
+
+"/home/rails/current"
+
+Para la automatización del deploy en el servidor se utiliza una Librería llamada Capistriano.
+
+
+Se puede resetear el servidor utilizando el comando:
+
+"service unicorn restart"
+
+
+
+
+Recursos:
+
+https://rubyonrails.org
