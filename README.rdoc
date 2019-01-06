@@ -15,18 +15,24 @@ Y es necesario contar con un ssh key válido.
 
 
 
-Dentro del servidor de Digital Ocean, el código vive dentro del path
-
-"/home/rails/current"
-
 Para la automatización del deploy en el servidor se utiliza una Librería llamada Capistriano.
 
 
-Se puede resetear el servidor utilizando el comando:
-
-"service unicorn restart"
 
 
+PARA EL DEPLOY SE REQUIERE TENER INSTALADO BUNDLER
+
+TODOS LOS COMANDOS SIGUIENTES SE EJECUTAN DENTRO DEL FOLDER DEL PROYECTO.
+
+se instala con el comando: gem install bundler
+
+
+Después se instalan las dependencias corriendo el comando. bundle install
+
+
+el comando para hacer deploy es:
+
+bundle exec cap digital ocean:init;bundle exec cap production deploy; bundle exec cap digital ocean:restart
 
 
 Recursos:
